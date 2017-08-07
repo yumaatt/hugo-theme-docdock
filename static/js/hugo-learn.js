@@ -51,9 +51,9 @@ jQuery(document).ready(function () {
             });
             if (typeof c !== "undefined") {
                 var classes = c.split(',');
-                for (i = 0; i < classes.length; i++) {
+                $.each(classes, function(i) {
                     image.addClass(classes[i]);
-                }
+                });
             }
         }
     });
