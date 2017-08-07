@@ -20,7 +20,7 @@ jQuery(document).ready(function () {
 
     // Execute actions on images generated from Markdown pages
     var images = $("div#body-inner img").not(".inline");
-    
+
     // Wrap image inside a featherlight (to get a full size view in a popup)
     images.wrap(function () {
         var image = $(this);
@@ -31,24 +31,22 @@ jQuery(document).ready(function () {
 
     // Change styles, depending on parameters set to the image
     images.each(function (index) {
-        var image = $(this)
+        var image = $(this);
         var o = getUrlParameter(image[0].src);
         if (typeof o !== "undefined") {
             var h = o["height"];
             var w = o["width"];
             var c = o["classes"];
-            image.css("width", function () {
-                if (typeof w !== "undefined") {
-                    return w;
-                } else {
-                    return "auto";
-                }
-            });
-            image.css("height", function () {
-                if (typeof h !== "undefined") {
-                    return h;
-                } else {
-                    return "auto";
+            image.css({
+                width: function () {
+                    if (typeof w !== "undefined") {
+                        return w;
+                    }
+                },
+                height: function () {
+                    if (typeof h !== "undefined") {
+                        return h;
+                    }
                 }
             });
             if (typeof c !== "undefined") {
