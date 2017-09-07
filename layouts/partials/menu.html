@@ -14,15 +14,15 @@
     {{end}}
   </div>
 
-  
+
     <ul class="topics">
         {{if not .Site.Params.noHomeIcon}}
             <li data-nav-id="{{"/" | relURL}}" class="dd-item">
             <a href="{{"/" | relURL}}"><i class="fa fa-fw fa-home"></i></a>
             </li>
         {{end}}
-        
-        {{if eq .Site.Params.ordersectionsby "title"}}  
+
+        {{if eq .Site.Params.ordersectionsby "title"}}
           {{range .Site.Home.Sections.ByTitle}}
           {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks}}
           {{end}}
@@ -41,16 +41,16 @@
                     {{.Post}}
                 </li>
             {{end}}
-        </section>    
-        
+        </section>
+
         {{ if $.Site.Params.showVisitedLinks}}
             <a class="" href="#" data-clear-history-toggle=""><i class="fa  fa-history"></i> {{T "Clear-History"}}</a>
         {{ end }}
 
         {{end}}
     </ul>
-    
-     
+
+
     <section id="footer">
       {{ partial "menu-footer.html" . }}
     </section>
@@ -64,7 +64,7 @@
  {{with .sect}}
   {{if .IsSection}}
     {{safeHTML .Params.head}}
-    <li data-nav-id="{{.URL}}" class="dd-item 
+    <li data-nav-id="{{.URL}}" class="dd-item
         {{if .IsAncestor $currentNode }}parent{{end}}
         {{if eq .UniqueID $currentNode.UniqueID}}active{{end}}
         {{if .Params.alwaysopen}}parent{{end}}
@@ -83,7 +83,7 @@
 
         {{ end }}
 
-        {{ if $showvisitedlinks}}<i style="color:grey" class="fa fa-circle-thin read-icon"></i>{{end}}
+        {{ if $showvisitedlinks}}<i class="fa fa-circle-thin read-icon"></i>{{end}}
       </a>
       {{ if ne $numberOfPages 0 }}
         <ul>
@@ -92,24 +92,24 @@
           {{ .Scratch.Set "pages" (.Pages | union .Sections) }}
           {{end}}
           {{ $pages := (.Scratch.Get "pages") }}
-          
-        {{if eq .Site.Params.ordersectionsby "title"}}  
+
+        {{if eq .Site.Params.ordersectionsby "title"}}
           {{ range $pages.ByTitle }}
-            {{ if and .Params.hidden (not $.showhidden) }} 
+            {{ if and .Params.hidden (not $.showhidden) }}
             {{else}}
             {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks }}
             {{end}}
           {{ end }}
         {{else}}
           {{ range $pages.ByWeight }}
-            {{ if and .Params.hidden (not $.showhidden) }} 
+            {{ if and .Params.hidden (not $.showhidden) }}
             {{else}}
             {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks }}
             {{end}}
           {{ end }}
         {{end}}
         </ul>
-      {{ end }}        
+      {{ end }}
     </li>
   {{else}}
     {{ if not .Params.Hidden }}
@@ -117,8 +117,8 @@
      {{if eq .UniqueID $currentNode.UniqueID}}active{{end}}
       ">
         <a href="{{ .RelPermalink}}">
-        <span>{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</span> 
-        {{ if $showvisitedlinks}}<i style="color:grey" class="fa fa-circle-thin read-icon"></i>{{end}}
+        <span>{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</span>
+        {{ if $showvisitedlinks}}<i class="fa fa-circle-thin read-icon"></i>{{end}}
         </a></li>
      {{ end }}
   {{end}}

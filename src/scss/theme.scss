@@ -1,3 +1,51 @@
+/* Variables */
+
+/*Remember:*/
+/*active is the current page*/
+/*focus is a group*/
+
+/* Side */
+$side_color: teal; /* #2053AB */
+
+$side_text_color: white;
+
+$side_link_color: white;
+$side_link_hover_color: darken($side_link_color, 10%);
+
+$side_shadow_color: darken($side_color, 10%);
+$side_highlight_color: lighten($side_color, 1%);
+
+$side_focus_back_color: $side_shadow_color;
+$side_active_back_color: white;
+
+$side_focus_text_color: white;
+$side_focus_text_hover_color: darken($side_focus_text_color, 10%);
+
+$side_active_text_color: darken($side_focus_text_color, 50%);
+$side_active_text_hover_color: $side_active_text_color;
+
+/* Main */
+$main_link_color: $side_color;
+$main_link_hover_color: lighten($main_link_color, 5%);
+
+$main_back_color: #fff;
+$main_text_color: #323232;
+
+$main_title_text_color: lighten($main_text_color, 10%);
+$main_other_text_color: lighten($main_text_color, 20%);
+
+$time_short_fade: 0.15s;
+$time_long_fade: 0.35s;
+
+/* Mixins */
+
+@mixin transition($input) {
+    -webkit-transition: $input;
+    -moz-transition: $input;
+    -ms-transition: $input;
+    transition: $input;
+}
+
 /* Table of contents */
 
 .progress ul {
@@ -31,7 +79,7 @@
 
 body {
     font-size: 16px !important;
-    color: #323232 !important;
+    color: $main_text_color !important;
 }
 
 #body a.highlight, #body a.highlight:hover, #body a.highlight:focus {
@@ -50,11 +98,8 @@ body {
     content: "";
     height: 1px;
     width: 0%;
-    background-color: #0082a7; /*#CE3B2F*/
-    -webkit-transition: width 0.5s ease;
-    -moz-transition: width 0.5s ease;
-    -ms-transition: width 0.5s ease;
-    transition: width 0.5s ease;
+    background-color: $main_link_hover_color;
+    @include transition(width $time_long_fade ease);
 }
 
 #body a.highlight:hover:after, #body a.highlight:focus:after {
@@ -106,9 +151,7 @@ body {
     background-image: none !important;
     border: 1px solid transparent !important;
     border-radius: 4px !important;
-    -webkit-transition: all 0.15s !important;
-       -moz-transition: all 0.15s !important;
-            transition: all 0.15s !important;
+    @include transition(all $time_long_fade !important);
 }
 
 .btn:focus {
@@ -116,18 +159,21 @@ body {
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;*/
     outline: none !important;
+    @include transition(all $time_long_fade !important);
 }
 
 .btn:hover,
 .btn:focus {
     color: #2b2b2b !important;
     text-decoration: none !important;
+    @include transition(all $time_long_fade !important);
 }
 
 .btn-default {
     color: #333 !important;
     background-color: #fff !important;
     border-color: #ccc !important;
+    @include transition(all $time_long_fade !important);
 }
 
 .btn-default:hover,
@@ -136,21 +182,29 @@ body {
     color: #fff !important;
     background-color: #9e9e9e !important;
     border-color: #9e9e9e !important;
+    @include transition(all $time_long_fade !important);
 }
 
 .btn-default:active {
     background-image: none !important;
+    @include transition(all $time_long_fade !important);
 }
 
 /* anchors */
 .anchor {
-    color: #00bdf3;
+    color: $main_link_color;
     font-size: 0.5em;
     cursor:pointer;
     visibility:hidden;
     margin-left: 0.5em;
     position: absolute;
     margin-top:0.1em;
+    @include transition(color $time_long_fade ease);
+}
+
+.anchor:hover {
+    color: $main_link_hover_color;
+    @include transition(color $time_long_fade ease);
 }
 
 h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor {
@@ -223,7 +277,7 @@ figcaption h4 {
 
 .footline {
 margin-top:3rem;
-border-top: 1px dashed #183f81;
+border-top: 1px dashed $side_focus_back_color;
 font-size:smaller;
 }
 
@@ -269,8 +323,8 @@ font-size:smaller;
 }
 
 body {
-    background: #fff;
-    color: #777;
+    background: $main_back_color;
+    color: $main_text_color;
 }
 
 body #chapter h1 {
@@ -290,11 +344,11 @@ body #chapter h1 {
 }
 
 a {
-    color: #2053AB;
+    color: $main_link_color;
 }
 
 a:hover {
-    color: #0082a7;
+    color: $main_link_hover_color;
 }
 
 pre {
@@ -311,9 +365,7 @@ b, strong, label, th {
 }
 
 .default-animation, #header #logo-svg, #header #logo-svg path, #sidebar, #sidebar ul, #body, #body .padding, #body .nav {
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    @include transition(all $time_long_fade ease);
 }
 
 #grav-logo {
@@ -343,15 +395,15 @@ textarea:hover, input[type="email"]:hover, input[type="number"]:hover, input[typ
 }
 
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
-    border-color: #2053AB;
+    border-color: $side_color;
     box-shadow: inset 0 1px 3px rgba(0,0,0,.06),0 0 5px rgba(0,169,218,.7)
 }
 
 #header-wrapper {
-    background: #2053AB;
-    color: #fff;
+    background: $side_color;
+    color: $side_text_color;
     text-align: center;
-    border-bottom: 1px solid #183f81;
+    border-bottom: 1px solid $side_focus_back_color;
     padding: 1rem;
 }
 
@@ -371,33 +423,35 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 .searchbox {
     margin-top: 1rem;
     position: relative;
-    border: 1px solid  #6996e2;
-    background: #183f81;
+    border: 1px solid $side_highlight_color;
+    background: $side_focus_back_color;
     border-radius: 4px;
 }
 
 .searchbox label {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba($side_focus_text_color, 0.8);
     position: absolute;
     left: 10px;
     top: 3px;
 }
 
 .searchbox span {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba($side_focus_text_color, 0.6);
     position: absolute;
     right: 10px;
     top: 3px;
     cursor: pointer;
+    @include transition(color $time_short_fade ease);
 }
 
 .searchbox span:hover {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba($side_focus_text_color, 0.9);
+    @include transition(color $time_short_fade ease);
 }
 
 .searchbox input {
     display: inline-block;
-    color: #fff;
+    color: $side_focus_text_color;
     width: 100%;
     height: 30px;
     background: transparent;
@@ -408,19 +462,19 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 .searchbox input::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba($side_focus_text_color, 0.6);
 }
 
 .searchbox input::-moz-placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba($side_focus_text_color, 0.6);
 }
 
 .searchbox input:-moz-placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba($side_focus_text_color, 0.6);
 }
 
 .searchbox input:-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba($side_focus_text_color, 0.6);
 }
 
 #sidebar-toggle-span {
@@ -434,7 +488,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #sidebar {
-    background-color: #2053AB;
+    background-color: $side_color;
     position: fixed;
     top: 0;
     width: 300px;
@@ -447,11 +501,13 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #sidebar a {
-    color: white;
+    color: $side_link_color;
+    @include transition(color $time_short_fade ease);
 }
 
 #sidebar a:hover {
-    color: #e6e6e6;
+    color: $side_link_hover_color;
+    @include transition(color $time_short_fade ease);
 }
 
 #sidebar a.subtitle {
@@ -489,7 +545,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #sidebar .parent li, #sidebar .active li {
-    border-left: 1px solid gray;
+    border-left: 1px solid $side_focus_text_hover_color;
 }
 
 #sidebar h5.parent a {
@@ -530,7 +586,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #sidebar ul.searched .search-match a:hover {
-    color: white;
+    color: $side_text_color;
 }
 
 #sidebar ul.topics {
@@ -576,8 +632,19 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     /*margin-top: 9px;*/
 }
 
+#sidebar ul.topics > li.parent a, #sidebar ul.topics > li.active a {
+    color: $side_focus_text_color;
+    @include transition(color $time_short_fade ease);
+}
+
+#sidebar ul.topics > li.parent a:hover, #sidebar ul.topics > li.active a:hover {
+    color: $side_focus_text_hover_color;
+    @include transition(color $time_short_fade ease);
+}
+
 #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
-    background: #183f81;
+
+    background: $side_focus_back_color;
     margin-left: -1rem;
     margin-right: -1rem;
     padding-left: 1rem;
@@ -585,12 +652,17 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #sidebar ul li.active > a {
-    background: #fff;
-    color: #777 !important;
+    background: $side_active_back_color;
+    color: $side_active_text_color !important;
     margin-left: -1rem;
     margin-right: -1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+#sidebar ul li.active > a:hover {
+    color: $side_active_text_hover_color !important;
+    @include transition(color $time_short_fade ease);
 }
 
 #sidebar ul li {
@@ -794,7 +866,7 @@ body {
 h2, h3, h4, h5, h6 {
     font-family: "Lato", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     text-rendering: optimizeLegibility;
-    color: #5e5e5e;
+    color: $main_other_text_color;
     font-weight: 400;
     letter-spacing: -1px;
 }
@@ -803,7 +875,7 @@ h1 {
     font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     text-align: center;
     text-transform: uppercase;
-    color: #222;
+    color: $main_title_text_color;
     font-weight: 200;
 }
 
@@ -897,7 +969,7 @@ code, kbd, pre, samp {
 code {
     border-radius: 2px;
     white-space: nowrap;
-    color: #5e5e5e;
+    color: $main_other_text_color;
     background: #FFF7DD;
     border: 1px solid #fbf0cb;
     padding: 0px 2px;
@@ -940,7 +1012,7 @@ hr {
     padding: 25px;
     float: left;
     clear: both;
-    background: #183f81;
+    background: $side_focus_back_color;
     color: #fff;
 }
 
@@ -949,7 +1021,7 @@ hr {
 }
 
 #body a.anchor-link:hover {
-    color: #183f81;
+    color: $side_focus_back_color;
 }
 
 #body-inner .tabs-wrapper.ui-theme-badges {
@@ -996,7 +1068,7 @@ td {
 }
 
 .button {
-    background: #183f81;
+    background: $side_focus_back_color;
     color: #fff;
     box-shadow: 0 3px 0 #00a5d4;
 }
@@ -1071,7 +1143,7 @@ td {
 
 .bullet-icon {
     float: left;
-    background: #183f81;
+    background: $side_focus_back_color;
     padding: 0.875rem;
     width: 3.5rem;
     height: 3.5rem;
@@ -1082,7 +1154,7 @@ td {
 }
 
 .bullet-icon-1 {
-    background: #183f81;
+    background: $side_focus_back_color;
 }
 
 .bullet-icon-2 {
@@ -1418,12 +1490,13 @@ td {
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    color: #5e5e5e;
+    color: $main_other_text_color;
     background-color: #FFF7DD;
     margin-left: -.2rem;
     cursor: pointer;
     border-radius: 0 2px 2px 0;
     margin-bottom: 1px;
+    @include transition(all $time_long_fade ease);
 }
 
 .copy-to-clipboard:hover {
@@ -1460,7 +1533,6 @@ pre .copy-to-clipboard:hover {
 }
 
 #sidebar ul li.visited > a .read-icon {
-    color: #2053AB;
     display: block;
     font-size: xx-small;
     position: absolute;
@@ -1474,7 +1546,6 @@ pre .copy-to-clipboard:hover {
 }
 
 #sidebar ul li .category-icon {
-    color: grey;
     display: block;
     float: right;
     position: absolute;
@@ -1490,7 +1561,7 @@ pre .copy-to-clipboard:hover {
 
 #sidebar #shortcuts h3 {
     font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-    color: white ;
+    color: $side_text_color;
 }
 
 #searchResults {
