@@ -5,34 +5,41 @@
 /*focus is a group*/
 
 /* Side */
-$side_color: purple; /* #2053AB */
+$side_color: #FAFAFA; /* #2053AB */
 
-$side_text_color: white;
+$side_text_color: #444;
 
-$side_link_color: white;
-$side_link_hover_color: darken($side_link_color, 10%);
+$side_link_color: $side_text_color;
+$side_link_hover_color: black;
 
-$side_shadow_color: darken($side_color, 10%);
+$side_shadow_color: darken($side_color, 3%);
 $side_highlight_color: lighten($side_color, 1%);
 
 $side_focus_back_color: $side_shadow_color;
-$side_active_back_color: white;
+$side_active_back_color: darken($side_focus_back_color, 4%);
 
-$side_focus_text_color: white;
-$side_focus_text_hover_color: darken($side_focus_text_color, 10%);
+$side_focus_text_color: $side_text_color;
+$side_focus_text_hover_color: darken($side_link_hover_color, 10%);
 
 $side_active_text_color: darken($side_focus_text_color, 50%);
 $side_active_text_hover_color: $side_active_text_color;
 
 /* Main */
-$main_link_color: $side_color;
-$main_link_hover_color: lighten($main_link_color, 5%);
+$main_link_color: maroon;
+$main_link_hover_color: red;
 
 $main_back_color: #fff;
-$main_text_color: #323232;
+$main_text_color: #262626;
+
+$main_shadow_color: $side_color;
+$main_highlight_color: #EEE;
 
 $main_title_text_color: lighten($main_text_color, 10%);
-$main_other_text_color: lighten($main_text_color, 20%);
+$main_other_text_color: lighten($main_text_color, 15%);
+
+/* Top bar */
+$topbar_back_color: $main_shadow_color;
+$topbar_shadow_opacity: 0.075;
 
 $time_short_fade: 0.15s;
 $time_long_fade: 0.35s;
@@ -143,7 +150,7 @@ body {
 }
 
 #top-bar {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, $topbar_shadow_opacity);
 }
 
 .btn {
@@ -360,10 +367,12 @@ body #chapter h1 {
 
 a {
     color: $main_link_color;
+    @include transition(color $time_short_fade ease);
 }
 
 a:hover {
     color: $main_link_hover_color;
+    @include transition(color $time_short_fade ease);
 }
 
 pre {
@@ -817,7 +826,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #body .nav:hover {
-    background: #F6F6F6;
+    background: $main_shadow_color;
 }
 
 #body .nav.nav-pref {
@@ -1417,7 +1426,7 @@ td {
 }
 
 #top-bar {
-    background: #F6F6F6;
+    background: $topbar_back_color;
     border-radius: 2px;
     margin: 0rem -1rem 2rem;
     padding: 0 1rem;

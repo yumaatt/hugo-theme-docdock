@@ -6,6 +6,7 @@
 /* Side */
 /* #2053AB */
 /* Main */
+/* Top bar */
 /* Options */
 /* Where link underline should expand from: 'left', 'center', or 'right' */
 /* Defaults to left */
@@ -38,7 +39,7 @@
 
 body {
   font-size: 16px !important;
-  color: #323232 !important; }
+  color: #262626 !important; }
 
 #body a.highlight, #body a.highlight:hover, #body a.highlight:focus {
   text-decoration: none;
@@ -56,7 +57,7 @@ body {
   content: "";
   height: 1px;
   width: 0%;
-  background-color: #9a009a;
+  background-color: red;
   -webkit-transition: width 0.35s ease;
   -moz-transition: width 0.35s ease;
   -ms-transition: width 0.35s ease;
@@ -84,7 +85,7 @@ body {
   margin-right: 1rem !important; }
 
 #top-bar {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.075); }
 
 .btn {
   display: inline-block !important;
@@ -159,7 +160,7 @@ body {
 
 /* anchors */
 .anchor {
-  color: purple;
+  color: maroon;
   font-size: 0.5em;
   cursor: pointer;
   visibility: hidden;
@@ -172,7 +173,7 @@ body {
   transition: color 0.35s ease; }
 
 .anchor:hover {
-  color: #9a009a;
+  color: red;
   -webkit-transition: color 0.35s ease;
   -moz-transition: color 0.35s ease;
   -ms-transition: color 0.35s ease;
@@ -237,7 +238,7 @@ figcaption h4 {
 
 .footline {
   margin-top: 3rem;
-  border-top: 1px dashed #4d004d;
+  border-top: 1px dashed #f2f2f2;
   font-size: smaller; }
 
 #top-github-link, #body #breadcrumbs {
@@ -277,7 +278,7 @@ figcaption h4 {
 
 body {
   background: #fff;
-  color: #323232; }
+  color: #262626; }
 
 body #chapter h1 {
   font-size: 3.5rem; }
@@ -291,10 +292,18 @@ body #chapter h1 {
     font-size: 2rem; } }
 
 a {
-  color: purple; }
+  color: maroon;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  -ms-transition: color 0.15s ease;
+  transition: color 0.15s ease; }
 
 a:hover {
-  color: #9a009a; }
+  color: red;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  -ms-transition: color 0.15s ease;
+  transition: color 0.15s ease; }
 
 pre {
   position: relative; }
@@ -333,14 +342,14 @@ textarea:hover, input[type="email"]:hover, input[type="number"]:hover, input[typ
   border-color: #c4c4c4; }
 
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
-  border-color: purple;
+  border-color: #FAFAFA;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(0, 169, 218, 0.7); }
 
 #header-wrapper {
-  background: purple;
-  color: white;
+  background: #FAFAFA;
+  color: #444;
   text-align: center;
-  border-bottom: 1px solid #4d004d;
+  border-bottom: 1px solid #f2f2f2;
   padding: 1rem; }
 
 #header a {
@@ -356,18 +365,18 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 .searchbox {
   margin-top: 1rem;
   position: relative;
-  border: 1px solid #850085;
-  background: #4d004d;
+  border: 1px solid #fdfdfd;
+  background: #f2f2f2;
   border-radius: 4px; }
 
 .searchbox label {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(68, 68, 68, 0.8);
   position: absolute;
   left: 10px;
   top: 3px; }
 
 .searchbox span {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(68, 68, 68, 0.6);
   position: absolute;
   right: 10px;
   top: 3px;
@@ -378,7 +387,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   transition: color 0.15s ease; }
 
 .searchbox span:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(68, 68, 68, 0.9);
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
@@ -386,7 +395,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 
 .searchbox input {
   display: inline-block;
-  color: white;
+  color: #444;
   width: 100%;
   height: 30px;
   background: transparent;
@@ -396,16 +405,16 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   font-weight: 300; }
 
 .searchbox input::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.6); }
+  color: rgba(68, 68, 68, 0.6); }
 
 .searchbox input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.6); }
+  color: rgba(68, 68, 68, 0.6); }
 
 .searchbox input:-moz-placeholder {
-  color: rgba(255, 255, 255, 0.6); }
+  color: rgba(68, 68, 68, 0.6); }
 
 .searchbox input:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.6); }
+  color: rgba(68, 68, 68, 0.6); }
 
 #sidebar-toggle-span {
   display: none; }
@@ -415,7 +424,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     display: inline; } }
 
 #sidebar {
-  background-color: purple;
+  background-color: #FAFAFA;
   position: fixed;
   top: 0;
   width: 300px;
@@ -427,14 +436,14 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   -webkit-font-smoothing: antialiased; }
 
 #sidebar a {
-  color: white;
+  color: #444;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
   transition: color 0.15s ease; }
 
 #sidebar a:hover {
-  color: #e6e6e6;
+  color: black;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
@@ -469,7 +478,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   font-size: 80%; }
 
 #sidebar .parent li, #sidebar .active li {
-  border-left: 1px solid #e6e6e6; }
+  border-left: 1px solid black; }
 
 #sidebar h5.parent a {
   background: #201b24;
@@ -501,7 +510,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   color: #e6e6e6; }
 
 #sidebar ul.searched .search-match a:hover {
-  color: white; }
+  color: #444; }
 
 #sidebar ul.topics {
   margin: 0 1rem; }
@@ -538,36 +547,36 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   /*margin-top: 9px;*/ }
 
 #sidebar ul.topics > li.parent a, #sidebar ul.topics > li.active a {
-  color: white;
+  color: #444;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
   transition: color 0.15s ease; }
 
 #sidebar ul.topics > li.parent a:hover, #sidebar ul.topics > li.active a:hover {
-  color: #e6e6e6;
+  color: black;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
   transition: color 0.15s ease; }
 
 #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
-  background: #4d004d;
+  background: #f2f2f2;
   margin-left: -1rem;
   margin-right: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
 #sidebar ul li.active > a {
-  background: white;
-  color: gray !important;
+  background: #e8e8e8;
+  color: black !important;
   margin-left: -1rem;
   margin-right: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
 #sidebar ul li.active > a:hover {
-  color: gray !important;
+  color: black !important;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
@@ -683,7 +692,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     display: inline-block; } }
 
 #body .nav:hover {
-  background: #F6F6F6; }
+  background: #FAFAFA; }
 
 #body .nav.nav-pref {
   left: 0; }
@@ -735,7 +744,7 @@ body {
 h2, h3, h4, h5, h6 {
   font-family: "Lato", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   text-rendering: optimizeLegibility;
-  color: #656565;
+  color: #4c4c4c;
   font-weight: 400;
   letter-spacing: -1px; }
 
@@ -743,7 +752,7 @@ h1 {
   font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   text-align: center;
   text-transform: uppercase;
-  color: #4c4c4c;
+  color: #404040;
   font-weight: 200; }
 
 blockquote {
@@ -820,7 +829,7 @@ code, kbd, pre, samp {
 code {
   border-radius: 2px;
   white-space: nowrap;
-  color: #656565;
+  color: #4c4c4c;
   background: #FFF7DD;
   border: 1px solid #fbf0cb;
   padding: 0px 2px; }
@@ -858,14 +867,14 @@ hr {
   padding: 25px;
   float: left;
   clear: both;
-  background: #4d004d;
+  background: #f2f2f2;
   color: #fff; }
 
 #body a.anchor-link {
   color: #ccc; }
 
 #body a.anchor-link:hover {
-  color: #4d004d; }
+  color: #f2f2f2; }
 
 #body-inner .tabs-wrapper.ui-theme-badges {
   background: #1d1f21; }
@@ -902,7 +911,7 @@ td {
   border: 1px solid #eaeaea; }
 
 .button {
-  background: #4d004d;
+  background: #f2f2f2;
   color: #fff;
   box-shadow: 0 3px 0 #00a5d4; }
 
@@ -960,7 +969,7 @@ td {
 
 .bullet-icon {
   float: left;
-  background: #4d004d;
+  background: #f2f2f2;
   padding: 0.875rem;
   width: 3.5rem;
   height: 3.5rem;
@@ -970,7 +979,7 @@ td {
   text-align: center; }
 
 .bullet-icon-1 {
-  background: #4d004d; }
+  background: #f2f2f2; }
 
 .bullet-icon-2 {
   background: #00f3d8; }
@@ -1176,7 +1185,7 @@ td {
   background: #34495E; }
 
 #top-bar {
-  background: #F6F6F6;
+  background: #FAFAFA;
   border-radius: 2px;
   margin: 0rem -1rem 2rem;
   padding: 0 1rem;
@@ -1248,7 +1257,7 @@ td {
   display: inline-block;
   vertical-align: middle;
   position: relative;
-  color: #656565;
+  color: #4c4c4c;
   background-color: #FFF7DD;
   margin-left: -.2rem;
   cursor: pointer;
@@ -1312,7 +1321,7 @@ pre .copy-to-clipboard:hover {
 
 #sidebar #shortcuts h3 {
   font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-  color: white; }
+  color: #444; }
 
 #searchResults {
   text-align: left; }
