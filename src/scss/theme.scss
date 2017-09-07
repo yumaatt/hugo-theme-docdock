@@ -35,9 +35,9 @@ $lshift_fudge: 1;
 /*active is the current page*/
 /*focus is a group*/
 
-$side_back_color: #222; /* #2053AB */
+$side_back_color: #2053AB; /* #2053AB */
 
-$side_text_color: #eee;
+$side_text_color: #FFF;
 
 $side_link_color: $side_text_color;
 $side_link_hover_color: lshift_side($side_text_color, -25%, -25%);
@@ -55,10 +55,10 @@ $side_active_text_color: lshift_side($side_focus_text_color, -100%, 50%);
 $side_active_text_hover_color: $side_active_text_color;
 
 /* Main */
-$main_back_color: #222;
-$main_text_color: #eee;
+$main_back_color: #eee;
+$main_text_color: #444;
 
-$main_link_color: lshift_main($main_text_color, -25%, 25%);
+$main_link_color: lshift_main($main_text_color, -15%, 15%);
 $main_link_hover_color: lshift_main($main_link_color, 15%, -10%);
 
 $main_shadow_color: lshift_main($main_back_color, -2%, 5%);
@@ -87,33 +87,28 @@ $table_body_text_color: $main_text_color;
 
 /* Common Theming */
 
-$theme_success: hsl(120 , 25%, lightness(lshift_main($main_back_color, 30%, 30%)));
-$theme_default: hsl(0 , 0%, lightness(lshift_main($main_back_color, 25%, 25%)));
-$theme_info: hsl(200 , 15%, lightness(lshift_main($main_back_color, 50%, 50%)));
-$theme_note: hsl(204 , 40%, lightness(lshift_main($main_back_color, 35%, 35%)));
-$theme_warning: hsl(50 , 25%, lightness(lshift_main($main_back_color, 35%, 35%)));
-$theme_error: hsl(2 , 35%, lightness(lshift_main($main_back_color, 25%, 25%)));
+$theme_map: (
+    "success": hsl(120 , 25%, lightness(lshift_main($main_back_color, 30%, 30%))),
+    "default": hsl(0 , 0%, lightness(lshift_main($main_back_color, 25%, 25%))),
+    "info": hsl(200 , 15%, lightness(lshift_main($main_back_color, 50%, 30%))),
+    "note": hsl(204 , 40%, lightness(lshift_main($main_back_color, 35%, 35%))),
+    "warning": hsl(50 , 25%, lightness(lshift_main($main_back_color, 35%, 35%))),
+    "error": hsl(2 , 35%, lightness(lshift_main($main_back_color, 25%, 25%))),
+);
 
 /* Notices */
-
-/* TODO: Clean up and condense these! */
 
 $notice_back_lshift: -7.5%;
 
 $notice_text_body_color: $main_text_color;
 $notice_text_title_color: $main_text_color;
 
-$notice_note_title_back_color: $theme_note;
-$notice_note_body_back_color: lshift_main($notice_note_title_back_color, $notice_back_lshift, $notice_back_lshift);
-
-$notice_info_title_back_color: $theme_info;
-$notice_info_body_back_color: lshift_main($notice_info_title_back_color, $notice_back_lshift, $notice_back_lshift);
-
-$notice_tip_title_back_color: $theme_success;
-$notice_tip_body_back_color: lshift_main($notice_tip_title_back_color, $notice_back_lshift, $notice_back_lshift);
-
-$notice_warning_title_back_color: $theme_error;
-$notice_warning_body_back_color: lshift_main($notice_warning_title_back_color, $notice_back_lshift, $notice_back_lshift);
+$notice_map: (
+    "note": note,
+    "info": info,
+    "tip": success,
+    "warning": error
+);
 
 /* Panels */
 
@@ -123,42 +118,28 @@ $panel_body_back_color: lshift_main($main_back_color, 7%, 7%);
 $panel_body_text_color: $main_text_color;
 $panel_title_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.25);
 
-$panel_default_title_back_color: $theme_default;
-$panel_default_border_color: lshift_side($panel_default_title_back_color, $panel_border_lshift, $panel_border_lshift);
-
-$panel_primary_title_back_color: $theme_note;
-$panel_primary_border_color: lshift_side($panel_primary_title_back_color, $panel_border_lshift, $panel_border_lshift);
-
-$panel_info_title_back_color: $theme_info;
-$panel_info_border_color: lshift_side($panel_info_title_back_color, $panel_border_lshift, $panel_border_lshift);
-
-$panel_warning_title_back_color: $theme_warning;
-$panel_warning_border_color: lshift_side($panel_warning_title_back_color, $panel_border_lshift, $panel_border_lshift);
-
-$panel_danger_title_back_color: $theme_error;
-$panel_danger_border_color: lshift_side($panel_danger_title_back_color, $panel_border_lshift, $panel_border_lshift);
-
-$panel_success_title_back_color: $theme_success;
-$panel_success_border_color: lshift_side($panel_success_title_back_color, $panel_border_lshift, $panel_border_lshift);
+$panel_map: (
+    "primary": note,
+    "default": default,
+    "info": info,
+    "success": success,
+    "warning": warning,
+    "danger": error
+);
 
 /* Alerts */
 
 $alert_border_lshift: 10%;
-$alert_back_lshift: -7.5%;
+$alert_back_lshift: -20%;
 
 $alert_body_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.25);
 
-$alert_info_back_color: lshift_main($theme_info, $notice_back_lshift, $notice_back_lshift);
-$alert_info_border_color: lshift_side($alert_info_back_color, $alert_border_lshift, $alert_border_lshift);
-
-$alert_success_back_color: lshift_main($theme_success, $notice_back_lshift, $notice_back_lshift);
-$alert_success_border_color: lshift_side($alert_success_back_color, $alert_border_lshift, $alert_border_lshift);
-
-$alert_warning_back_color: lshift_main($theme_warning, $notice_back_lshift, $notice_back_lshift);
-$alert_warning_border_color: lshift_side($alert_warning_back_color, $alert_border_lshift, $alert_border_lshift);
-
-$alert_danger_back_color: lshift_main($theme_error, $notice_back_lshift, $notice_back_lshift);
-$alert_danger_border_color: lshift_side($alert_danger_back_color, $alert_border_lshift, $alert_border_lshift);
+$alert_map: (
+    "info": info,
+    "success": success,
+    "warning": warning,
+    "danger": error
+);
 
 /* Top bar */
 $topbar_back_color: lshift_main($main_back_color, 7.5%, 5%);
@@ -222,24 +203,14 @@ $option_link_expand: center;
     color: $alert_body_text_color !important;
 }
 
-.alert-info {
-    background-color: $alert_info_back_color !important;
-    border-color: $alert_info_border_color !important;
-}
+@each $alert_name, $alert_theme in $alert_map {
+    $alert_back_temp: lshift_main(map-get($theme_map, $alert_theme), $alert_back_lshift, $alert_back_lshift);
+    $alert_border_temp: lshift_main($alert_back_temp, $alert_border_lshift, $alert_border_lshift);
 
-.alert-success {
-    background-color: $alert_success_back_color !important;
-    border-color: $alert_success_border_color !important;
-}
-
-.alert-warning {
-    background-color: $alert_warning_back_color !important;
-    border-color: $alert_warning_border_color !important;
-}
-
-.alert-danger {
-    background-color: $alert_danger_back_color !important;
-    border-color: $alert_danger_border_color !important;
+    .alert-#{$alert_name} {
+        background-color: $alert_back_temp !important;
+        border-color: $alert_border_temp !important;
+    }
 }
 
 .panel {
@@ -254,58 +225,16 @@ $option_link_expand: center;
 
 }
 
-.panel-primary {
-    border-color: $panel_primary_border_color !important;
-}
-
-.panel-primary > .panel-heading, .panel-footer {
-    background-color: $panel_primary_title_back_color !important;
-    border-color: $panel_primary_border_color !important;
-}
-
-.panel-default {
-    border-color: $panel_default_border_color !important;
-}
-
-.panel-default > .panel-heading {
-    background-color: $panel_default_title_back_color !important;
-    border-color: $panel_default_border_color !important;
-}
-
-.panel-info {
-    border-color: $panel_info_border_color !important;
-}
-
-.panel-info > .panel-heading {
-    background-color: $panel_info_title_back_color !important;
-    border-color: $panel_info_border_color !important;
-}
-
-.panel-success {
-    border-color: $panel_success_border_color !important;
-}
-
-.panel-success > .panel-heading {
-    background-color: $panel_success_title_back_color !important;
-    border-color: $panel_success_border_color !important;
-}
-
-.panel-warning {
-    border-color: $panel_warning_border_color !important;
-}
-
-.panel-warning > .panel-heading {
-    background-color: $panel_warning_title_back_color !important;
-    border-color: $panel_warning_border_color !important;
-}
-
-.panel-danger {
-    border-color: $panel_danger_border_color !important;
-}
-
-.panel-danger > .panel-heading {
-    background-color: $panel_danger_title_back_color !important;
-    border-color: $panel_danger_border_color !important;
+@each $panel_name, $panel_theme in $panel_map {
+    $panel_back_temp: map-get($theme_map, $panel_theme);
+    $panel_border_temp: lshift_main($panel_back_temp, $panel_border_lshift, $panel_border_lshift);
+    .panel-#{$panel_name} {
+        border-color: $panel_border_temp !important;
+    }
+    .panel-#{$panel_name} > .panel-heading, .panel-footer {
+        background-color: $panel_back_temp !important;
+        border-color: $panel_border_temp !important;
+    }
 }
 
 body {
@@ -1168,40 +1097,27 @@ div.notices p:first-child:after {
     left: 2rem;
 }
 
-div.notices.info {
-    border-top: 30px solid $notice_info_title_back_color;
-    background: $notice_info_body_back_color;
-}
-
 div.notices.info p:first-child:after {
     content: 'Info';
-}
-
-div.notices.warning {
-    border-top: 30px solid $notice_warning_title_back_color;
-    background: $notice_warning_body_back_color;
 }
 
 div.notices.warning p:first-child:after {
     content: 'Warning';
 }
 
-div.notices.note {
-    border-top: 30px solid $notice_note_title_back_color;
-    background: $notice_note_body_back_color;
-}
-
 div.notices.note p:first-child:after {
     content: 'Note';
 }
 
-div.notices.tip {
-    border-top: 30px solid $notice_tip_title_back_color;
-    background: $notice_tip_body_back_color;
-}
-
 div.notices.tip p:first-child:after {
     content: 'Tip';
+}
+
+@each $notice_name, $notice_theme in $notice_map {
+    div.notices.#{$notice_name} {
+        border-top: 30px solid map-get($theme_map, $notice_theme);
+        background: lshift_main(map-get($theme_map, $notice_theme), $notice_back_lshift, $notice_back_lshift);
+    }
 }
 
 code, kbd, pre, samp {
