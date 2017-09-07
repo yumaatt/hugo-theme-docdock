@@ -35,9 +35,9 @@ $lshift_fudge: 1;
 /*active is the current page*/
 /*focus is a group*/
 
-$side_back_color: #222; /* #2053AB */
+$side_back_color: #eee; /* #2053AB */
 
-$side_text_color: #eee;
+$side_text_color: #222;
 
 $side_link_color: $side_text_color;
 $side_link_hover_color: lshift_side($side_text_color, -25%, -25%);
@@ -55,8 +55,8 @@ $side_active_text_color: lshift_side($side_focus_text_color, -100%, 50%);
 $side_active_text_hover_color: $side_active_text_color;
 
 /* Main */
-$main_back_color: #222;
-$main_text_color: #eee;
+$main_back_color: #eee;
+$main_text_color: #222;
 
 $main_link_color: lshift_main($main_text_color, -15%, 15%);
 $main_link_hover_color: lshift_main($main_link_color, 15%, -10%);
@@ -92,7 +92,7 @@ $theme_map: (
     "default": hsl(0 , 0%, lightness(lshift_main($main_back_color, 25%, 25%))),
     "info": hsl(200 , 15%, lightness(lshift_main($main_back_color, 45%, 30%))),
     "note": hsl(204 , 40%, lightness(lshift_main($main_back_color, 35%, 35%))),
-    "warning": hsl(50 , 45%, lightness(lshift_main($main_back_color, 30%, 45%))),
+    "warning": hsl(50 , 45%, lightness(lshift_main($main_back_color, 30%, 35%))),
     "error": hsl(2 , 35%, lightness(lshift_main($main_back_color, 25%, 25%))),
 );
 
