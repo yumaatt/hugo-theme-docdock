@@ -55,7 +55,7 @@ $side_active_text_color: lshift_side($side_focus_text_color, -100%, 50%);
 $side_active_text_hover_color: $side_active_text_color;
 
 /* Main */
-$main_back_color: #111;
+$main_back_color: #222;
 $main_text_color: #eee;
 
 $main_link_color: lshift_main($main_text_color, -25%, 25%);
@@ -66,6 +66,8 @@ $main_highlight_color: lshift_main($main_back_color, 5%, -2%);
 
 $main_title_text_color: lshift_main($main_text_color, 10%, 10%);
 $main_other_text_color: lshift_main($main_text_color, 15%, 15%);
+
+$main_block_quote_border_color: lshift_main($main_text_color, -15%, -15%);
 
 /* Code */
 
@@ -83,22 +85,80 @@ $table_title_text_color: $main_text_color;
 $table_border_color: lshift_main($main_back_color, 10%, 10%);
 $table_body_text_color: $main_text_color;
 
+/* Common Theming */
+
+$theme_success: hsl(120 , 25%, lightness(lshift_main($main_back_color, 30%, 30%)));
+$theme_default: hsl(0 , 0%, lightness(lshift_main($main_back_color, 25%, 25%)));
+$theme_info: hsl(200 , 15%, lightness(lshift_main($main_back_color, 50%, 50%)));
+$theme_note: hsl(204 , 40%, lightness(lshift_main($main_back_color, 35%, 35%)));
+$theme_warning: hsl(50 , 25%, lightness(lshift_main($main_back_color, 35%, 35%)));
+$theme_error: hsl(2 , 35%, lightness(lshift_main($main_back_color, 25%, 25%)));
+
 /* Notices */
+
+/* TODO: Clean up and condense these! */
+
+$notice_back_lshift: -7.5%;
 
 $notice_text_body_color: $main_text_color;
 $notice_text_title_color: $main_text_color;
 
-$notice_note_title_back_color: hsl(204 , 50%, lightness(lshift_main($main_back_color, 25%, 25%)));
-$notice_note_body_back_color: hsl(204 , 50%, lightness(lshift_main($main_back_color, 15%, 15%)));
+$notice_note_title_back_color: $theme_note;
+$notice_note_body_back_color: lshift_main($notice_note_title_back_color, $notice_back_lshift, $notice_back_lshift);
 
-$notice_info_title_back_color: hsl(28 , 35%, lightness(lshift_main($main_back_color, 25%, 25%)));
-$notice_info_body_back_color: hsl(28 , 35%, lightness(lshift_main($main_back_color, 15%, 15%)));
+$notice_info_title_back_color: $theme_info;
+$notice_info_body_back_color: lshift_main($notice_info_title_back_color, $notice_back_lshift, $notice_back_lshift);
 
-$notice_tip_title_back_color: hsl(120 , 35%, lightness(lshift_main($main_back_color, 25%, 25%)));
-$notice_tip_body_back_color: hsl(120 , 35%, lightness(lshift_main($main_back_color, 15%, 15%)));
+$notice_tip_title_back_color: $theme_success;
+$notice_tip_body_back_color: lshift_main($notice_tip_title_back_color, $notice_back_lshift, $notice_back_lshift);
 
-$notice_warning_title_back_color: hsl(2 , 35%, lightness(lshift_main($main_back_color, 25%, 25%)));
-$notice_warning_body_back_color: hsl(2 , 35%, lightness(lshift_main($main_back_color, 15%, 15%)));
+$notice_warning_title_back_color: $theme_error;
+$notice_warning_body_back_color: lshift_main($notice_warning_title_back_color, $notice_back_lshift, $notice_back_lshift);
+
+/* Panels */
+
+$panel_border_lshift: 10%;
+
+$panel_body_back_color: lshift_main($main_back_color, 7%, 7%);
+$panel_body_text_color: $main_text_color;
+$panel_title_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.25);
+
+$panel_default_title_back_color: $theme_default;
+$panel_default_border_color: lshift_side($panel_default_title_back_color, $panel_border_lshift, $panel_border_lshift);
+
+$panel_primary_title_back_color: $theme_note;
+$panel_primary_border_color: lshift_side($panel_primary_title_back_color, $panel_border_lshift, $panel_border_lshift);
+
+$panel_info_title_back_color: $theme_info;
+$panel_info_border_color: lshift_side($panel_info_title_back_color, $panel_border_lshift, $panel_border_lshift);
+
+$panel_warning_title_back_color: $theme_warning;
+$panel_warning_border_color: lshift_side($panel_warning_title_back_color, $panel_border_lshift, $panel_border_lshift);
+
+$panel_danger_title_back_color: $theme_error;
+$panel_danger_border_color: lshift_side($panel_danger_title_back_color, $panel_border_lshift, $panel_border_lshift);
+
+$panel_success_title_back_color: $theme_success;
+$panel_success_border_color: lshift_side($panel_success_title_back_color, $panel_border_lshift, $panel_border_lshift);
+
+/* Alerts */
+
+$alert_border_lshift: 10%;
+$alert_back_lshift: -7.5%;
+
+$alert_body_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.25);
+
+$alert_info_back_color: lshift_main($theme_info, $notice_back_lshift, $notice_back_lshift);
+$alert_info_border_color: lshift_side($alert_info_back_color, $alert_border_lshift, $alert_border_lshift);
+
+$alert_success_back_color: lshift_main($theme_success, $notice_back_lshift, $notice_back_lshift);
+$alert_success_border_color: lshift_side($alert_success_back_color, $alert_border_lshift, $alert_border_lshift);
+
+$alert_warning_back_color: lshift_main($theme_warning, $notice_back_lshift, $notice_back_lshift);
+$alert_warning_border_color: lshift_side($alert_warning_back_color, $alert_border_lshift, $alert_border_lshift);
+
+$alert_danger_back_color: lshift_main($theme_error, $notice_back_lshift, $notice_back_lshift);
+$alert_danger_border_color: lshift_side($alert_danger_back_color, $alert_border_lshift, $alert_border_lshift);
 
 /* Top bar */
 $topbar_back_color: lshift_main($main_back_color, 7.5%, 5%);
@@ -156,6 +216,96 @@ $option_link_expand: center;
 
 #TableOfContents > ul > li > ul > li > ul > li > ul > li > ul > li  {
     display: none;
+}
+
+.alert {
+    color: $alert_body_text_color !important;
+}
+
+.alert-info {
+    background-color: $alert_info_back_color !important;
+    border-color: $alert_info_border_color !important;
+}
+
+.alert-success {
+    background-color: $alert_success_back_color !important;
+    border-color: $alert_success_border_color !important;
+}
+
+.alert-warning {
+    background-color: $alert_warning_back_color !important;
+    border-color: $alert_warning_border_color !important;
+}
+
+.alert-danger {
+    background-color: $alert_danger_back_color !important;
+    border-color: $alert_danger_border_color !important;
+}
+
+.panel {
+    background-color: $panel_body_back_color !important;
+    &-body {
+        color: $panel_body_text_color !important;
+    }
+
+    &-heading {
+        color: $panel_title_text_color !important;
+    }
+
+}
+
+.panel-primary {
+    border-color: $panel_primary_border_color !important;
+}
+
+.panel-primary > .panel-heading, .panel-footer {
+    background-color: $panel_primary_title_back_color !important;
+    border-color: $panel_primary_border_color !important;
+}
+
+.panel-default {
+    border-color: $panel_default_border_color !important;
+}
+
+.panel-default > .panel-heading {
+    background-color: $panel_default_title_back_color !important;
+    border-color: $panel_default_border_color !important;
+}
+
+.panel-info {
+    border-color: $panel_info_border_color !important;
+}
+
+.panel-info > .panel-heading {
+    background-color: $panel_info_title_back_color !important;
+    border-color: $panel_info_border_color !important;
+}
+
+.panel-success {
+    border-color: $panel_success_border_color !important;
+}
+
+.panel-success > .panel-heading {
+    background-color: $panel_success_title_back_color !important;
+    border-color: $panel_success_border_color !important;
+}
+
+.panel-warning {
+    border-color: $panel_warning_border_color !important;
+}
+
+.panel-warning > .panel-heading {
+    background-color: $panel_warning_title_back_color !important;
+    border-color: $panel_warning_border_color !important;
+}
+
+.panel-danger {
+    border-color: $panel_danger_border_color !important;
+}
+
+.panel-danger > .panel-heading {
+    background-color: $panel_danger_title_back_color !important;
+    border-color: $panel_danger_border_color !important;
 }
 
 body {
@@ -973,7 +1123,7 @@ h1 {
 }
 
 blockquote {
-    border-left: 10px solid #F0F2F4;
+    border-left: 10px solid $main_block_quote_border_color;
 }
 
 blockquote p {

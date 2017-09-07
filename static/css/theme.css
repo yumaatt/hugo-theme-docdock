@@ -10,7 +10,11 @@
 /* Main */
 /* Code */
 /* Table */
+/* Common Theming */
 /* Notices */
+/* TODO: Clean up and condense these! */
+/* Panels */
+/* Alerts */
 /* Top bar */
 /* Buttons */
 /* Options */
@@ -42,6 +46,74 @@
 
 #TableOfContents > ul > li > ul > li > ul > li > ul > li > ul > li {
   display: none; }
+
+.alert {
+  color: rgba(255, 255, 255, 0.75) !important; }
+
+.alert-info {
+  background-color: #7d949f !important;
+  border-color: #9bacb5 !important; }
+
+.alert-success {
+  background-color: #457245 !important;
+  border-color: #589258 !important; }
+
+.alert-warning {
+  background-color: #82794e !important;
+  border-color: #a19762 !important; }
+
+.alert-danger {
+  background-color: #6a3533 !important;
+  border-color: #8d4644 !important; }
+
+.panel {
+  background-color: #343434 !important; }
+  .panel-body {
+    color: #eee !important; }
+  .panel-heading {
+    color: rgba(255, 255, 255, 0.75) !important; }
+
+.panel-primary {
+  border-color: #6a9dbf !important; }
+
+.panel-primary > .panel-heading, .panel-footer {
+  background-color: #4a85ad !important;
+  border-color: #6a9dbf !important; }
+
+.panel-default {
+  border-color: #7b7b7b !important; }
+
+.panel-default > .panel-heading {
+  background-color: #626262 !important;
+  border-color: #7b7b7b !important; }
+
+.panel-info {
+  border-color: #b1bec5 !important; }
+
+.panel-info > .panel-heading {
+  background-color: #93a6b0 !important;
+  border-color: #b1bec5 !important; }
+
+.panel-success {
+  border-color: #6aa66a !important; }
+
+.panel-success > .panel-heading {
+  background-color: #538a53 !important;
+  border-color: #6aa66a !important; }
+
+.panel-warning {
+  border-color: #afa67a !important; }
+
+.panel-warning > .panel-heading {
+  background-color: #9a905c !important;
+  border-color: #afa67a !important; }
+
+.panel-danger {
+  border-color: #a65350 !important; }
+
+.panel-danger > .panel-heading {
+  background-color: #844240 !important;
+  border-color: #a65350 !important; }
 
 body {
   font-size: 16px !important;
@@ -284,7 +356,7 @@ figcaption h4 {
   src: local("Lato Bold"), local("Lato-Bold"), url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Bold.ttf) format("truetype"); }
 
 body {
-  background: #111;
+  background: #222;
   color: #eee; }
 
 body #chapter h1 {
@@ -699,7 +771,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     display: inline-block; } }
 
 #body .nav:hover {
-  background: #0c0c0c; }
+  background: #1d1d1d; }
 
 #body .nav.nav-pref {
   left: 0; }
@@ -763,7 +835,7 @@ h1 {
   font-weight: 200; }
 
 blockquote {
-  border-left: 10px solid #F0F2F4; }
+  border-left: 10px solid #c8c8c8; }
 
 blockquote p {
   font-size: 1.1rem;
@@ -802,29 +874,29 @@ div.notices p:first-child:after {
   left: 2rem; }
 
 div.notices.info {
-  border-top: 30px solid #6d4f34;
-  background: #4b3624; }
+  border-top: 30px solid #93a6b0;
+  background: #7d949f; }
 
 div.notices.info p:first-child:after {
   content: 'Info'; }
 
 div.notices.warning {
-  border-top: 30px solid #6d3634;
-  background: #4b2524; }
+  border-top: 30px solid #844240;
+  background: #6a3533; }
 
 div.notices.warning p:first-child:after {
   content: 'Warning'; }
 
 div.notices.note {
-  border-top: 30px solid #285979;
-  background: #1c3d53; }
+  border-top: 30px solid #4a85ad;
+  background: #3e7092; }
 
 div.notices.note p:first-child:after {
   content: 'Note'; }
 
 div.notices.tip {
-  border-top: 30px solid #346d34;
-  background: #244b24; }
+  border-top: 30px solid #538a53;
+  background: #457245; }
 
 div.notices.tip p:first-child:after {
   content: 'Tip'; }
@@ -909,17 +981,17 @@ hr {
   background: inherit; }
 
 table {
-  border: 1px solid #2b2b2b;
+  border: 1px solid #3c3c3c;
   table-layout: auto; }
 
 th {
-  background: #1e1e1e;
+  background: #2f2f2f;
   padding: 0.5rem;
   color: #eee; }
 
 td {
   padding: 0.5rem;
-  border: 1px solid #2b2b2b;
+  border: 1px solid #3c3c3c;
   color: #eee; }
 
 .button {
@@ -1197,7 +1269,7 @@ td {
   background: #34495E; }
 
 #top-bar {
-  background: #242424;
+  background: #353535;
   border-radius: 2px;
   margin: 0rem -1rem 2rem;
   padding: 0 1rem;
