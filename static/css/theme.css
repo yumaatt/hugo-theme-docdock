@@ -79,13 +79,6 @@
   background-color: #4a85ad !important;
   border-color: #6a9dbf !important; }
 
-.panel-default {
-  border-color: #7b7b7b !important; }
-
-.panel-default > .panel-heading, .panel-footer {
-  background-color: #626262 !important;
-  border-color: #7b7b7b !important; }
-
 .panel-info {
   border-color: #a2b2ba !important; }
 
@@ -113,6 +106,13 @@
 .panel-danger > .panel-heading, .panel-footer {
   background-color: #844240 !important;
   border-color: #a65350 !important; }
+
+.panel-default {
+  border-color: #7b7b7b !important; }
+
+.panel-default > .panel-heading, .panel-footer {
+  background-color: #626262 !important;
+  border-color: #7b7b7b !important; }
 
 body {
   font-size: 16px !important;

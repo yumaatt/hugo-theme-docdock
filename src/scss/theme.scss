@@ -120,11 +120,11 @@ $panel_title_text_color: transparentize(lshift_main($main_text_color, 15%, 15%),
 
 $panel_map: (
     "primary": note,
-    "default": default,
     "info": info,
     "success": success,
     "warning": warning,
-    "danger": error
+    "danger": error,
+    "default": default
 );
 
 /* Alerts */
