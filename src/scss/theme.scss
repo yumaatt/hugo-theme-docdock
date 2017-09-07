@@ -5,7 +5,7 @@
 /*focus is a group*/
 
 /* Side */
-$side_color: teal; /* #2053AB */
+$side_color: purple; /* #2053AB */
 
 $side_text_color: white;
 
@@ -36,6 +36,12 @@ $main_other_text_color: lighten($main_text_color, 20%);
 
 $time_short_fade: 0.15s;
 $time_long_fade: 0.35s;
+
+/* Options */
+
+/* Where link underline should expand from: 'left', 'center', or 'right' */
+/* Defaults to left */
+$option_link_expand: center;
 
 /* Mixins */
 
@@ -94,6 +100,15 @@ body {
 }
 
 #body a.highlight:after {
+    @if $option_link_expand == left {
+      margin-left:0; margin-right:auto;
+    } @else if $option_link_expand == center {
+      margin-left:auto; margin-right:auto;
+    } @else if $option_link_expand == right {
+      margin-left:auto; margin-right:0;
+    } @else {
+      margin-left:0; margin-right:auto;
+    }
     display: block;
     content: "";
     height: 1px;
