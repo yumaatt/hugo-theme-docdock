@@ -1,30 +1,35 @@
 /* Functions */
 
 /* A scaling factor, will generally increase contrast */
-$lshift_fudge: 1;
+/* Use sparingly and with caution */
+$lshift_global_scale: 1;
 
 @function lshift($reference, $value, $lighten_amount, $darken_amount) {
     @if lightness($reference) < 50% {
-        @if abs($lighten_amount * $lshift_fudge) > 100 {
+        @if abs($lighten_amount * $lshift_global_scale) > 100 {
             @return adjust-color($value, $lightness: 100);
         }@else {
-            @return adjust-color($value, $lightness: $lighten_amount * $lshift_fudge);
+            @return adjust-color($value, $lightness: $lighten_amount * $lshift_global_scale);
         }
     }@else {
-        @if abs($darken_amount * $lshift_fudge) > 100 {
+        @if abs($darken_amount * $lshift_global_scale) > 100 {
             @return adjust-color($value, $lightness: -100);
         }@else {
-            @return adjust-color($value, $lightness: -$darken_amount * $lshift_fudge);
+            @return adjust-color($value, $lightness: -$darken_amount * $lshift_global_scale);
         }
     }
 }
 
+$lshift_main_scale: 1;
+
 @function lshift_main($value, $lighten_amount, $darken_amount) {
-    @return lshift($main_back_color, $value, $lighten_amount, $darken_amount);
+    @return lshift($main_back_color, $value, $lighten_amount * $lshift_main_scale, $darken_amount * $lshift_main_scale);
 }
 
+$lshift_side_scale: 1;
+
 @function lshift_side($value, $lighten_amount, $darken_amount) {
-    @return lshift($side_back_color, $value, $lighten_amount, $darken_amount);
+    @return lshift($side_back_color, $value, $lighten_amount * $lshift_side_scale, $darken_amount * $lshift_side_scale);
 }
 
 /* Variables */
@@ -35,15 +40,15 @@ $lshift_fudge: 1;
 /*active is the current page*/
 /*focus is a group*/
 
-$side_back_color: #eee; /* #2053AB */
+$side_back_color: #2053AB; /* #2053AB */
 
-$side_text_color: #222;
+$side_text_color: #fff;
 
 $side_link_color: $side_text_color;
 $side_link_hover_color: lshift_side($side_text_color, -25%, -25%);
 
-$side_shadow_color: darken($side_back_color, 3%);
-$side_highlight_color: lighten($side_back_color, 1%);
+$side_shadow_color: lshift_side($side_back_color, -3%, 3%);
+$side_highlight_color: lshift_side($side_back_color, 1%, -1%);
 
 $side_focus_back_color: $side_shadow_color;
 $side_active_back_color: lshift_side($side_focus_back_color, 100%, 4%);
@@ -51,11 +56,11 @@ $side_active_back_color: lshift_side($side_focus_back_color, 100%, 4%);
 $side_focus_text_color: $side_text_color;
 $side_focus_text_hover_color: lshift_side($side_link_hover_color, 10%, 10%);
 
-$side_active_text_color: lshift_side($side_focus_text_color, -100%, 50%);
+$side_active_text_color: lshift_side($side_focus_text_color, -50%, 50%);
 $side_active_text_hover_color: $side_active_text_color;
 
 /* Main */
-$main_back_color: #eee;
+$main_back_color: #fff;
 $main_text_color: #222;
 
 $main_link_color: lshift_main($main_text_color, -15%, 15%);
