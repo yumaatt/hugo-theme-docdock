@@ -1,48 +1,116 @@
+/* Functions */
+
+/* A scaling factor, will generally increase contrast */
+$lshift_fudge: 1;
+
+@function lshift($reference, $value, $lighten_amount, $darken_amount) {
+    @if lightness($reference) < 50% {
+        @if abs($lighten_amount * $lshift_fudge) > 100 {
+            @return adjust-color($value, $lightness: 100);
+        }@else {
+            @return adjust-color($value, $lightness: $lighten_amount * $lshift_fudge);
+        }
+    }@else {
+        @if abs($darken_amount * $lshift_fudge) > 100 {
+            @return adjust-color($value, $lightness: -100);
+        }@else {
+            @return adjust-color($value, $lightness: -$darken_amount * $lshift_fudge);
+        }
+    }
+}
+
+@function lshift_main($value, $lighten_amount, $darken_amount) {
+    @return lshift($main_back_color, $value, $lighten_amount, $darken_amount);
+}
+
+@function lshift_side($value, $lighten_amount, $darken_amount) {
+    @return lshift($side_back_color, $value, $lighten_amount, $darken_amount);
+}
+
 /* Variables */
+
+/* Side */
 
 /*Remember:*/
 /*active is the current page*/
 /*focus is a group*/
 
-/* Side */
-$side_color: #FAFAFA; /* #2053AB */
+$side_back_color: #222; /* #2053AB */
 
-$side_text_color: #444;
+$side_text_color: #eee;
 
 $side_link_color: $side_text_color;
-$side_link_hover_color: black;
+$side_link_hover_color: lshift_side($side_text_color, -25%, -25%);
 
-$side_shadow_color: darken($side_color, 3%);
-$side_highlight_color: lighten($side_color, 1%);
+$side_shadow_color: darken($side_back_color, 3%);
+$side_highlight_color: lighten($side_back_color, 1%);
 
 $side_focus_back_color: $side_shadow_color;
-$side_active_back_color: darken($side_focus_back_color, 4%);
+$side_active_back_color: lshift_side($side_focus_back_color, 100%, 4%);
 
 $side_focus_text_color: $side_text_color;
-$side_focus_text_hover_color: darken($side_link_hover_color, 10%);
+$side_focus_text_hover_color: lshift_side($side_link_hover_color, 10%, 10%);
 
-$side_active_text_color: darken($side_focus_text_color, 50%);
+$side_active_text_color: lshift_side($side_focus_text_color, -100%, 50%);
 $side_active_text_hover_color: $side_active_text_color;
 
 /* Main */
-$main_link_color: maroon;
-$main_link_hover_color: red;
+$main_back_color: #111;
+$main_text_color: #eee;
 
-$main_back_color: #fff;
-$main_text_color: #262626;
+$main_link_color: lshift_main($main_text_color, -25%, 25%);
+$main_link_hover_color: lshift_main($main_link_color, 15%, -10%);
 
-$main_shadow_color: $side_color;
-$main_highlight_color: #EEE;
+$main_shadow_color: lshift_main($main_back_color, -2%, 5%);
+$main_highlight_color: lshift_main($main_back_color, 5%, -2%);
 
-$main_title_text_color: lighten($main_text_color, 10%);
-$main_other_text_color: lighten($main_text_color, 15%);
+$main_title_text_color: lshift_main($main_text_color, 10%, 10%);
+$main_other_text_color: lshift_main($main_text_color, 15%, 15%);
+
+/* Code */
+
+$main_code_inline_back_color: #FFF7DD;
+$main_code_inline_text_color: lshift_main(hsl(0, 0, lightness($main_code_inline_back_color)), -75%, 75%);
+$main_code_inline_border_color: lshift_main($main_code_inline_back_color, -5%, 5%);
+$main_code_inline_back_hover_color: desaturate(lshift_main($main_code_inline_back_color, -5%, 5%), 25%);
+
+$main_code_block_back_color: #1d1f21;
+
+/* Table */
+
+$table_title_back_color: lshift_main($main_back_color, 5%, 5%);
+$table_title_text_color: $main_text_color;
+$table_border_color: lshift_main($main_back_color, 10%, 10%);
+$table_body_text_color: $main_text_color;
+
+/* Notices */
+
+$notice_text_body_color: $main_text_color;
+$notice_text_title_color: $main_text_color;
+
+$notice_note_title_back_color: hsl(204 , 50%, lightness(lshift_main($main_back_color, 25%, 25%)));
+$notice_note_body_back_color: hsl(204 , 50%, lightness(lshift_main($main_back_color, 15%, 15%)));
+
+$notice_info_title_back_color: hsl(28 , 35%, lightness(lshift_main($main_back_color, 25%, 25%)));
+$notice_info_body_back_color: hsl(28 , 35%, lightness(lshift_main($main_back_color, 15%, 15%)));
+
+$notice_tip_title_back_color: hsl(120 , 35%, lightness(lshift_main($main_back_color, 25%, 25%)));
+$notice_tip_body_back_color: hsl(120 , 35%, lightness(lshift_main($main_back_color, 15%, 15%)));
+
+$notice_warning_title_back_color: hsl(2 , 35%, lightness(lshift_main($main_back_color, 25%, 25%)));
+$notice_warning_body_back_color: hsl(2 , 35%, lightness(lshift_main($main_back_color, 15%, 15%)));
 
 /* Top bar */
-$topbar_back_color: $main_shadow_color;
+$topbar_back_color: lshift_main($main_back_color, 7.5%, 5%);
 $topbar_shadow_opacity: 0.075;
 
 $time_short_fade: 0.15s;
 $time_long_fade: 0.35s;
+
+/* Buttons */
+
+$button_text_color: desaturate(lshift_main($main_back_color, -15%, -15%), 100%);
+$button_text_hover_color: lshift_main($main_back_color, 100%, 100%);
 
 /* Options */
 
@@ -154,6 +222,7 @@ body {
 }
 
 .btn {
+    color: $button_text_color !important;
     display: inline-block !important;
     padding: 6px 12px !important;
     margin-bottom: 0 !important;
@@ -186,7 +255,7 @@ body {
 
 .btn:hover,
 .btn:focus {
-    color: #2b2b2b !important;
+    color: $button_text_hover_color !important;
     text-decoration: none !important;
     @include transition(all $time_long_fade !important);
 }
@@ -419,12 +488,12 @@ textarea:hover, input[type="email"]:hover, input[type="number"]:hover, input[typ
 }
 
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
-    border-color: $side_color;
+    border-color: $side_back_color;
     box-shadow: inset 0 1px 3px rgba(0,0,0,.06),0 0 5px rgba(0,169,218,.7)
 }
 
 #header-wrapper {
-    background: $side_color;
+    background: $side_back_color;
     color: $side_text_color;
     text-align: center;
     border-bottom: 1px solid $side_focus_back_color;
@@ -512,7 +581,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #sidebar {
-    background-color: $side_color;
+    background-color: $side_back_color;
     position: fixed;
     top: 0;
     width: 300px;
@@ -930,13 +999,13 @@ div.notices p {
     font-size: 1rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
-    color: #666;
+    color: $notice_text_body_color;
 }
 
 div.notices p:first-child:before {
     position: absolute;
     top: -27px;
-    color: #fff;
+    color: $notice_text_title_color;
     font-family: FontAwesome;
     content: '';
     left: 10px;
@@ -945,13 +1014,13 @@ div.notices p:first-child:before {
 div.notices p:first-child:after {
     position: absolute;
     top: -27px;
-    color: #fff;
+    color: $notice_text_title_color;
     left: 2rem;
 }
 
 div.notices.info {
-    border-top: 30px solid #F0B37E;
-    background: #FFF2DB;
+    border-top: 30px solid $notice_info_title_back_color;
+    background: $notice_info_body_back_color;
 }
 
 div.notices.info p:first-child:after {
@@ -959,8 +1028,8 @@ div.notices.info p:first-child:after {
 }
 
 div.notices.warning {
-    border-top: 30px solid rgba(217, 83, 79, 0.8);
-    background: #FAE2E2;
+    border-top: 30px solid $notice_warning_title_back_color;
+    background: $notice_warning_body_back_color;
 }
 
 div.notices.warning p:first-child:after {
@@ -968,8 +1037,8 @@ div.notices.warning p:first-child:after {
 }
 
 div.notices.note {
-    border-top: 30px solid #6AB0DE;
-    background: #E7F2FA;
+    border-top: 30px solid $notice_note_title_back_color;
+    background: $notice_note_body_back_color;
 }
 
 div.notices.note p:first-child:after {
@@ -977,8 +1046,8 @@ div.notices.note p:first-child:after {
 }
 
 div.notices.tip {
-    border-top: 30px solid rgba(92, 184, 92, 0.8);
-    background: #E6F9E6;
+    border-top: 30px solid $notice_tip_title_back_color;
+    background: $notice_tip_body_back_color;
 }
 
 div.notices.tip p:first-child:after {
@@ -993,10 +1062,14 @@ code, kbd, pre, samp {
 code {
     border-radius: 2px;
     white-space: nowrap;
-    color: $main_other_text_color;
-    background: #FFF7DD;
-    border: 1px solid #fbf0cb;
+    color: $main_code_inline_text_color;
+    background: $main_code_inline_back_color;
+    border: 1px solid $main_code_inline_border_color;
     padding: 0px 2px;
+}
+
+.hljs {
+    background: $main_code_block_back_color;
 }
 
 code + .copy-to-clipboard {
@@ -1011,7 +1084,7 @@ code + .copy-to-clipboard {
 pre {
     padding: 1rem;
     margin: 2rem 0;
-    background: #1d1f21;
+    background: $main_code_block_back_color;
     border: 0;
     border-radius: 2px;
     line-height: 1.15;
@@ -1077,18 +1150,20 @@ hr {
 }
 
 table {
-    border: 1px solid #eaeaea;
+    border: 1px solid $table_border_color;
     table-layout: auto;
 }
 
 th {
-    background: #f7f7f7;
+    background: $table_title_back_color;
     padding: 0.5rem;
+    color: $table_title_text_color;
 }
 
 td {
     padding: 0.5rem;
-    border: 1px solid #eaeaea;
+    border: 1px solid $table_border_color;
+    color: $table_body_text_color;
 }
 
 .button {
@@ -1515,7 +1590,7 @@ td {
     vertical-align: middle;
     position: relative;
     color: $main_other_text_color;
-    background-color: #FFF7DD;
+    background-color: $main_code_inline_back_color;
     margin-left: -.2rem;
     cursor: pointer;
     border-radius: 0 2px 2px 0;
@@ -1524,20 +1599,20 @@ td {
 }
 
 .copy-to-clipboard:hover {
-    background-color: #E8E2CD;
+    background-color: $main_code_inline_back_hover_color;
 }
 
 pre .copy-to-clipboard {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: #4d5257;
+    background-color: $main_code_inline_back_color;
     color: #ccc;
     border-radius: 2px;
 }
 
 pre .copy-to-clipboard:hover {
-    background-color: #656c72;
+    background-color: $main_code_inline_back_hover_color;
     color: #fff;
 }
 
@@ -1623,7 +1698,7 @@ pre .copy-to-clipboard:hover {
 }
 
 @media print {
-    #sidebar, #navigation, #top-bar {
+    #sidebar, #navigation, #top-bar, .anchor, #sidebar-toggle-span {
         display:none;
     }
     #navigation * {
