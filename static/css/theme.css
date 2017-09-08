@@ -1,7 +1,10 @@
 @charset "UTF-8";
 /* Functions */
+/* Copied from https://css-tricks.com/snippets/sass/power-function/ */
 /* A scaling factor, will generally increase contrast */
 /* Use sparingly and with caution */
+/* A hacky integer bias factor, to scale more when near mid lightness */
+/* Need not be an integer, scales the bias more when approaching 0 */
 /* Variables */
 /* Side */
 /*Remember:*/
@@ -51,20 +54,20 @@
   color: rgba(0, 0, 0, 0.75) !important; }
 
 .alert-info {
-  background-color: #dae1e4 !important;
-  border-color: #bdc8ce !important; }
+  background-color: white !important;
+  border-color: #e6e6e6 !important; }
 
 .alert-success {
-  background-color: #d7e7d7 !important;
-  border-color: #b7d4b7 !important; }
+  background-color: white !important;
+  border-color: #e6e6e6 !important; }
 
 .alert-warning {
-  background-color: #e6e0be !important;
-  border-color: #d8ce99 !important; }
+  background-color: white !important;
+  border-color: #ccccff !important; }
 
 .alert-danger {
-  background-color: #f3e6e5 !important;
-  border-color: #e2c4c3 !important; }
+  background-color: white !important;
+  border-color: #e6e6e6 !important; }
 
 .panel {
   background-color: #ededed !important; }
@@ -74,46 +77,46 @@
     color: rgba(0, 0, 0, 0.75) !important; }
 
 .panel-primary {
-  border-color: #5e95ba !important; }
+  border-color: #3d6d8d !important; }
 
 .panel-primary > .panel-heading, .panel-footer {
   background-color: #82adc9 !important;
-  border-color: #5e95ba !important; }
+  border-color: #3d6d8d !important; }
 
 .panel-info {
-  border-color: #8a9ea8 !important; }
+  border-color: #667f8b !important; }
 
 .panel-info > .panel-heading, .panel-footer {
   background-color: #a7b6be !important;
-  border-color: #8a9ea8 !important; }
+  border-color: #667f8b !important; }
 
 .panel-success {
-  border-color: #80b380 !important; }
+  border-color: #5a975a !important; }
 
 .panel-success > .panel-heading, .panel-footer {
   background-color: #9fc69f !important;
-  border-color: #80b380 !important; }
+  border-color: #5a975a !important; }
 
 .panel-warning {
-  border-color: #c0af59 !important; }
+  border-color: #928338 !important; }
 
 .panel-warning > .panel-heading, .panel-footer {
   background-color: #cec17e !important;
-  border-color: #c0af59 !important; }
+  border-color: #928338 !important; }
 
 .panel-danger {
-  border-color: #c58987 !important; }
+  border-color: #b46764 !important; }
 
 .panel-danger > .panel-heading, .panel-footer {
   background-color: #d6aaa9 !important;
-  border-color: #c58987 !important; }
+  border-color: #b46764 !important; }
 
 .panel-default {
-  border-color: #a6a6a6 !important; }
+  border-color: #8c8c8c !important; }
 
 .panel-default > .panel-heading, .panel-footer {
   background-color: #bfbfbf !important;
-  border-color: #a6a6a6 !important; }
+  border-color: #8c8c8c !important; }
 
 body {
   font-size: 16px !important;
@@ -317,7 +320,7 @@ figcaption h4 {
 
 .footline {
   margin-top: 3rem;
-  border-top: 1px dashed #1e4d9e;
+  border-top: 1px dashed #194287;
   font-size: smaller; }
 
 #top-github-link, #body #breadcrumbs {
@@ -428,7 +431,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   background: #2053AB;
   color: #fff;
   text-align: center;
-  border-bottom: 1px solid #1e4d9e;
+  border-bottom: 1px solid #194287;
   padding: 1rem; }
 
 #header a {
@@ -444,8 +447,8 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 .searchbox {
   margin-top: 1rem;
   position: relative;
-  border: 1px solid #2155af;
-  background: #1e4d9e;
+  border: 1px solid #2259b7;
+  background: #194287;
   border-radius: 4px; }
 
 .searchbox label {
@@ -557,7 +560,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   font-size: 80%; }
 
 #sidebar .parent li, #sidebar .active li {
-  border-left: 1px solid #d9d9d9; }
+  border-left: 1px solid #f2f2f2; }
 
 #sidebar h5.parent a {
   background: #201b24;
@@ -633,14 +636,14 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   transition: color 0.15s ease; }
 
 #sidebar ul.topics > li.parent a:hover, #sidebar ul.topics > li.active a:hover {
-  color: #d9d9d9;
+  color: #f2f2f2;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
   transition: color 0.15s ease; }
 
 #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
-  background: #1e4d9e;
+  background: #194287;
   margin-left: -1rem;
   margin-right: -1rem;
   padding-left: 1rem;
@@ -831,11 +834,11 @@ h1 {
   font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   text-align: center;
   text-transform: uppercase;
-  color: #090909;
+  color: black;
   font-weight: 200; }
 
 blockquote {
-  border-left: 10px solid #484848; }
+  border-left: 10px solid #595959; }
 
 blockquote p {
   font-size: 1.1rem;
@@ -887,19 +890,19 @@ div.notices.tip p:first-child:after {
 
 div.notices.note {
   border-top: 30px solid #82adc9;
-  background: #9dbed5; }
+  background: #c6dae7; }
 
 div.notices.info {
   border-top: 30px solid #a7b6be;
-  background: #bdc8ce; }
+  background: #d9e0e3; }
 
 div.notices.tip {
   border-top: 30px solid #9fc69f;
-  background: #b7d4b7; }
+  background: #d6e6d6; }
 
 div.notices.warning {
   border-top: 30px solid #d6aaa9;
-  background: #e2c4c3; }
+  background: #eedddd; }
 
 code, kbd, pre, samp {
   font-family: "Consolas", menlo, monospace;
@@ -908,9 +911,9 @@ code, kbd, pre, samp {
 code {
   border-radius: 2px;
   white-space: nowrap;
-  color: #2f2f2f;
+  color: #090909;
   background: #FFF7DD;
-  border: 1px solid #fff1c4;
+  border: 1px solid #fff0be;
   padding: 0px 2px; }
 
 .hljs {
@@ -949,14 +952,14 @@ hr {
   padding: 25px;
   float: left;
   clear: both;
-  background: #1e4d9e;
+  background: #194287;
   color: #fff; }
 
 #body a.anchor-link {
   color: #ccc; }
 
 #body a.anchor-link:hover {
-  color: #1e4d9e; }
+  color: #194287; }
 
 #body-inner .tabs-wrapper.ui-theme-badges {
   background: #1d1f21; }
@@ -995,7 +998,7 @@ td {
   color: #222; }
 
 .button {
-  background: #1e4d9e;
+  background: #194287;
   color: #fff;
   box-shadow: 0 3px 0 #00a5d4; }
 
@@ -1053,7 +1056,7 @@ td {
 
 .bullet-icon {
   float: left;
-  background: #1e4d9e;
+  background: #194287;
   padding: 0.875rem;
   width: 3.5rem;
   height: 3.5rem;
@@ -1063,7 +1066,7 @@ td {
   text-align: center; }
 
 .bullet-icon-1 {
-  background: #1e4d9e; }
+  background: #194287; }
 
 .bullet-icon-2 {
   background: #00f3d8; }
@@ -1353,7 +1356,7 @@ td {
   transition: all 0.35s ease; }
 
 .copy-to-clipboard:hover {
-  background-color: #f8edcb; }
+  background-color: #f7ecc6; }
 
 pre .copy-to-clipboard {
   position: absolute;
@@ -1364,7 +1367,7 @@ pre .copy-to-clipboard {
   border-radius: 2px; }
 
 pre .copy-to-clipboard:hover {
-  background-color: #f8edcb;
+  background-color: #f7ecc6;
   color: #fff; }
 
 .parent-element {
