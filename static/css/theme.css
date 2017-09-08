@@ -929,21 +929,21 @@ code, kbd, pre, samp {
 code {
   border-radius: 2px;
   white-space: nowrap;
-  color: #090909;
-  background: #FFF7DD;
-  border: 1px solid #fff0be;
+  color: white;
+  background: #515151;
+  border: 1px solid #2d2d2d;
   padding: 0px 2px; }
 
 .hljs {
   background: #1d1f21; }
 
 code + .copy-to-clipboard {
-  margin-left: -1px;
+  margin-left: -2px;
   border-left: 0 !important;
   font-size: inherit !important;
   vertical-align: middle;
   height: 21px;
-  top: 0; }
+  top: -1px; }
 
 pre {
   padding: 1rem;
@@ -1352,29 +1352,34 @@ td {
     cursor: pointer; } }
 
 .copy-to-clipboard {
-  background-image: url(../images/clippy.svg);
-  background-position: 50% 50%;
-  background-size: 16px 16px;
-  background-repeat: no-repeat;
-  width: 27px;
-  height: 1.45rem;
-  top: -1px;
   display: inline-block;
-  vertical-align: middle;
   position: relative;
   color: #d4d4d4;
-  background-color: #FFF7DD;
-  margin-left: -.2rem;
+  background-color: #515151;
+  text-align: center;
   cursor: pointer;
   border-radius: 0 2px 2px 0;
-  margin-bottom: 1px;
+  padding: 0.1rem;
+  border: 1px solid #2d2d2d;
   -webkit-transition: all 0.15s ease;
   -moz-transition: all 0.15s ease;
   -ms-transition: all 0.15s ease;
   transition: all 0.15s ease; }
 
 .copy-to-clipboard:hover {
-  background-color: #f7ecc6; }
+  background-color: #484848; }
+
+.clippy-icon {
+  padding-left: 6px;
+  padding-right: 4px;
+  padding-bottom: 1px;
+  pointer-events: none;
+  vertical-align: top;
+  height: 100%; }
+
+.clippy-svg {
+  fill: white !important;
+  pointer-events: none; }
 
 pre .copy-to-clipboard {
   position: absolute;

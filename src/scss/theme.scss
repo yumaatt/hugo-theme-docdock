@@ -122,10 +122,10 @@ $main_block_quote_border_color: lshift_main($main_text_color, -15%, -15%);
 
 /* Code */
 
-$main_code_inline_back_color: #FFF7DD;
+$main_code_inline_back_color: lshift_main($main_back_color, 7%, 7%);
 $main_code_inline_text_color: lshift_main(hsl(0, 0, lightness($main_code_inline_back_color)), -75%, 75%);
-$main_code_inline_border_color: lshift_main($main_code_inline_back_color, -5%, 5%);
-$main_code_inline_back_hover_color: desaturate(lshift_main($main_code_inline_back_color, -5%, 5%), 25%);
+$main_code_inline_border_color: lshift_main($main_code_inline_back_color, -6%, 6%);
+$main_code_inline_back_hover_color: desaturate(lshift_main($main_code_inline_back_color, -1.5%, 1.5%), 25%);
 
 $main_code_block_back_color: #1d1f21;
 
@@ -417,7 +417,7 @@ body {
 .anchor {
     color: $main_link_color;
     font-size: 0.5em;
-    cursor:pointer;
+    cursor: pointer;
     visibility:hidden;
     margin-left: 0.5em;
     position: absolute;
@@ -1193,12 +1193,12 @@ code {
 }
 
 code + .copy-to-clipboard {
-    margin-left: -1px;
+    margin-left: -2px;
     border-left: 0 !important;
     font-size: inherit !important;
     vertical-align: middle;
     height: 21px;
-    top: 0;
+    top: -1px;
 }
 
 pre {
@@ -1699,27 +1699,34 @@ td {
 }
 
 .copy-to-clipboard {
-    background-image: url(../images/clippy.svg);
-    background-position: 50% 50%;
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    width: 27px;
-    height: 1.45rem;
-    top: -1px;
     display: inline-block;
-    vertical-align: middle;
     position: relative;
     color: $main_other_text_color;
     background-color: $main_code_inline_back_color;
-    margin-left: -.2rem;
+    text-align: center;
     cursor: pointer;
     border-radius: 0 2px 2px 0;
-    margin-bottom: 1px;
+    padding: 0.1rem;
+    border: 1px solid $main_code_inline_border_color;
     @include transition(all $time_short_fade ease);
 }
 
 .copy-to-clipboard:hover {
     background-color: $main_code_inline_back_hover_color;
+}
+
+.clippy-icon {
+    padding-left: 6px;
+    padding-right: 4px;
+    padding-bottom: 1px;
+    pointer-events: none;
+    vertical-align: top;
+    height: 100%;
+}
+
+.clippy-svg {
+    fill: $main_code_inline_text_color !important;
+    pointer-events: none;
 }
 
 pre .copy-to-clipboard {
