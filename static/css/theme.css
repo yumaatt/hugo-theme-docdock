@@ -61,24 +61,25 @@ main uses main back color as reference, side uses side back color as reference
 #TableOfContents > ul > li > ul > li > ul > li > ul > li > ul > li {
   display: none; }
 
-.alert {
-  color: rgba(255, 255, 255, 0.75) !important; }
-
 .alert-info {
   background-color: #166d98 !important;
-  border-color: #21a0df !important; }
+  border-color: #21a0df !important;
+  color: rgba(201, 232, 247, 0.9925) !important; }
 
 .alert-success {
   background-color: #438d35 !important;
-  border-color: #6ac15b !important; }
+  border-color: #6ac15b !important;
+  color: rgba(215, 238, 211, 0.9925) !important; }
 
 .alert-warning {
   background-color: #877413 !important;
-  border-color: #c9ad1d !important; }
+  border-color: #c9ad1d !important;
+  color: rgba(247, 240, 201, 0.9925) !important; }
 
 .alert-danger {
   background-color: #9d2e2e !important;
-  border-color: #cf5858 !important; }
+  border-color: #cf5858 !important;
+  color: rgba(241, 208, 208, 0.9925) !important; }
 
 .panel {
   background-color: #323232 !important; }
@@ -153,7 +154,7 @@ body {
   content: "";
   height: 1px;
   width: 0%;
-  background-color: #a3a3a3;
+  background-color: #ececec;
   -webkit-transition: width 0.35s ease;
   -moz-transition: width 0.35s ease;
   -ms-transition: width 0.35s ease;
@@ -257,7 +258,7 @@ body {
 
 /* anchors */
 .anchor {
-  color: #a0a0a0;
+  color: #d9d9d9;
   font-size: 0.5em;
   cursor: pointer;
   visibility: hidden;
@@ -270,7 +271,7 @@ body {
   transition: color 0.35s ease; }
 
 .anchor:hover {
-  color: #a3a3a3;
+  color: #ececec;
   -webkit-transition: color 0.35s ease;
   -moz-transition: color 0.35s ease;
   -ms-transition: color 0.35s ease;
@@ -389,14 +390,14 @@ body #chapter h1 {
     font-size: 2rem; } }
 
 a {
-  color: #a0a0a0;
+  color: #d9d9d9;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
   transition: color 0.15s ease; }
 
 a:hover {
-  color: #a3a3a3;
+  color: #ececec;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
@@ -930,8 +931,8 @@ code {
   border-radius: 2px;
   white-space: nowrap;
   color: white;
-  background: #515151;
-  border: 1px solid #2d2d2d;
+  background: rgba(81, 81, 81, 0.5);
+  border: 1px solid rgba(45, 45, 45, 0.5);
   padding: 0px 2px; }
 
 .hljs {
@@ -1355,19 +1356,19 @@ td {
   display: inline-block;
   position: relative;
   color: #d4d4d4;
-  background-color: #515151;
+  background-color: rgba(81, 81, 81, 0.5);
   text-align: center;
   cursor: pointer;
   border-radius: 0 2px 2px 0;
   padding: 0.1rem;
-  border: 1px solid #2d2d2d;
+  border: 1px solid rgba(45, 45, 45, 0.5);
   -webkit-transition: all 0.15s ease;
   -moz-transition: all 0.15s ease;
   -ms-transition: all 0.15s ease;
   transition: all 0.15s ease; }
 
 .copy-to-clipboard:hover {
-  background-color: #484848; }
+  background-color: rgba(72, 72, 72, 0.5); }
 
 .clippy-icon {
   padding-left: 6px;
