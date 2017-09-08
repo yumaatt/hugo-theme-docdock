@@ -78,16 +78,16 @@ $side_back_color: #2053AB; /* #2053AB */
 $side_text_color: #fff;
 
 $side_link_color: $side_text_color;
-$side_link_hover_color: lshift_side($side_text_color, -25%, -25%);
+$side_link_hover_color: lshift_side($side_text_color, -12%, -12%);
 
-$side_shadow_color: lshift_side($side_back_color, -3%, 3%);
-$side_highlight_color: lshift_side($side_back_color, 1%, -1%);
+$side_shadow_color: lshift_side($side_back_color, -3.5%, 3.5%);
+$side_highlight_color: lshift_side($side_back_color, 9%, -9%);
 
 $side_focus_back_color: $side_shadow_color;
 $side_active_back_color: lshift_side($side_focus_back_color, 100%, 4%);
 
 $side_focus_text_color: $side_text_color;
-$side_focus_text_hover_color: lshift_side($side_link_hover_color, 10%, 10%);
+$side_focus_text_hover_color: lshift_side($side_link_hover_color, 1.5%, 1.5%);
 
 $side_active_text_color: lshift_side($side_focus_text_color, -50%, 50%);
 $side_active_text_hover_color: $side_active_text_color;
@@ -96,14 +96,14 @@ $side_active_text_hover_color: $side_active_text_color;
 $main_back_color: #fff;
 $main_text_color: #222;
 
-$main_link_color: lshift_main($main_text_color, -15%, 15%);
-$main_link_hover_color: lshift_main($main_link_color, 15%, -10%);
+$main_link_color: #2053AB;
+$main_link_hover_color: adjust-hue(lshift_main($main_link_color, 0.5%, -0.5%), -20);
 
-$main_shadow_color: lshift_main($main_back_color, -2%, 5%);
+$main_shadow_color: lshift_main($main_back_color, -2%, 3%);
 $main_highlight_color: lshift_main($main_back_color, 5%, -2%);
 
 $main_title_text_color: lshift_main($main_text_color, 10%, 10%);
-$main_other_text_color: lshift_main($main_text_color, 15%, 15%);
+$main_other_text_color: lshift_main($main_text_color, -17%, -17%);
 
 $main_block_quote_border_color: lshift_main($main_text_color, -15%, -15%);
 
@@ -118,46 +118,52 @@ $main_code_block_back_color: #1d1f21;
 
 /* Table */
 
-$table_title_back_color: lshift_main($main_back_color, 5%, 5%);
+$table_title_back_color: lshift_main($main_back_color, 3.5%, 3.5%);
 $table_title_text_color: $main_text_color;
 $table_border_color: lshift_main($main_back_color, 10%, 10%);
 $table_body_text_color: $main_text_color;
 
 /* Common Theming */
-
+/* TODO: Make text color back dependant (color and lshift) */
 $theme_map: (
-    "success": hsl(120 , 25%, lightness(lshift_main($main_back_color, 30%, 30%))),
-    "default": hsl(0 , 0%, lightness(lshift_main($main_back_color, 25%, 25%))),
-    "info": hsl(200 , 15%, lightness(lshift_main($main_back_color, 45%, 30%))),
-    "note": hsl(204 , 40%, lightness(lshift_main($main_back_color, 35%, 35%))),
-    "warning": hsl(50 , 45%, lightness(lshift_main($main_back_color, 30%, 35%))),
-    "error": hsl(2 , 35%, lightness(lshift_main($main_back_color, 25%, 25%))),
+    "success": hsl(111 , 45%, lightness(lshift_main($main_back_color, 15%, 15%))),
+    "default": hsl(0 , 0%, lightness(lshift_main($main_back_color, 7.5%, 7.5%))),
+    "info": hsl(200 , 75%, lightness(lshift_main($main_back_color, 12.5%, 12.5%))),
+    "info_alt": hsl(28 , 85%, lightness(lshift_main($main_back_color, 9%, 9%))),
+    "note": hsl(204 , 70%, lightness(lshift_main($main_back_color, 13.5%, 13.5%))),
+    "primary": hsl(208 , 56%, lightness(lshift_main($main_back_color, 61%, 61%))),
+    "warning": hsl(50 , 75%, lightness(lshift_main($main_back_color, 10%, 10%))),
+    "error": hsl(0 , 55%, lightness(lshift_main($main_back_color, 12%, 12%))),
 );
 
 /* Notices */
 
-$notice_back_lshift: -7.5%;
+$notice_body_back_lshift: -5.5%;
+$notice_body_back_saturate: 5%;
+$notice_header_back_lshift: 15%;
+$notice_header_back_saturate: -5%;
 
 $notice_text_body_color: $main_text_color;
-$notice_text_title_color: $main_text_color;
+$notice_text_title_color: $main_back_color;
 
 $notice_map: (
     "note": note,
-    "info": info,
+    "info": info_alt,
     "tip": success,
     "warning": error
 );
 
 /* Panels */
 
-$panel_border_lshift: 10%;
+$panel_border_lshift: 3.75%;
+$panel_back_lshift: -2.55%;
 
-$panel_body_back_color: lshift_main($main_back_color, 7%, 7%);
+$panel_body_back_color: lshift_main($main_back_color, 0%, 0%);
 $panel_body_text_color: $main_text_color;
-$panel_title_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.25);
+$panel_title_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.45);
 
 $panel_map: (
-    "primary": note,
+    "primary": primary,
     "info": info,
     "success": success,
     "warning": warning,
@@ -167,10 +173,10 @@ $panel_map: (
 
 /* Alerts */
 
-$alert_border_lshift: 10%;
-$alert_back_lshift: -17.5%;
+$alert_border_lshift: 6.5%;
+$alert_back_lshift: -2.5%;
 
-$alert_body_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.25);
+$alert_body_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.45);
 
 $alert_map: (
     "info": info,
@@ -180,8 +186,8 @@ $alert_map: (
 );
 
 /* Top bar */
-$topbar_back_color: lshift_main($main_back_color, 7.5%, 5%);
-$topbar_shadow_opacity: 0.075;
+$topbar_back_color: lshift_main($main_back_color, 7.5%, 3.2%);
+$topbar_shadow_opacity: 0.1;
 
 $time_short_fade: 0.15s;
 $time_long_fade: 0.35s;
@@ -264,7 +270,7 @@ $option_link_expand: center;
 }
 
 @each $panel_name, $panel_theme in $panel_map {
-    $panel_back_temp: map-get($theme_map, $panel_theme);
+    $panel_back_temp: lshift_main(map-get($theme_map, $panel_theme), $panel_back_lshift, $panel_back_lshift);
     $panel_border_temp: lshift_main($panel_back_temp, $panel_border_lshift, $panel_border_lshift);
     .panel-#{$panel_name} {
         border-color: $panel_border_temp !important;
@@ -1153,8 +1159,8 @@ div.notices.tip p:first-child:after {
 
 @each $notice_name, $notice_theme in $notice_map {
     div.notices.#{$notice_name} {
-        border-top: 30px solid map-get($theme_map, $notice_theme);
-        background: lshift_main(map-get($theme_map, $notice_theme), $notice_back_lshift, $notice_back_lshift);
+        border-top: 30px solid adjust-color(lshift_main(map-get($theme_map, $notice_theme), $notice_header_back_lshift, $notice_header_back_lshift), $saturation: $notice_header_back_saturate);
+        background: adjust-color(lshift_main(map-get($theme_map, $notice_theme), $notice_body_back_lshift, $notice_body_back_lshift), $saturation: $notice_body_back_saturate);
     }
 }
 
