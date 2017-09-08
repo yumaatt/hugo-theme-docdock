@@ -18,6 +18,11 @@
   @return $value;
 }
 
+/*
+Fudge Values
+These are all a means of globally tweaking lightness shifting. Use with caution.
+*/
+
 /* A scaling factor, will generally increase contrast */
 /* Use sparingly and with caution */
 $lshift_global_scale: 1;
@@ -65,6 +70,12 @@ $lshift_side_scale: 1;
     @return lshift($side_back_color, $value, $lighten_amount * $lshift_side_scale, $darken_amount * $lshift_side_scale);
 }
 
+/*
+lshift functions take a color, then an amount to lighten by (when reference is
+dark), then an amount to darken by (when reference is light).
+main uses main back color as reference, side uses side back color as reference
+*/
+
 /* Variables */
 
 /* Side */
@@ -73,12 +84,14 @@ $lshift_side_scale: 1;
 /*active is the current page*/
 /*focus is a group*/
 
-$side_back_color: #2053AB; /* #2053AB */
+$side_back_color: #323232; /* #2053AB */
 
 $side_text_color: #fff;
 
 $side_link_color: $side_text_color;
 $side_link_hover_color: lshift_side($side_text_color, -12%, -12%);
+
+$side_link_extra_color: lshift_side($side_text_color, -50%, -50%);
 
 $side_shadow_color: lshift_side($side_back_color, -3.5%, 3.5%);
 $side_highlight_color: lshift_side($side_back_color, 9%, -9%);
@@ -93,10 +106,10 @@ $side_active_text_color: lshift_side($side_focus_text_color, -50%, 50%);
 $side_active_text_hover_color: $side_active_text_color;
 
 /* Main */
-$main_back_color: #fff;
-$main_text_color: #222;
+$main_back_color: #323232;
+$main_text_color: #fff; /* #323232 */
 
-$main_link_color: #2053AB;
+$main_link_color: lshift_side($side_back_color, 25%, 25%);
 $main_link_hover_color: adjust-hue(lshift_main($main_link_color, 0.5%, -0.5%), -20);
 
 $main_shadow_color: lshift_main($main_back_color, -2%, 3%);
@@ -131,19 +144,19 @@ $theme_map: (
     "info": hsl(200 , 75%, lightness(lshift_main($main_back_color, 12.5%, 12.5%))),
     "info_alt": hsl(28 , 85%, lightness(lshift_main($main_back_color, 9%, 9%))),
     "note": hsl(204 , 70%, lightness(lshift_main($main_back_color, 13.5%, 13.5%))),
-    "primary": hsl(208 , 56%, lightness(lshift_main($main_back_color, 61%, 61%))),
+    "primary": hsl(208 , 56%, lightness(lshift_main($main_text_color, -30%, -30%))),
     "warning": hsl(50 , 75%, lightness(lshift_main($main_back_color, 10%, 10%))),
-    "error": hsl(0 , 55%, lightness(lshift_main($main_back_color, 12%, 12%))),
+    "error": hsl(0 , 55%, lightness(lshift_main($main_back_color, 16%, 12%))),
 );
 
 /* Notices */
 
-$notice_body_back_lshift: -5.5%;
+$notice_body_back_lshift: ( -5.5%, -5.5% );
 $notice_body_back_saturate: 5%;
-$notice_header_back_lshift: 15%;
+$notice_header_back_lshift: ( 10%, 15% );
 $notice_header_back_saturate: -5%;
 
-$notice_text_body_color: $main_text_color;
+$notice_text_body_color: transparentize(lshift_main($main_text_color, -10%, -10%), 0.5);
 $notice_text_title_color: $main_back_color;
 
 $notice_map: (
@@ -160,7 +173,7 @@ $panel_back_lshift: -2.55%;
 
 $panel_body_back_color: lshift_main($main_back_color, 0%, 0%);
 $panel_body_text_color: $main_text_color;
-$panel_title_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.45);
+$panel_title_text_color: transparentize(lshift_main($main_text_color, -15%, -15%), 0.25);
 
 $panel_map: (
     "primary": primary,
@@ -176,7 +189,7 @@ $panel_map: (
 $alert_border_lshift: 6.5%;
 $alert_back_lshift: -2.5%;
 
-$alert_body_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.45);
+$alert_body_text_color: transparentize(lshift_main($main_text_color, 15%, 15%), 0.25);
 
 $alert_map: (
     "info": info,
@@ -262,11 +275,6 @@ $option_link_expand: center;
     &-body {
         color: $panel_body_text_color !important;
     }
-
-    &-heading {
-        color: $panel_title_text_color !important;
-    }
-
 }
 
 @each $panel_name, $panel_theme in $panel_map {
@@ -278,6 +286,7 @@ $option_link_expand: center;
     .panel-#{$panel_name} > .panel-heading, .panel-footer {
         background-color: $panel_back_temp !important;
         border-color: $panel_border_temp !important;
+        color: transparentize(hsl(hue($panel_back_temp), saturation($panel_back_temp)*0.5, lightness($panel_title_text_color), ), opacity($panel_title_text_color) / 100%) !important;
     }
 }
 
@@ -761,7 +770,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #sidebar .parent li, #sidebar .active li {
-    border-left: 1px solid $side_focus_text_hover_color;
+    border-left: 1px solid $side_link_extra_color;
 }
 
 #sidebar h5.parent a {
@@ -844,8 +853,8 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     font-weight: normal;
 }
 
-#sidebar ul.topics > li > a .fa {
-    /*margin-top: 9px;*/
+#sidebar ul li .category-icon {
+    color: $side_link_extra_color;
 }
 
 #sidebar ul.topics > li.parent a, #sidebar ul.topics > li.active a {
@@ -1122,7 +1131,6 @@ div.notices p {
     font-size: 1rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
-    color: $notice_text_body_color;
 }
 
 div.notices p:first-child:before {
@@ -1158,9 +1166,11 @@ div.notices.tip p:first-child:after {
 }
 
 @each $notice_name, $notice_theme in $notice_map {
+    $notice_back_temp: adjust-color(lshift_main(map-get($theme_map, $notice_theme), nth($notice_body_back_lshift, 1), nth($notice_body_back_lshift, 2)), $saturation: $notice_body_back_saturate);
     div.notices.#{$notice_name} {
-        border-top: 30px solid adjust-color(lshift_main(map-get($theme_map, $notice_theme), $notice_header_back_lshift, $notice_header_back_lshift), $saturation: $notice_header_back_saturate);
-        background: adjust-color(lshift_main(map-get($theme_map, $notice_theme), $notice_body_back_lshift, $notice_body_back_lshift), $saturation: $notice_body_back_saturate);
+        border-top: 30px solid adjust-color(lshift_main(map-get($theme_map, $notice_theme), nth($notice_header_back_lshift, 1), nth($notice_header_back_lshift, 2)), $saturation: $notice_header_back_saturate);
+        background: $notice_back_temp;
+        color: transparentize(hsl(hue($notice_back_temp), saturation($notice_back_temp)/1.5, lightness($notice_text_body_color), ), opacity($notice_text_body_color) / 100%) !important;
     }
 }
 
@@ -1705,7 +1715,7 @@ td {
     cursor: pointer;
     border-radius: 0 2px 2px 0;
     margin-bottom: 1px;
-    @include transition(all $time_long_fade ease);
+    @include transition(all $time_short_fade ease);
 }
 
 .copy-to-clipboard:hover {
@@ -1716,13 +1726,13 @@ pre .copy-to-clipboard {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: $main_code_inline_back_color;
+    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 15%, 15%);
     color: #ccc;
     border-radius: 2px;
 }
 
 pre .copy-to-clipboard:hover {
-    background-color: $main_code_inline_back_hover_color;
+    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 22%, 22%);
     color: #fff;
 }
 
@@ -1748,6 +1758,7 @@ pre .copy-to-clipboard:hover {
     float: left;
     top: 12px;
     left: -10px;
+    color: $side_link_extra_color;
 }
 
 #sidebar ul li.visited.active > a .read-icon {
