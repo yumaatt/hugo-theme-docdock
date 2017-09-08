@@ -41,7 +41,7 @@ $lshift_global_fudge: 0.5;
 
     $lshift_internal_lightness: lightness($reference);
 
-    $lshift_internal_bias: fudge_center(lightness($value) / 100%);
+    $lshift_internal_bias: $lshift_global_scale * fudge_center(lightness($value) / 100%);
 
     @if $lshift_internal_lightness < 50% {
         @if abs($lighten_amount * $lshift_internal_bias) > 100 {
