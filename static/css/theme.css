@@ -950,7 +950,7 @@ pre {
   padding: 1rem;
   margin: 2rem 0;
   background: #1d1f21;
-  border: 0;
+  border: 1px solid #272a2c;
   border-radius: 2px;
   line-height: 1.15; }
 
@@ -1463,7 +1463,7 @@ pre .copy-to-clipboard:hover {
   margin-top: 5px; }
 
 @media print {
-  #sidebar, #navigation, #top-bar, .anchor, #sidebar-toggle-span {
+  #sidebar, #navigation, #top-bar, .anchor, #sidebar-toggle-span, .copy-to-clipboard {
     display: none; }
   #navigation * {
     display: none;
@@ -1472,8 +1472,12 @@ pre .copy-to-clipboard:hover {
     margin-bottom: 0px; }
   #footer, .footline {
     margin-top: 1px; }
-  body {
+  body, a {
     font-size: 120%;
-    color: red; }
+    color: black !important;
+    background: none !important; }
+  h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+    background: none !important; }
   #body {
     margin-left: 0px; } }
