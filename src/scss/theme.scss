@@ -84,7 +84,7 @@ main uses main back color as reference, side uses side back color as reference
 /*active is the current page*/
 /*focus is a group*/
 
-$side_back_color: #323232; /* #2053AB */
+$side_back_color: #5c3566; /* #2053AB */
 
 $side_text_color: #fff;
 
@@ -97,20 +97,20 @@ $side_shadow_color: lshift_side($side_back_color, -3.5%, 3.5%);
 $side_highlight_color: lshift_side($side_back_color, 9%, -9%);
 
 $side_focus_back_color: $side_shadow_color;
-$side_active_back_color: lshift_side($side_focus_back_color, 100%, 4%);
+$side_active_back_color: lshift_side($side_focus_back_color, -1.5%, -1.5%);
 
 $side_focus_text_color: $side_text_color;
 $side_focus_text_hover_color: lshift_side($side_link_hover_color, 1.5%, 1.5%);
 
-$side_active_text_color: lshift_side($side_focus_text_color, -50%, 50%);
-$side_active_text_hover_color: $side_active_text_color;
+$side_active_text_color: lshift_side($side_focus_text_color, -10%, 10%);
+$side_active_text_hover_color: lshift_side($side_active_text_color, 7%, -7%);
 
 /* Main */
-$main_back_color: #323232;
-$main_text_color: #fff; /* #323232 */
+$main_back_color: #fff;
+$main_text_color: #323232; /* #323232 */
 
-$main_link_color: lshift_side($main_text_color, -15%, 15%);
-$main_link_hover_color: adjust-hue(lshift_main($main_link_color, 5%, -5%), -20);
+$main_link_color: $side_back_color;
+$main_link_hover_color: adjust-hue(lshift_main($main_link_color, 7%, -7%), -20);
 
 $main_shadow_color: lshift_main($main_back_color, -2%, 3%);
 $main_highlight_color: lshift_main($main_back_color, 5%, -2%);
@@ -125,7 +125,7 @@ $main_block_quote_border_color: lshift_main($main_text_color, -15%, -15%);
 $main_code_inline_back_color: transparentize(lshift_main($main_back_color, 7%, 7%), 0.5);
 $main_code_inline_text_color: lshift_main(hsl(0, 0, lightness($main_code_inline_back_color)), -75%, 75%);
 $main_code_inline_border_color: lshift_main($main_code_inline_back_color, -6%, 6%);
-$main_code_inline_back_hover_color: desaturate(lshift_main($main_code_inline_back_color, -1.5%, 1.5%), 25%);
+$main_code_inline_back_hover_color: desaturate(lshift_main($main_code_inline_back_color, -3%, 3%), 25%);
 
 $main_code_block_back_color: #1d1f21;
 $main_code_block_border_color: lshift_main($main_code_block_back_color, 3%, -3%);
@@ -1084,10 +1084,15 @@ body {
     font-weight: normal;
     line-height: 1.6;
     font-size: 18px !important;
+
+    strong {
+        font-family: "Lato Bold", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+        font-weight: bold;
+    }
 }
 
 h2, h3, h4, h5, h6 {
-    font-family: "Lato", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Lato", "Work Sans Bold", "Helvetica Bold", "Tahoma Bold", "Geneva Bold", "Arial Bold", sans-serif;
     text-rendering: optimizeLegibility;
     color: $main_other_text_color;
     font-weight: 400;
@@ -1731,13 +1736,14 @@ pre .copy-to-clipboard {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 15%, 15%);
+    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 25%, 25%);
     color: #ccc;
+    border: 1px solid $main_code_block_border_color;
     border-radius: 2px;
 }
 
 pre .copy-to-clipboard:hover {
-    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 22%, 22%);
+    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 28%, 28%);
     color: #fff;
 }
 
@@ -1840,11 +1846,11 @@ pre .copy-to-clipboard:hover {
     body, a {
         font-size: 120%;
         color: black !important;
-        background: none !important
+        background: white !important
     }
     h1, h2, h3, h4, h5, h6 {
         color: black !important;
-        background: none !important
+        background: white !important
     }
     #body{
         margin-left: 0px;
