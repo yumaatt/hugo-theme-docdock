@@ -122,7 +122,7 @@ $main_block_quote_border_color: lshift_main($main_text_color, -15%, -15%);
 
 /* Code */
 
-$main_code_inline_back_color: transparentize(lshift_main($main_back_color, 7%, 7%), 0.5);
+$main_code_inline_back_color: lshift_main($main_back_color, 4%, 4%);
 $main_code_inline_text_color: lshift_main(hsl(0, 0, lightness($main_code_inline_back_color)), -75%, 75%);
 $main_code_inline_border_color: lshift_main($main_code_inline_back_color, -6%, 6%);
 $main_code_inline_back_hover_color: desaturate(lshift_main($main_code_inline_back_color, -3%, 3%), 25%);
@@ -275,16 +275,20 @@ $option_link_expand: center;
     }
 }
 
+/* This feels so wrong... I'm re-theming bootstrap in here, there has to be a cleaner way. */
+/* TODO: Build bootstrap with the rest of the CSS. */
 @each $panel_name, $panel_theme in $panel_map {
     $panel_back_temp: lshift_main(map-get($theme_map, $panel_theme), $panel_back_lshift, $panel_back_lshift);
     $panel_border_temp: lshift_main($panel_back_temp, $panel_border_lshift, $panel_border_lshift);
     .panel-#{$panel_name} {
         border-color: $panel_border_temp !important;
     }
-    .panel-#{$panel_name} > .panel-heading, .panel-footer {
-        background-color: $panel_back_temp !important;
-        border-color: $panel_border_temp !important;
-        color: transparentize(hsl(hue($panel_back_temp), saturation($panel_back_temp)*0.5, lightness($panel_title_text_color), ), opacity($panel_title_text_color) / 100%) !important;
+    .panel-#{$panel_name} > {
+        .panel-heading, .panel-footer {
+            background-color: $panel_back_temp;
+            border-color: $panel_border_temp;
+            color: transparentize(hsl(hue($panel_back_temp), saturation($panel_back_temp)*0.5, lightness($panel_title_text_color), ), opacity($panel_title_text_color) / 100%);
+        }
     }
 }
 
