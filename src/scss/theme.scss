@@ -84,7 +84,7 @@ main uses main back color as reference, side uses side back color as reference
 /*active is the current page*/
 /*focus is a group*/
 
-$side_back_color: #5c3566; /* #2053AB */
+$side_back_color: #2053AB; /* #2053AB */
 
 $side_text_color: #fff;
 
@@ -97,12 +97,12 @@ $side_shadow_color: lshift_side($side_back_color, -3.5%, 3.5%);
 $side_highlight_color: lshift_side($side_back_color, 9%, -9%);
 
 $side_focus_back_color: $side_shadow_color;
-$side_active_back_color: lshift_side($side_focus_back_color, -1.5%, -1.5%);
+$side_active_back_color: lshift_side($side_focus_back_color, -100%, -1.5%);
 
 $side_focus_text_color: $side_text_color;
 $side_focus_text_hover_color: lshift_side($side_link_hover_color, 1.5%, 1.5%);
 
-$side_active_text_color: lshift_side($side_focus_text_color, -10%, 10%);
+$side_active_text_color: lshift_side($side_focus_text_color, -50%, 10%);
 $side_active_text_hover_color: lshift_side($side_active_text_color, 7%, -7%);
 
 /* Main */
@@ -110,20 +110,20 @@ $main_back_color: #fff;
 $main_text_color: #323232; /* #323232 */
 
 $main_link_color: $side_back_color;
-$main_link_hover_color: adjust-hue(lshift_main($main_link_color, 7%, -7%), -20);
+$main_link_hover_color: adjust-hue(lshift_main($main_link_color, 7%, -1.5%), -20);
 
 $main_shadow_color: lshift_main($main_back_color, -2%, 3%);
 $main_highlight_color: lshift_main($main_back_color, 5%, -2%);
 
 $main_title_text_color: lshift_main($main_text_color, 10%, 10%);
-$main_other_text_color: lshift_main($main_text_color, -17%, -17%);
+$main_other_text_color: lshift_main($main_text_color, -17%, -10%);
 
-$main_block_quote_border_color: lshift_main($main_text_color, -15%, -15%);
+$main_block_quote_border_color: lshift_main($main_back_color, 5%, 5%);
 
 /* Code */
 
-$main_code_inline_back_color: lshift_main($main_back_color, 4%, 4%);
-$main_code_inline_text_color: lshift_main(hsl(0, 0, lightness($main_code_inline_back_color)), -75%, 75%);
+$main_code_inline_back_color: #FFF7DD; /* #FFF7DD */
+$main_code_inline_text_color: lshift_main(hsl(0, 0, lightness($main_code_inline_back_color)), -46%, 46%);
 $main_code_inline_border_color: lshift_main($main_code_inline_back_color, -6%, 6%);
 $main_code_inline_back_hover_color: desaturate(lshift_main($main_code_inline_back_color, -3%, 3%), 25%);
 
@@ -187,6 +187,7 @@ $panel_map: (
 
 /* Alerts */
 
+/* TODO: Turn into maps like with notices */
 $alert_border_lshift: 6.5%;
 $alert_back_lshift: -2.5%;
 
@@ -214,8 +215,7 @@ $button_text_hover_color: lshift_main($main_back_color, 100%, 100%);
 /* Options */
 
 /* Where link underline should expand from: 'left', 'center', or 'right' */
-/* Defaults to left */
-$option_link_expand: center;
+$option_link_expand: left;
 
 /* Mixins */
 
@@ -276,7 +276,7 @@ $option_link_expand: center;
 }
 
 /* This feels so wrong... I'm re-theming bootstrap in here, there has to be a cleaner way. */
-/* TODO: Build bootstrap with the rest of the CSS. */
+/* TODO: Build bootstrap with the rest of the CSS? */
 @each $panel_name, $panel_theme in $panel_map {
     $panel_back_temp: lshift_main(map-get($theme_map, $panel_theme), $panel_back_lshift, $panel_back_lshift);
     $panel_border_temp: lshift_main($panel_back_temp, $panel_border_lshift, $panel_border_lshift);
@@ -1732,7 +1732,9 @@ td {
 }
 
 .clippy-svg {
-    fill: $main_code_inline_text_color !important;
+/* TODO: Fix this so clippy fill colour is differnt when in block, not inline */
+/*    fill: $main_code_inline_text_color !important;*/
+    fill: black !important;
     pointer-events: none;
 }
 
@@ -1740,14 +1742,14 @@ pre .copy-to-clipboard {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 25%, 25%);
+    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 15%, 15%);
     color: #ccc;
     border: 1px solid $main_code_block_border_color;
     border-radius: 2px;
 }
 
 pre .copy-to-clipboard:hover {
-    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 28%, 28%);
+    background-color: lshift($main_code_block_back_color, $main_code_block_back_color, 20%, 20%);
     color: #fff;
 }
 

@@ -23,17 +23,18 @@ main uses main back color as reference, side uses side back color as reference
 /* Main */
 /* #323232 */
 /* Code */
+/* #FFF7DD */
 /* Table */
 /* Common Theming */
 /* TODO: Make text color back dependant (color and lshift) */
 /* Notices */
 /* Panels */
 /* Alerts */
+/* TODO: Turn into maps like with notices */
 /* Top bar */
 /* Buttons */
 /* Options */
 /* Where link underline should expand from: 'left', 'center', or 'right' */
-/* Defaults to left */
 /* Mixins */
 /* Table of contents */
 .progress ul {
@@ -87,7 +88,7 @@ main uses main back color as reference, side uses side back color as reference
     color: #323232 !important; }
 
 /* This feels so wrong... I'm re-theming bootstrap in here, there has to be a cleaner way. */
-/* TODO: Build bootstrap with the rest of the CSS. */
+/* TODO: Build bootstrap with the rest of the CSS? */
 .panel-primary {
   border-color: #87b5dd !important; }
 
@@ -150,13 +151,13 @@ body {
   display: inline-block; }
 
 #body a.highlight:after {
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
   display: block;
   content: "";
   height: 1px;
   width: 0%;
-  background-color: #74519c;
+  background-color: #238fbd;
   -webkit-transition: width 0.35s ease;
   -moz-transition: width 0.35s ease;
   -ms-transition: width 0.35s ease;
@@ -260,7 +261,7 @@ body {
 
 /* anchors */
 .anchor {
-  color: #5c3566;
+  color: #2053AB;
   font-size: 0.5em;
   cursor: pointer;
   visibility: hidden;
@@ -273,7 +274,7 @@ body {
   transition: color 0.35s ease; }
 
 .anchor:hover {
-  color: #74519c;
+  color: #238fbd;
   -webkit-transition: color 0.35s ease;
   -moz-transition: color 0.35s ease;
   -ms-transition: color 0.35s ease;
@@ -338,7 +339,7 @@ figcaption h4 {
 
 .footline {
   margin-top: 3rem;
-  border-top: 1px dashed #44274b;
+  border-top: 1px dashed #183f81;
   font-size: smaller; }
 
 #top-github-link, #body #breadcrumbs {
@@ -392,14 +393,14 @@ body #chapter h1 {
     font-size: 2rem; } }
 
 a {
-  color: #5c3566;
+  color: #2053AB;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
   transition: color 0.15s ease; }
 
 a:hover {
-  color: #74519c;
+  color: #238fbd;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
@@ -442,14 +443,14 @@ textarea:hover, input[type="email"]:hover, input[type="number"]:hover, input[typ
   border-color: #c4c4c4; }
 
 textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
-  border-color: #5c3566;
+  border-color: #2053AB;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(0, 169, 218, 0.7); }
 
 #header-wrapper {
-  background: #5c3566;
+  background: #2053AB;
   color: #fff;
   text-align: center;
-  border-bottom: 1px solid #44274b;
+  border-bottom: 1px solid #183f81;
   padding: 1rem; }
 
 #header a {
@@ -465,8 +466,8 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 .searchbox {
   margin-top: 1rem;
   position: relative;
-  border: 1px solid #9a5baa;
-  background: #44274b;
+  border: 1px solid #6795e3;
+  background: #183f81;
   border-radius: 4px; }
 
 .searchbox label {
@@ -524,7 +525,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     display: inline; } }
 
 #sidebar {
-  background-color: #5c3566;
+  background-color: #2053AB;
   position: fixed;
   top: 0;
   width: 300px;
@@ -661,22 +662,22 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
   transition: color 0.15s ease; }
 
 #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
-  background: #44274b;
+  background: #183f81;
   margin-left: -1rem;
   margin-right: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
 #sidebar ul li.active > a {
-  background: #3b2242;
-  color: #e6e6e6 !important;
+  background: white;
+  color: gray !important;
   margin-left: -1rem;
   margin-right: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
 #sidebar ul li.active > a:hover {
-  color: #fdfdfd !important;
+  color: #b5b5b5 !important;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   -ms-transition: color 0.15s ease;
@@ -847,7 +848,7 @@ body {
 h2, h3, h4, h5, h6 {
   font-family: "Lato", "Work Sans Bold", "Helvetica Bold", "Tahoma Bold", "Geneva Bold", "Arial Bold", sans-serif;
   text-rendering: optimizeLegibility;
-  color: #7d7d7d;
+  color: #5e5e5e;
   font-weight: 400;
   letter-spacing: -1px; }
 
@@ -859,7 +860,7 @@ h1 {
   font-weight: 200; }
 
 blockquote {
-  border-left: 10px solid #747474; }
+  border-left: 10px solid #f2f2f2; }
 
 blockquote p {
   font-size: 1.1rem;
@@ -935,9 +936,9 @@ code, kbd, pre, samp {
 code {
   border-radius: 2px;
   white-space: nowrap;
-  color: #202020;
-  background: whitesmoke;
-  border: 1px solid #e4e4e4;
+  color: #616161;
+  background: #FFF7DD;
+  border: 1px solid #ffeeb8;
   padding: 0px 2px; }
 
 .hljs {
@@ -976,14 +977,14 @@ hr {
   padding: 25px;
   float: left;
   clear: both;
-  background: #44274b;
+  background: #183f81;
   color: #fff; }
 
 #body a.anchor-link {
   color: #ccc; }
 
 #body a.anchor-link:hover {
-  color: #44274b; }
+  color: #183f81; }
 
 #body-inner .tabs-wrapper.ui-theme-badges {
   background: #1d1f21; }
@@ -1022,7 +1023,7 @@ td {
   color: #323232; }
 
 .button {
-  background: #44274b;
+  background: #183f81;
   color: #fff;
   box-shadow: 0 3px 0 #00a5d4; }
 
@@ -1080,7 +1081,7 @@ td {
 
 .bullet-icon {
   float: left;
-  background: #44274b;
+  background: #183f81;
   padding: 0.875rem;
   width: 3.5rem;
   height: 3.5rem;
@@ -1090,7 +1091,7 @@ td {
   text-align: center; }
 
 .bullet-icon-1 {
-  background: #44274b; }
+  background: #183f81; }
 
 .bullet-icon-2 {
   background: #00f3d8; }
@@ -1360,20 +1361,20 @@ td {
 .copy-to-clipboard {
   display: inline-block;
   position: relative;
-  color: #7d7d7d;
-  background-color: whitesmoke;
+  color: #5e5e5e;
+  background-color: #FFF7DD;
   text-align: center;
   cursor: pointer;
   border-radius: 0 2px 2px 0;
   padding: 0.1rem;
-  border: 1px solid #e4e4e4;
+  border: 1px solid #ffeeb8;
   -webkit-transition: all 0.15s ease;
   -moz-transition: all 0.15s ease;
   -ms-transition: all 0.15s ease;
   transition: all 0.15s ease; }
 
 .copy-to-clipboard:hover {
-  background-color: #ececec; }
+  background-color: #f8efd1; }
 
 .clippy-icon {
   padding-left: 6px;
@@ -1384,20 +1385,22 @@ td {
   height: 100%; }
 
 .clippy-svg {
-  fill: #202020 !important;
+  /* TODO: Fix this so clippy fill colour is differnt when in block, not inline */
+  /*    fill: $main_code_inline_text_color !important;*/
+  fill: black !important;
   pointer-events: none; }
 
 pre .copy-to-clipboard {
   position: absolute;
   right: 4px;
   top: 4px;
-  background-color: #707880;
+  background-color: #4f545a;
   color: #ccc;
   border: 1px solid #272a2c;
   border-radius: 2px; }
 
 pre .copy-to-clipboard:hover {
-  background-color: #7b838b;
+  background-color: #60666d;
   color: #fff; }
 
 .parent-element {
