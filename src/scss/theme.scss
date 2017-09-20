@@ -1,3 +1,4 @@
+// compileCompressed: ../../static/css/$1.css, sourceMap: true
 /* Functions */
 
 /* Copied from https://css-tricks.com/snippets/sass/power-function/ */
@@ -267,7 +268,12 @@ $option_link_expand: left;
     .alert-#{$alert_name} {
         background-color: $alert_back_temp !important;
         border-color: $alert_border_temp !important;
-        color: transparentize(hsl(hue($alert_back_temp), saturation($alert_back_temp), lightness($alert_body_text_color), ), opacity($alert_body_text_color) / 100%) !important;
+        color: transparentize(
+				hsl(hue($alert_back_temp),
+					saturation($alert_back_temp),
+					lightness($alert_body_text_color)
+					),
+				opacity($alert_body_text_color) / 100)  !important;
     }
 }
 
@@ -290,7 +296,12 @@ $option_link_expand: left;
         .panel-heading, .panel-footer {
             background-color: $panel_back_temp;
             border-color: $panel_border_temp;
-            color: transparentize(hsl(hue($panel_back_temp), saturation($panel_back_temp)*0.5, lightness($panel_title_text_color), ), opacity($panel_title_text_color) / 100%);
+            color: transparentize(
+					hsl(hue($panel_back_temp),
+						saturation($panel_back_temp)*0.5,
+						lightness($panel_title_text_color)
+						),
+					opacity($panel_title_text_color) / 100);
         }
     }
 }
@@ -1180,7 +1191,12 @@ div.notices.tip p:first-child:after {
     div.notices.#{$notice_name} {
         border-top: 30px solid adjust-color(lshift_main(map-get($theme_map, $notice_theme), nth($notice_header_back_lshift, 1), nth($notice_header_back_lshift, 2)), $saturation: $notice_header_back_saturate);
         background: $notice_back_temp;
-        color: transparentize(hsl(hue($notice_back_temp), saturation($notice_back_temp)/1.5, lightness($notice_text_body_color), ), opacity($notice_text_body_color) / 100%) !important;
+        color: transparentize(
+				hsl(hue($notice_back_temp),
+					saturation($notice_back_temp)/1.5,
+					lightness($notice_text_body_color)
+					),
+				opacity($notice_text_body_color) / 100) !important;
     }
 }
 
