@@ -168,9 +168,9 @@ body {
 
 .progress {
   position: absolute;
-  background-color: rgba(246, 246, 246, 0.97);
+  background-color: rgba(247, 247, 247, 0.97);
   width: auto;
-  border: thin solid #ECECEC;
+  border: thin solid #ececec;
   display: none;
   z-index: 200; }
 

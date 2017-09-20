@@ -204,6 +204,9 @@ $alert_map: (
 $topbar_back_color: lshift_main($main_back_color, 7.5%, 3.2%);
 $topbar_shadow_opacity: 0.1;
 
+$topbar_toc_back_color: transparentize($topbar_back_color, 0.03);
+$topbar_toc_border_color: lshift_main($topbar_back_color, -4%, 4%);
+
 $time_short_fade: 0.15s;
 $time_long_fade: 0.35s;
 
@@ -332,9 +335,9 @@ body {
 
 .progress {
     position:absolute;
-    background-color: rgba(246, 246, 246, 0.97);
+    background-color: $topbar_toc_back_color;
     width: auto;
-    border: thin solid #ECECEC;
+    border: thin solid $topbar_toc_border_color;
     display:none;
     z-index:200;
 }
