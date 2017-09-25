@@ -1437,6 +1437,13 @@ pre .copy-to-clipboard:hover {
   padding-left: 20px !important;
   top: 9px; }
 
+/* Mermaid conflict with rest of HTML https://github.com/vjeantet/hugo-theme-docdock/issues/71 */
+.section {
+  opacity: 1; }
+
+.mermaid .section {
+  opacity: 0.2; }
+
 #sidebar ul li.active > a .category-icon {
   right: 15px; }
 
@@ -1447,7 +1454,6 @@ pre .copy-to-clipboard:hover {
 #searchResults {
   text-align: left; }
 
-/*# sourceMappingURL=theme.css.map */
 /* Children shortcode */
 .children p {
   font-size: small;
