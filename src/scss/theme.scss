@@ -1,4 +1,5 @@
-// compileCompressed: ../../static/css/$1.css, sourceMap: true
+// compileNested: ../../static/css/$1.css
+
 /* Functions */
 
 /* Copied from https://css-tricks.com/snippets/sass/power-function/ */
@@ -1811,6 +1812,14 @@ pre .copy-to-clipboard:hover {
     top: 9px;
 }
 
+/* Mermaid conflict with rest of HTML https://github.com/vjeantet/hugo-theme-docdock/issues/71 */
+.section {
+	opacity: 1;
+}
+.mermaid .section {
+	opacity: 0.2;
+}
+
 #sidebar ul li.active > a .category-icon {
     right: 15px;
 }
@@ -1823,8 +1832,6 @@ pre .copy-to-clipboard:hover {
 #searchResults {
     text-align: left;
 }
-
-/*# sourceMappingURL=theme.css.map */
 
 /* Children shortcode */
 
