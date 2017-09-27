@@ -23,6 +23,25 @@ main uses main back color as reference, side uses side back color as reference
 /* Side */
 /* Main */
 /* Code */
+@font-face {
+  font-family: 'Novacento Sans Wide';
+  src: url("../fonts/Novecentosanswide-UltraLight-webfont.eot");
+  src: url("../fonts/Novecentosanswide-UltraLight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Novecentosanswide-UltraLight-webfont.woff2") format("woff2"), url("../fonts/Novecentosanswide-UltraLight-webfont.woff") format("woff"), url("../fonts/Novecentosanswide-UltraLight-webfont.ttf") format("truetype"), url("../fonts/Novecentosanswide-UltraLight-webfont.svg#novecento_sans_wideultralight") format("svg");
+  font-style: normal;
+  font-weight: 200; }
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lato Regular"), local("Lato-Regular"), url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Regular.ttf) format("truetype"); }
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Lato Bold"), local("Lato-Bold"), url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Bold.ttf) format("truetype"); }
+
 /*
 	== Side ==
 	Remember:
@@ -364,25 +383,6 @@ figcaption h4 {
 .button:active, .button-secondary:active {
   margin: 2px 0 -2px 0; }
 
-@font-face {
-  font-family: 'Novacento Sans Wide';
-  src: url("../fonts/Novecentosanswide-UltraLight-webfont.eot");
-  src: url("../fonts/Novecentosanswide-UltraLight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Novecentosanswide-UltraLight-webfont.woff2") format("woff2"), url("../fonts/Novecentosanswide-UltraLight-webfont.woff") format("woff"), url("../fonts/Novecentosanswide-UltraLight-webfont.ttf") format("truetype"), url("../fonts/Novecentosanswide-UltraLight-webfont.svg#novecento_sans_wideultralight") format("svg");
-  font-style: normal;
-  font-weight: 200; }
-
-@font-face {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Lato Regular"), local("Lato-Regular"), url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Regular.ttf) format("truetype"); }
-
-@font-face {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  src: local("Lato Bold"), local("Lato-Bold"), url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Bold.ttf) format("truetype"); }
-
 body {
   background: #fff;
   color: #323232; }
@@ -425,9 +425,6 @@ b, strong, label, th {
 
 #grav-logo path {
   fill: #fff !important; }
-
-#sidebar {
-  /*font-weight: 300 !important;*/ }
 
 fieldset {
   border: 1px solid #ddd; }
@@ -514,196 +511,6 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 
 .searchbox input:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.6); }
-
-#sidebar-toggle-span {
-  display: none; }
-
-#sidebar {
-  background-color: #2053AB;
-  position: fixed;
-  top: 0;
-  width: 300px;
-  bottom: 0;
-  left: 0;
-  font-weight: normal;
-  font-size: 90%;
-  line-height: 27px;
-  -webkit-font-smoothing: antialiased; }
-
-#sidebar a {
-  color: #fff;
-  -webkit-transition: color 0.15s ease;
-  -moz-transition: color 0.15s ease;
-  -ms-transition: color 0.15s ease;
-  transition: color 0.15s ease; }
-
-#sidebar a:hover {
-  color: #e0e0e0;
-  -webkit-transition: color 0.15s ease;
-  -moz-transition: color 0.15s ease;
-  -ms-transition: color 0.15s ease;
-  transition: color 0.15s ease; }
-
-#sidebar a.subtitle {
-  color: rgba(204, 204, 204, 0.6); }
-
-#sidebar hr {
-  border-bottom: 1px solid #2a232f; }
-
-#sidebar a.padding {
-  padding: 0 1rem; }
-
-#sidebar h5 {
-  margin: 2rem 0 0;
-  position: relative;
-  line-height: 2; }
-
-#sidebar h5 a {
-  display: block;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 1rem;
-  padding-right: 1rem; }
-
-#sidebar h5 i {
-  color: rgba(204, 204, 204, 0.6);
-  position: absolute;
-  right: 0.6rem;
-  top: 0.7rem;
-  font-size: 80%; }
-
-#sidebar .parent li, #sidebar .active li {
-  border-left: 1px solid gray; }
-
-#sidebar h5.parent a {
-  background: #201b24;
-  color: #d9d9d9 !important; }
-
-#sidebar h5.active a {
-  background: #fff;
-  color: #777 !important; }
-
-#sidebar h5.active i {
-  color: #777 !important; }
-
-#sidebar h5 + ul.topics {
-  display: none;
-  margin-top: 0; }
-
-#sidebar h5.parent + ul.topics, #sidebar h5.active + ul.topics {
-  display: block; }
-
-#sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0; }
-
-#sidebar ul.searched a {
-  color: #999999; }
-
-#sidebar ul.searched .search-match a {
-  color: #e6e6e6; }
-
-#sidebar ul.searched .search-match a:hover {
-  color: #fff; }
-
-#sidebar ul.topics {
-  margin: 0 1rem; }
-
-#sidebar ul.topics label {
-  margin-top: 10px;
-  /*margin-bottom: 5px;*/
-  font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-  font-weight: 100;
-  color: white; }
-
-#sidebar ul.topics.searched ul {
-  display: block; }
-
-#sidebar ul.topics ul {
-  display: none;
-  padding-bottom: 1rem; }
-
-#sidebar ul.topics ul ul {
-  padding-bottom: 0; }
-
-#sidebar ul.topics li.parent > ul, #sidebar li.active > ul {
-  display: block; }
-
-#sidebar ul.topics > li > a {
-  /*line-height: 2rem;
-    font-size: 1.1rem*/ }
-
-#sidebar ul.topics > li > a b {
-  opacity: 0.5;
-  font-weight: normal; }
-
-#sidebar ul li .category-icon {
-  color: gray; }
-
-#sidebar ul.topics > li.parent a, #sidebar ul.topics > li.active a {
-  color: #fff;
-  -webkit-transition: color 0.15s ease;
-  -moz-transition: color 0.15s ease;
-  -ms-transition: color 0.15s ease;
-  transition: color 0.15s ease; }
-
-#sidebar ul.topics > li.parent a:hover, #sidebar ul.topics > li.active a:hover {
-  color: #e6e6e6;
-  -webkit-transition: color 0.15s ease;
-  -moz-transition: color 0.15s ease;
-  -ms-transition: color 0.15s ease;
-  transition: color 0.15s ease; }
-
-#sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
-  background: #183f81;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding-left: 1rem;
-  padding-right: 1rem; }
-
-#sidebar ul li.active > a {
-  background: white;
-  color: gray !important;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding-left: 1rem;
-  padding-right: 1rem; }
-
-#sidebar ul li.active > a:hover {
-  color: #b5b5b5 !important;
-  -webkit-transition: color 0.15s ease;
-  -moz-transition: color 0.15s ease;
-  -ms-transition: color 0.15s ease;
-  transition: color 0.15s ease; }
-
-#sidebar ul li {
-  padding: 0; }
-
-#sidebar ul li.visited + span {
-  margin-right: 16px; }
-
-#sidebar ul li a {
-  display: block;
-  padding: 2px 0; }
-
-#sidebar ul li a span {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  display: block;
-  width: calc(100% - 20px); }
-
-#sidebar.showVisitedLinks ul li a span {
-  width: calc(100% - 8px); }
-
-#sidebar ul li > a {
-  padding: 2px 0;
-  position: relative; }
-
-#sidebar ul li li {
-  padding-left: 1rem;
-  text-indent: 0.2rem; }
 
 #main {
   background: #f7f7f7;
@@ -1331,35 +1138,6 @@ pre .copy-to-clipboard:hover {
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d; }
 
-#sidebar ul li .read-icon {
-  display: none;
-  float: right;
-  position: absolute;
-  right: 25px;
-  margin: 0 !important;
-  top: 9px; }
-
-#sidebar ul li.visited > a .read-icon {
-  display: block;
-  font-size: xx-small;
-  position: absolute;
-  float: left;
-  top: 12px;
-  left: -10px;
-  color: gray; }
-
-#sidebar ul li.visited.active > a .read-icon {
-  left: 7px; }
-
-#sidebar ul li .category-icon {
-  display: block;
-  float: right;
-  position: absolute;
-  right: 0px;
-  margin: 0px !important;
-  padding-left: 20px !important;
-  top: 9px; }
-
 /* Mermaid conflict with rest of HTML https://github.com/vjeantet/hugo-theme-docdock/issues/71 */
 .section {
   opacity: 1; }
@@ -1367,15 +1145,189 @@ pre .copy-to-clipboard:hover {
 .mermaid .section {
   opacity: 0.2; }
 
-#sidebar ul li.active > a .category-icon {
-  right: 15px; }
-
-#sidebar #shortcuts h3 {
-  font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-  color: #fff; }
-
 #searchResults {
   text-align: left; }
+
+#sidebar-toggle-span {
+  display: none; }
+
+#sidebar {
+  background-color: #2053AB;
+  position: fixed;
+  top: 0;
+  width: 300px;
+  bottom: 0;
+  left: 0;
+  font-weight: normal;
+  font-size: 90%;
+  line-height: 27px;
+  -webkit-font-smoothing: antialiased; }
+  #sidebar a {
+    color: #fff;
+    -webkit-transition: color 0.15s ease;
+    -moz-transition: color 0.15s ease;
+    -ms-transition: color 0.15s ease;
+    transition: color 0.15s ease; }
+  #sidebar a:hover {
+    color: #e0e0e0;
+    -webkit-transition: color 0.15s ease;
+    -moz-transition: color 0.15s ease;
+    -ms-transition: color 0.15s ease;
+    transition: color 0.15s ease; }
+  #sidebar a.subtitle {
+    color: rgba(204, 204, 204, 0.6); }
+  #sidebar hr {
+    border-bottom: 1px solid #2a232f; }
+  #sidebar a.padding {
+    padding: 0 1rem; }
+  #sidebar h5 {
+    margin: 2rem 0 0;
+    position: relative;
+    line-height: 2; }
+  #sidebar h5 a {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 1rem;
+    padding-right: 1rem; }
+  #sidebar h5 i {
+    color: rgba(204, 204, 204, 0.6);
+    position: absolute;
+    right: 0.6rem;
+    top: 0.7rem;
+    font-size: 80%; }
+  #sidebar .parent li, #sidebar .active li {
+    border-left: 1px solid gray; }
+  #sidebar h5.parent a {
+    background: #201b24;
+    color: #d9d9d9 !important; }
+  #sidebar h5.active a {
+    background: #fff;
+    color: #777 !important; }
+  #sidebar h5.active i {
+    color: #777 !important; }
+  #sidebar h5 + ul.topics {
+    display: none;
+    margin-top: 0; }
+  #sidebar h5.parent + ul.topics, #sidebar h5.active + ul.topics {
+    display: block; }
+  #sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    #sidebar ul.searched a {
+      color: #999999; }
+    #sidebar ul.searched .search-match a {
+      color: #e6e6e6; }
+    #sidebar ul.searched .search-match a:hover {
+      color: #fff; }
+    #sidebar ul.topics {
+      margin: 0 1rem; }
+    #sidebar ul.topics label {
+      margin-top: 10px;
+      /*margin-bottom: 5px;*/
+      font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
+      font-weight: 100;
+      color: white; }
+    #sidebar ul.topics.searched ul {
+      display: block; }
+    #sidebar ul.topics ul {
+      display: none;
+      padding-bottom: 1rem; }
+    #sidebar ul.topics ul ul {
+      padding-bottom: 0; }
+    #sidebar ul.topics li.parent > ul, #sidebar ul li.active > ul {
+      display: block; }
+    #sidebar ul.topics > li > a {
+      /*line-height: 2rem;
+		    font-size: 1.1rem*/ }
+    #sidebar ul.topics > li > a b {
+      opacity: 0.5;
+      font-weight: normal; }
+    #sidebar ul li .category-icon {
+      color: gray; }
+    #sidebar ul.topics > li.parent a, #sidebar ul.topics > li.active a {
+      color: #fff;
+      -webkit-transition: color 0.15s ease;
+      -moz-transition: color 0.15s ease;
+      -ms-transition: color 0.15s ease;
+      transition: color 0.15s ease; }
+    #sidebar ul.topics > li.parent a:hover, #sidebar ul.topics > li.active a:hover {
+      color: #e6e6e6;
+      -webkit-transition: color 0.15s ease;
+      -moz-transition: color 0.15s ease;
+      -ms-transition: color 0.15s ease;
+      transition: color 0.15s ease; }
+    #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
+      background: #183f81;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem; }
+    #sidebar ul li.active > a {
+      background: white;
+      color: gray !important;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem; }
+    #sidebar ul li.active > a:hover {
+      color: #b5b5b5 !important;
+      -webkit-transition: color 0.15s ease;
+      -moz-transition: color 0.15s ease;
+      -ms-transition: color 0.15s ease;
+      transition: color 0.15s ease; }
+    #sidebar ul li {
+      padding: 0; }
+    #sidebar ul li.visited + span {
+      margin-right: 16px; }
+    #sidebar ul li a {
+      display: block;
+      padding: 2px 0; }
+    #sidebar ul li a span {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      display: block;
+      width: calc(100% - 20px); }
+    #sidebar ul li > a {
+      padding: 2px 0;
+      position: relative; }
+    #sidebar ul li li {
+      padding-left: 1rem;
+      text-indent: 0.2rem; }
+    #sidebar ul li.visited > a .read-icon {
+      display: block;
+      font-size: xx-small;
+      position: absolute;
+      float: left;
+      top: 12px;
+      left: -10px;
+      color: gray; }
+    #sidebar ul li.visited.active > a .read-icon {
+      left: 7px; }
+    #sidebar ul li .category-icon {
+      display: block;
+      float: right;
+      position: absolute;
+      right: 0px;
+      margin: 0px !important;
+      padding-left: 20px !important;
+      top: 9px; }
+    #sidebar ul li.active > a .category-icon {
+      right: 15px; }
+    #sidebar ul li .read-icon {
+      display: none;
+      float: right;
+      position: absolute;
+      right: 25px;
+      margin: 0 !important;
+      top: 9px; }
+  #sidebar.showVisitedLinks ul li a span {
+    width: calc(100% - 8px); }
+  #sidebar #shortcuts h3 {
+    font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
+    color: #fff; }
 
 /*
 	Here lives CSS required for shortcodes
@@ -1504,3 +1456,5 @@ pre .copy-to-clipboard:hover {
     background: white !important; }
   #body {
     margin-left: 0px; } }
+
+/*# sourceMappingURL=theme.css.map */
