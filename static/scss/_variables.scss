@@ -1,11 +1,9 @@
-// main: theme.scss
+// main: main.scss
 
-/*
-	== Side ==
-	Remember:
-	active is the current page
-	focus is a group
-*/
+// == Side ==
+// Remember:
+// active is the current page
+// focus is a group
 
 $side_link_color: $side_text_color;
 $side_link_hover_color: lshift_side($side_text_color, -12%, -12%);
@@ -24,7 +22,8 @@ $side_focus_text_hover_color: lshift_side($side_link_hover_color, 1.5%, 1.5%);
 $side_active_text_color: lshift_side($side_focus_text_color, -50%, 10%);
 $side_active_text_hover_color: lshift_side($side_active_text_color, 7%, -7%);
 
-/* == Main == */
+// == Main ==
+
 
 $main_link_color: $side_back_color;
 $main_link_hover_color: adjust-hue(lshift_main($main_link_color, 7%, -1.5%), -20);
@@ -37,7 +36,8 @@ $main_other_text_color: lshift_main($main_text_color, -17%, -10%);
 
 $main_block_quote_border_color: lshift_main($main_back_color, 5%, 5%);
 
-/* == Code == */
+// == Code ==
+
 
 $main_code_inline_text_color: lshift_main(hsl(0, 0, lightness($main_code_inline_back_color)), -46%, 46%);
 $main_code_inline_border_color: lshift_main($main_code_inline_back_color, -6%, 6%);
@@ -45,15 +45,17 @@ $main_code_inline_back_hover_color: desaturate(lshift_main($main_code_inline_bac
 
 $main_code_block_border_color: lshift_main($main_code_block_back_color, 3%, -3%);
 
-/* Table */
+// == Table ==
+
 
 $table_title_back_color: lshift_main($main_back_color, 3.5%, 3.5%);
 $table_title_text_color: $main_text_color;
 $table_border_color: lshift_main($main_back_color, 10%, 10%);
 $table_body_text_color: $main_text_color;
 
-/* == Common Theming == */
-/* TODO: Make text color back dependant (color and lshift) */
+// == Common Theming ==
+// TODO: Make text color back dependant (color and lshift)
+
 $theme_map: (
     "success": hsl(111 , 45%, lightness(lshift_main($main_back_color, 15%, 15%))),
     "default": hsl(0 , 0%, lightness(lshift_main($main_back_color, 7.5%, 7.5%))),
@@ -65,8 +67,7 @@ $theme_map: (
     "error": hsl(0 , 55%, lightness(lshift_main($main_back_color, 16%, 12%))),
 );
 
-/* == Notices  == */
-
+// == Notices ==
 $notice_body_back_lshift: ( -5.5%, -5.5% );
 $notice_body_back_saturate: 5%;
 $notice_header_back_lshift: ( 10%, 15% );
@@ -82,8 +83,7 @@ $notice_map: (
     "warning": error
 );
 
-/* == Panels == */
-
+// == Panels ==
 $panel_border_lshift: 3.75%;
 $panel_back_lshift: -2.55%;
 
@@ -100,9 +100,8 @@ $panel_map: (
     "default": default
 );
 
-/* == Alerts == */
-
-/* TODO: Turn into maps like with notices */
+// == Alerts ==
+// TODO: Turn into maps like with notices
 $alert_border_lshift: 6.5%;
 $alert_back_lshift: -2.5%;
 
@@ -115,7 +114,8 @@ $alert_map: (
     "danger": error
 );
 
-/* == Top bar  == */
+// == Top bar ==
+
 $topbar_back_color: lshift_main($main_back_color, 7.5%, 3.2%);
 $topbar_shadow_opacity: 0.1;
 
@@ -125,12 +125,13 @@ $topbar_toc_border_color: lshift_main($topbar_back_color, -4%, 4%);
 $time_short_fade: 0.15s;
 $time_long_fade: 0.35s;
 
-/* == Buttons  == */
+// == Buttons ==
+
 
 $button_text_color: desaturate(lshift_main($main_back_color, -15%, -15%), 100%);
 $button_text_hover_color: lshift_main($main_back_color, 100%, 100%);
 
-/* == Options == */
+//== Options ==
+// Where link underline should expand from: 'left', 'center', or 'right'
 
-/* Where link underline should expand from: 'left', 'center', or 'right' */
 $option_link_expand: left;

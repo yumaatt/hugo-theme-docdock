@@ -4,25 +4,6 @@
 	If you would like to explore this CSS,
 	use source map feature of your browser.
  */
-/* Functions */
-/* Copied from https://css-tricks.com/snippets/sass/power-function/ */
-/*
-Fudge Values
-These are all a means of globally tweaking lightness shifting. Use with caution.
-*/
-/* A scaling factor, will generally increase contrast */
-/* Use sparingly and with caution */
-/* A hacky integer bias factor, to scale more when near mid lightness */
-/* Need not be an integer, scales the bias more when approaching 0 */
-/*
-lshift functions take a color, then an amount to lighten by (when reference is
-dark), then an amount to darken by (when reference is light).
-main uses main back color as reference, side uses side back color as reference
-*/
-/* Mixins */
-/* Side */
-/* Main */
-/* Code */
 @font-face {
   font-family: 'Novacento Sans Wide';
   src: url("../fonts/Novecentosanswide-UltraLight-webfont.eot");
@@ -42,25 +23,6 @@ main uses main back color as reference, side uses side back color as reference
   font-weight: 700;
   src: local("Lato Bold"), local("Lato-Bold"), url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Bold.ttf) format("truetype"); }
 
-/*
-	== Side ==
-	Remember:
-	active is the current page
-	focus is a group
-*/
-/* == Main == */
-/* == Code == */
-/* Table */
-/* == Common Theming == */
-/* TODO: Make text color back dependant (color and lshift) */
-/* == Notices  == */
-/* == Panels == */
-/* == Alerts == */
-/* TODO: Turn into maps like with notices */
-/* == Top bar  == */
-/* == Buttons  == */
-/* == Options == */
-/* Where link underline should expand from: 'left', 'center', or 'right' */
 /* Table of contents */
 .progress ul {
   list-style: none;
@@ -203,11 +165,6 @@ body {
   border-right: thin solid #DAD8D8 !important;
   padding-right: 1rem !important;
   margin-right: 0.5rem !important; }
-
-#sidebar-toggle-span {
-  border-right: thin solid #DAD8D8 !important;
-  padding-right: 0.5rem !important;
-  margin-right: 1rem !important; }
 
 #top-bar {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); }
@@ -1150,6 +1107,11 @@ pre .copy-to-clipboard:hover {
 
 #sidebar-toggle-span {
   display: none; }
+
+#sidebar-toggle-span {
+  border-right: thin solid #DAD8D8 !important;
+  padding-right: 0.5rem !important;
+  margin-right: 1rem !important; }
 
 #sidebar {
   background-color: #2053AB;

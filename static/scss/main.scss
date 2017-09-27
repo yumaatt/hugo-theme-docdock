@@ -130,12 +130,6 @@ body {
     margin-right: 0.5rem !important;
 }
 
-#sidebar-toggle-span {
-    border-right: thin solid #DAD8D8 !important;
-    padding-right: 0.5rem !important;
-    margin-right: 1rem !important;
-}
-
 #top-bar {
     box-shadow: 0 5px 10px rgba(0, 0, 0, $topbar_shadow_opacity);
 }
@@ -360,7 +354,7 @@ b, strong, label, th {
     fill: #fff !important;
 }
 
-//sidebar 
+//sidebar
 fieldset {
     border: 1px solid #ddd;
 }
