@@ -341,17 +341,9 @@ body #chapter h1 {
     font-size: 3.5rem;
 }
 
-@media only all and (min-width: 48em) and (max-width: 59.938em) {
-    body #chapter h1 {
-        font-size: 3rem;
-    }
-}
+// responsive
 
-@media only all and (max-width: 47.938em) {
-    body #chapter h1 {
-        font-size: 2rem;
-    }
-}
+// responsive
 
 a {
     color: $main_link_color;
@@ -493,11 +485,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     display: none;
 }
 
-@media only all and (max-width: 47.938em) {
-    #sidebar-toggle-span {
-        display: inline;
-    }
-}
+// responsive
 
 #sidebar {
     background-color: $side_back_color;
@@ -752,32 +740,16 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     padding: 1rem 4rem;
 }
 
-@media only all and (max-width: 59.938em) {
-    #body .padding {
-        position: static;
-        padding: 15px 3rem;
-    }
-}
+// responsive
 
-@media only all and (max-width: 47.938em) {
-    #body .padding {
-        padding: 5px 1rem;
-    }
-}
+// responsive
 
 #body h1 + hr {
     margin-top: -1.7rem;
     margin-bottom: 3rem;
 }
 
-@media only all and (max-width: 59.938em) {
-    #body #navigation {
-        position: static;
-        margin-right: 0 !important;
-        width: 100%;
-        display: table;
-    }
-}
+// responsive
 
 #body .nav {
     position: fixed;
@@ -797,21 +769,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     text-align: center;
 }
 
-@media only all and (max-width: 59.938em) {
-    #body .nav {
-        display: table-cell;
-        position: static;
-        top: auto;
-        width: 50%;
-        text-align: center;
-        height: 100px;
-        line-height: 100px;
-        padding-top: 0;
-    }
-    #body .nav > i {
-        display: inline-block;
-    }
-}
+// responsive
 
 #body .nav:hover {
     background: $main_shadow_color;
@@ -1131,31 +1089,19 @@ td {
     width: 50%;
 }
 
-@media only all and (max-width: 47.938em) {
-    .two-column-bullet {
-        width: 100%;
-    }
-}
+// responsive
 
 .three-column-bullet {
     width: 33.33333%;
 }
 
-@media only all and (max-width: 47.938em) {
-    .three-column-bullet {
-        width: 100%;
-    }
-}
+// responsive
 
 .four-column-bullet {
     width: 25%;
 }
 
-@media only all and (max-width: 47.938em) {
-    .four-column-bullet {
-        width: 100%;
-    }
-}
+// responsive
 
 .bullet-icon {
     float: left;
@@ -1455,45 +1401,9 @@ td {
     padding: 0 0.1rem;
 }
 
-@media only all and (max-width: 59.938em) {
-    #sidebar {
-        width: 230px;
-    }
-    #body {
-        margin-left: 230px;
-    }
-}
+// responsive
 
-@media only all and (max-width: 47.938em) {
-    #sidebar {
-        width: 230px;
-        left: -230px;
-    }
-    #body {
-        margin-left: 0;
-        width: 100%;
-    }
-    .sidebar-hidden {
-        overflow: hidden;
-    }
-    .sidebar-hidden #sidebar {
-        left: 0;
-    }
-    .sidebar-hidden #body {
-        margin-left: 230px;
-        overflow: hidden;
-    }
-    .sidebar-hidden #overlay {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 10;
-        background: rgba(255, 255, 255, 0.5);
-        cursor: pointer;
-    }
-}
+// responsive
 
 .copy-to-clipboard {
     display: inline-block;
