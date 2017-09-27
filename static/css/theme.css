@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/*
+	Built with SCSS.
+	If you would like to explore this CSS,
+	use source map feature of your browser.
+ */
 /* Functions */
 /* Copied from https://css-tricks.com/snippets/sass/power-function/ */
 /*
@@ -14,28 +19,29 @@ lshift functions take a color, then an amount to lighten by (when reference is
 dark), then an amount to darken by (when reference is light).
 main uses main back color as reference, side uses side back color as reference
 */
-/* Variables */
-/* Side */
-/*Remember:*/
-/*active is the current page*/
-/*focus is a group*/
-/* #2053AB */
-/* Main */
-/* #323232 */
-/* Code */
-/* #FFF7DD */
-/* Table */
-/* Common Theming */
-/* TODO: Make text color back dependant (color and lshift) */
-/* Notices */
-/* Panels */
-/* Alerts */
-/* TODO: Turn into maps like with notices */
-/* Top bar */
-/* Buttons */
-/* Options */
-/* Where link underline should expand from: 'left', 'center', or 'right' */
 /* Mixins */
+/* Side */
+/* Main */
+/* Code */
+/*
+	== Side ==
+	Remember:
+	active is the current page
+	focus is a group
+*/
+/* == Main == */
+/* == Code == */
+/* Table */
+/* == Common Theming == */
+/* TODO: Make text color back dependant (color and lshift) */
+/* == Notices  == */
+/* == Panels == */
+/* == Alerts == */
+/* TODO: Turn into maps like with notices */
+/* == Top bar  == */
+/* == Buttons  == */
+/* == Options == */
+/* Where link underline should expand from: 'left', 'center', or 'right' */
 /* Table of contents */
 .progress ul {
   list-style: none;
@@ -1454,7 +1460,9 @@ pre .copy-to-clipboard:hover {
 #searchResults {
   text-align: left; }
 
-/* Children shortcode */
+/*
+	Here lives CSS required for shortcodes
+*/
 .children p {
   font-size: small;
   margin-top: 0px;
