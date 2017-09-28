@@ -1,235 +1,5 @@
-// compileNested: ../../static/css/$1.css
+// main: theme.scss
 
-/* Functions */
-
-/* Copied from https://css-tricks.com/snippets/sass/power-function/ */
-
-@function pow($number, $exponent) {
-  $value: 1;
-
-  @if $exponent > 0 {
-    @for $i from 1 through $exponent {
-      $value: $value * $number;
-    }
-  } @else if $exponent < 0 {
-    @for $i from 1 through -$exponent {
-      $value: $value / $number;
-    }
-  }
-
-  @return $value;
-}
-
-/*
-Fudge Values
-These are all a means of globally tweaking lightness shifting. Use with caution.
-*/
-
-/* A scaling factor, will generally increase contrast */
-/* Use sparingly and with caution */
-$lshift_global_scale: 1;
-
-/* A hacky integer bias factor, to scale more when near mid lightness */
-$lshift_global_bias: 2;
-
-/* Need not be an integer, scales the bias more when approaching 0 */
-$lshift_global_fudge: 0.5;
-
-@function fudge_center($value) {
-    @return ( ( 1 + $lshift_global_fudge ) / ( pow( abs( 2 * $value - 1 ), $lshift_global_bias ) + $lshift_global_fudge ) );
-}
-
-@function lshift($reference, $value, $lighten_amount, $darken_amount) {
-
-    $lshift_internal_lightness: lightness($reference);
-
-    $lshift_internal_bias: $lshift_global_scale * fudge_center(lightness($value) / 100%);
-
-    @if $lshift_internal_lightness < 50% {
-        @if abs($lighten_amount * $lshift_internal_bias) > 100 {
-            @return adjust-color($value, $lightness: 100);
-        }@else {
-            @return adjust-color($value, $lightness: $lighten_amount * $lshift_internal_bias);
-        }
-    }@else {
-        @if abs($darken_amount * $lshift_internal_bias) > 100 {
-            @return adjust-color($value, $lightness: -100);
-        }@else {
-            @return adjust-color($value, $lightness: -$darken_amount * $lshift_internal_bias);
-        }
-    }
-}
-
-$lshift_main_scale: 1;
-
-@function lshift_main($value, $lighten_amount, $darken_amount) {
-    @return lshift($main_back_color, $value, $lighten_amount * $lshift_main_scale, $darken_amount * $lshift_main_scale);
-}
-
-$lshift_side_scale: 1;
-
-@function lshift_side($value, $lighten_amount, $darken_amount) {
-    @return lshift($side_back_color, $value, $lighten_amount * $lshift_side_scale, $darken_amount * $lshift_side_scale);
-}
-
-/*
-lshift functions take a color, then an amount to lighten by (when reference is
-dark), then an amount to darken by (when reference is light).
-main uses main back color as reference, side uses side back color as reference
-*/
-
-/* Variables */
-
-/* Side */
-
-/*Remember:*/
-/*active is the current page*/
-/*focus is a group*/
-
-$side_back_color: #2053AB; /* #2053AB */
-
-$side_text_color: #fff;
-
-$side_link_color: $side_text_color;
-$side_link_hover_color: lshift_side($side_text_color, -12%, -12%);
-
-$side_link_extra_color: lshift_side($side_text_color, -50%, -50%);
-
-$side_shadow_color: lshift_side($side_back_color, -3.5%, 3.5%);
-$side_highlight_color: lshift_side($side_back_color, 9%, -9%);
-
-$side_focus_back_color: $side_shadow_color;
-$side_active_back_color: lshift_side($side_focus_back_color, -100%, -1.5%);
-
-$side_focus_text_color: $side_text_color;
-$side_focus_text_hover_color: lshift_side($side_link_hover_color, 1.5%, 1.5%);
-
-$side_active_text_color: lshift_side($side_focus_text_color, -50%, 10%);
-$side_active_text_hover_color: lshift_side($side_active_text_color, 7%, -7%);
-
-/* Main */
-$main_back_color: #fff;
-$main_text_color: #323232; /* #323232 */
-
-$main_link_color: $side_back_color;
-$main_link_hover_color: adjust-hue(lshift_main($main_link_color, 7%, -1.5%), -20);
-
-$main_shadow_color: lshift_main($main_back_color, -2%, 3%);
-$main_highlight_color: lshift_main($main_back_color, 5%, -2%);
-
-$main_title_text_color: lshift_main($main_text_color, 10%, 10%);
-$main_other_text_color: lshift_main($main_text_color, -17%, -10%);
-
-$main_block_quote_border_color: lshift_main($main_back_color, 5%, 5%);
-
-/* Code */
-
-$main_code_inline_back_color: #FFF7DD; /* #FFF7DD */
-$main_code_inline_text_color: lshift_main(hsl(0, 0, lightness($main_code_inline_back_color)), -46%, 46%);
-$main_code_inline_border_color: lshift_main($main_code_inline_back_color, -6%, 6%);
-$main_code_inline_back_hover_color: desaturate(lshift_main($main_code_inline_back_color, -3%, 3%), 25%);
-
-$main_code_block_back_color: #1d1f21;
-$main_code_block_border_color: lshift_main($main_code_block_back_color, 3%, -3%);
-
-/* Table */
-
-$table_title_back_color: lshift_main($main_back_color, 3.5%, 3.5%);
-$table_title_text_color: $main_text_color;
-$table_border_color: lshift_main($main_back_color, 10%, 10%);
-$table_body_text_color: $main_text_color;
-
-/* Common Theming */
-/* TODO: Make text color back dependant (color and lshift) */
-$theme_map: (
-    "success": hsl(111 , 45%, lightness(lshift_main($main_back_color, 15%, 15%))),
-    "default": hsl(0 , 0%, lightness(lshift_main($main_back_color, 7.5%, 7.5%))),
-    "info": hsl(200 , 75%, lightness(lshift_main($main_back_color, 12.5%, 12.5%))),
-    "info_alt": hsl(28 , 85%, lightness(lshift_main($main_back_color, 9%, 9%))),
-    "note": hsl(204 , 70%, lightness(lshift_main($main_back_color, 13.5%, 13.5%))),
-    "primary": hsl(208 , 56%, lightness(lshift_main($main_text_color, -30%, -30%))),
-    "warning": hsl(50 , 75%, lightness(lshift_main($main_back_color, 10%, 10%))),
-    "error": hsl(0 , 55%, lightness(lshift_main($main_back_color, 16%, 12%))),
-);
-
-/* Notices */
-
-$notice_body_back_lshift: ( -5.5%, -5.5% );
-$notice_body_back_saturate: 5%;
-$notice_header_back_lshift: ( 10%, 15% );
-$notice_header_back_saturate: -5%;
-
-$notice_text_body_color: transparentize(lshift_main($main_text_color, -10%, -10%), 0.5);
-$notice_text_title_color: $main_back_color;
-
-$notice_map: (
-    "note": note,
-    "info": info_alt,
-    "tip": success,
-    "warning": error
-);
-
-/* Panels */
-
-$panel_border_lshift: 3.75%;
-$panel_back_lshift: -2.55%;
-
-$panel_body_back_color: lshift_main($main_back_color, 0%, 0%);
-$panel_body_text_color: $main_text_color;
-$panel_title_text_color: transparentize(lshift_main($main_text_color, -15%, -15%), 0.25);
-
-$panel_map: (
-    "primary": primary,
-    "info": info,
-    "success": success,
-    "warning": warning,
-    "danger": error,
-    "default": default
-);
-
-/* Alerts */
-
-/* TODO: Turn into maps like with notices */
-$alert_border_lshift: 6.5%;
-$alert_back_lshift: -2.5%;
-
-$alert_body_text_color: transparentize(lshift_main($main_text_color, -12%, -12%), 0.25);
-
-$alert_map: (
-    "info": info,
-    "success": success,
-    "warning": warning,
-    "danger": error
-);
-
-/* Top bar */
-$topbar_back_color: lshift_main($main_back_color, 7.5%, 3.2%);
-$topbar_shadow_opacity: 0.1;
-
-$topbar_toc_back_color: transparentize($topbar_back_color, 0.03);
-$topbar_toc_border_color: lshift_main($topbar_back_color, -4%, 4%);
-
-$time_short_fade: 0.15s;
-$time_long_fade: 0.35s;
-
-/* Buttons */
-
-$button_text_color: desaturate(lshift_main($main_back_color, -15%, -15%), 100%);
-$button_text_hover_color: lshift_main($main_back_color, 100%, 100%);
-
-/* Options */
-
-/* Where link underline should expand from: 'left', 'center', or 'right' */
-$option_link_expand: left;
-
-/* Mixins */
-
-@mixin transition($input) {
-    -webkit-transition: $input;
-    -moz-transition: $input;
-    -ms-transition: $input;
-    transition: $input;
-}
 
 /* Table of contents */
 
@@ -358,12 +128,6 @@ body {
     border-right: thin solid #DAD8D8 !important;
     padding-right: 1rem !important;
     margin-right: 0.5rem !important;
-}
-
-#sidebar-toggle-span {
-    border-right: thin solid #DAD8D8 !important;
-    padding-right: 0.5rem !important;
-    margin-right: 1rem !important;
 }
 
 #top-bar {
@@ -516,9 +280,9 @@ figcaption h4 {
 }
 
 .footline {
-margin-top:3rem;
-border-top: 1px dashed $side_focus_back_color;
-font-size:smaller;
+	margin-top:3rem;
+	border-top: 1px dashed $side_focus_back_color;
+	font-size:smaller;
 }
 
 #top-github-link, #body #breadcrumbs {
@@ -540,27 +304,7 @@ font-size:smaller;
     margin: 2px 0 -2px 0;
 }
 
-@font-face {
-    font-family: 'Novacento Sans Wide';
-    src: url("../fonts/Novecentosanswide-UltraLight-webfont.eot");
-    src: url("../fonts/Novecentosanswide-UltraLight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Novecentosanswide-UltraLight-webfont.woff2") format("woff2"), url("../fonts/Novecentosanswide-UltraLight-webfont.woff") format("woff"), url("../fonts/Novecentosanswide-UltraLight-webfont.ttf") format("truetype"), url("../fonts/Novecentosanswide-UltraLight-webfont.svg#novecento_sans_wideultralight") format("svg");
-    font-style: normal;
-    font-weight: 200;
-}
-
-@font-face{
-    font-family:"Lato";
-    font-style:normal;
-    font-weight:400;
-    src:local("Lato Regular"),local("Lato-Regular"), url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Regular.ttf) format("truetype");
-}
-
-@font-face{
-    font-family:"Lato";
-    font-style:normal;
-    font-weight:700;
-    src:local("Lato Bold"),local("Lato-Bold"), url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Bold.ttf) format("truetype");
-}
+// fonts
 
 body {
     background: $main_back_color;
@@ -571,17 +315,9 @@ body #chapter h1 {
     font-size: 3.5rem;
 }
 
-@media only all and (min-width: 48em) and (max-width: 59.938em) {
-    body #chapter h1 {
-        font-size: 3rem;
-    }
-}
+// responsive
 
-@media only all and (max-width: 47.938em) {
-    body #chapter h1 {
-        font-size: 2rem;
-    }
-}
+// responsive
 
 a {
     color: $main_link_color;
@@ -618,10 +354,7 @@ b, strong, label, th {
     fill: #fff !important;
 }
 
-#sidebar {
-    /*font-weight: 300 !important;*/
-}
-
+//sidebar
 fieldset {
     border: 1px solid #ddd;
 }
@@ -719,228 +452,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     color: rgba($side_focus_text_color, 0.6);
 }
 
-#sidebar-toggle-span {
-    display: none;
-}
-
-@media only all and (max-width: 47.938em) {
-    #sidebar-toggle-span {
-        display: inline;
-    }
-}
-
-#sidebar {
-    background-color: $side_back_color;
-    position: fixed;
-    top: 0;
-    width: 300px;
-    bottom: 0;
-    left: 0;
-    font-weight: normal;
-    font-size: 90%;
-    line-height: 27px;
-    -webkit-font-smoothing: antialiased;
-}
-
-#sidebar a {
-    color: $side_link_color;
-    @include transition(color $time_short_fade ease);
-}
-
-#sidebar a:hover {
-    color: $side_link_hover_color;
-    @include transition(color $time_short_fade ease);
-}
-
-#sidebar a.subtitle {
-    color: rgba(204, 204, 204, 0.6);
-}
-
-#sidebar hr {
-    border-bottom: 1px solid #2a232f;
-}
-
-#sidebar a.padding {
-    padding: 0 1rem;
-}
-
-#sidebar h5 {
-    margin: 2rem 0 0;
-    position: relative;
-    line-height: 2;
-}
-
-#sidebar h5 a {
-    display: block;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-#sidebar h5 i {
-    color: rgba(204, 204, 204, 0.6);
-    position: absolute;
-    right: 0.6rem;
-    top: 0.7rem;
-    font-size: 80%;
-}
-
-#sidebar .parent li, #sidebar .active li {
-    border-left: 1px solid $side_link_extra_color;
-}
-
-#sidebar h5.parent a {
-    background: #201b24;
-    color: #d9d9d9 !important;
-}
-
-#sidebar h5.active a {
-    background: #fff;
-    color: #777 !important;
-}
-
-#sidebar h5.active i {
-    color: #777 !important;
-}
-
-#sidebar h5 + ul.topics {
-    display: none;
-    margin-top: 0;
-}
-
-#sidebar h5.parent + ul.topics, #sidebar h5.active + ul.topics {
-    display: block;
-}
-
-#sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#sidebar ul.searched a {
-    color: #999999;
-}
-
-#sidebar ul.searched .search-match a {
-    color: #e6e6e6;
-}
-
-#sidebar ul.searched .search-match a:hover {
-    color: $side_text_color;
-}
-
-#sidebar ul.topics {
-    margin: 0 1rem;
-}
-
-#sidebar ul.topics label{
-    margin-top: 10px;
-    /*margin-bottom: 5px;*/
-    font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-    font-weight:100;
-    color:white;
-}
-
-#sidebar ul.topics.searched ul {
-    display: block;
-}
-
-#sidebar ul.topics ul {
-    display: none;
-    padding-bottom: 1rem;
-}
-
-#sidebar ul.topics ul ul {
-    padding-bottom: 0;
-}
-
-#sidebar ul.topics li.parent > ul, #sidebar  li.active > ul {
-    display: block;
-}
-
-#sidebar ul.topics > li > a {
-    /*line-height: 2rem;
-    font-size: 1.1rem*/;
-}
-
-#sidebar ul.topics > li > a b {
-    opacity: 0.5;
-    font-weight: normal;
-}
-
-#sidebar ul li .category-icon {
-    color: $side_link_extra_color;
-}
-
-#sidebar ul.topics > li.parent a, #sidebar ul.topics > li.active a {
-    color: $side_focus_text_color;
-    @include transition(color $time_short_fade ease);
-}
-
-#sidebar ul.topics > li.parent a:hover, #sidebar ul.topics > li.active a:hover {
-    color: $side_focus_text_hover_color;
-    @include transition(color $time_short_fade ease);
-}
-
-#sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
-
-    background: $side_focus_back_color;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-#sidebar ul li.active > a {
-    background: $side_active_back_color;
-    color: $side_active_text_color !important;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-#sidebar ul li.active > a:hover {
-    color: $side_active_text_hover_color !important;
-    @include transition(color $time_short_fade ease);
-}
-
-#sidebar ul li {
-    padding: 0;
-}
-
-#sidebar ul li.visited + span {
-    margin-right: 16px;
-}
-
-#sidebar ul li a {
-    display: block;
-    padding: 2px 0;
-}
-
-#sidebar ul li a span {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    display: block;
-    width: calc(100% - 20px);
-}
-
-#sidebar.showVisitedLinks ul li a span {
-    width: calc(100% - 8px);
-}
-
-#sidebar ul li > a {
-    padding: 2px 0;
-    position: relative;
-}
-
-#sidebar ul li li {
-    padding-left: 1rem;
-    text-indent: 0.2rem;
-}
+// sidebar
 
 #main {
     background: #f7f7f7;
@@ -982,32 +494,16 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     padding: 1rem 4rem;
 }
 
-@media only all and (max-width: 59.938em) {
-    #body .padding {
-        position: static;
-        padding: 15px 3rem;
-    }
-}
+// responsive
 
-@media only all and (max-width: 47.938em) {
-    #body .padding {
-        padding: 5px 1rem;
-    }
-}
+// responsive
 
 #body h1 + hr {
     margin-top: -1.7rem;
     margin-bottom: 3rem;
 }
 
-@media only all and (max-width: 59.938em) {
-    #body #navigation {
-        position: static;
-        margin-right: 0 !important;
-        width: 100%;
-        display: table;
-    }
-}
+// responsive
 
 #body .nav {
     position: fixed;
@@ -1027,21 +523,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     text-align: center;
 }
 
-@media only all and (max-width: 59.938em) {
-    #body .nav {
-        display: table-cell;
-        position: static;
-        top: auto;
-        width: 50%;
-        text-align: center;
-        height: 100px;
-        line-height: 100px;
-        padding-top: 0;
-    }
-    #body .nav > i {
-        display: inline-block;
-    }
-}
+// responsive
 
 #body .nav:hover {
     background: $main_shadow_color;
@@ -1361,31 +843,19 @@ td {
     width: 50%;
 }
 
-@media only all and (max-width: 47.938em) {
-    .two-column-bullet {
-        width: 100%;
-    }
-}
+// responsive
 
 .three-column-bullet {
     width: 33.33333%;
 }
 
-@media only all and (max-width: 47.938em) {
-    .three-column-bullet {
-        width: 100%;
-    }
-}
+// responsive
 
 .four-column-bullet {
     width: 25%;
 }
 
-@media only all and (max-width: 47.938em) {
-    .four-column-bullet {
-        width: 100%;
-    }
-}
+// responsive
 
 .bullet-icon {
     float: left;
@@ -1685,45 +1155,9 @@ td {
     padding: 0 0.1rem;
 }
 
-@media only all and (max-width: 59.938em) {
-    #sidebar {
-        width: 230px;
-    }
-    #body {
-        margin-left: 230px;
-    }
-}
+// responsive
 
-@media only all and (max-width: 47.938em) {
-    #sidebar {
-        width: 230px;
-        left: -230px;
-    }
-    #body {
-        margin-left: 0;
-        width: 100%;
-    }
-    .sidebar-hidden {
-        overflow: hidden;
-    }
-    .sidebar-hidden #sidebar {
-        left: 0;
-    }
-    .sidebar-hidden #body {
-        margin-left: 230px;
-        overflow: hidden;
-    }
-    .sidebar-hidden #overlay {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 10;
-        background: rgba(255, 255, 255, 0.5);
-        cursor: pointer;
-    }
-}
+// responsive
 
 .copy-to-clipboard {
     display: inline-block;
@@ -1779,38 +1213,7 @@ pre .copy-to-clipboard:hover {
     transform-style: preserve-3d;
 }
 
-#sidebar ul li .read-icon {
-    display: none;
-    float: right;
-    position: absolute;
-    right: 25px;
-    margin: 0 !important;
-    top: 9px;
-}
-
-#sidebar ul li.visited > a .read-icon {
-    display: block;
-    font-size: xx-small;
-    position: absolute;
-    float: left;
-    top: 12px;
-    left: -10px;
-    color: $side_link_extra_color;
-}
-
-#sidebar ul li.visited.active > a .read-icon {
-    left: 7px;
-}
-
-#sidebar ul li .category-icon {
-    display: block;
-    float: right;
-    position: absolute;
-    right: 0px;
-    margin: 0px !important;
-    padding-left: 20px !important;
-    top: 9px;
-}
+//sidebar
 
 /* Mermaid conflict with rest of HTML https://github.com/vjeantet/hugo-theme-docdock/issues/71 */
 .section {
@@ -1820,71 +1223,8 @@ pre .copy-to-clipboard:hover {
 	opacity: 0.2;
 }
 
-#sidebar ul li.active > a .category-icon {
-    right: 15px;
-}
-
-#sidebar #shortcuts h3 {
-    font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
-    color: $side_text_color;
-}
+//sidebar
 
 #searchResults {
     text-align: left;
-}
-
-/* Children shortcode */
-
-.children p {
-    font-size: small;
-    margin-top: 0px;
-    padding-top: 0px;
-    margin-bottom:  0px;
-    padding-bottom: 0px;
-}
-
-.children-li p {
-    font-size: small;
-    font-style: italic;
-}
-
-.children-h2 p, .children-h3 p {
-    font-size: small;
-    margin-top: 0px;
-    padding-top: 0px;
-    margin-bottom:  0px;
-    padding-bottom: 0px;
-}
-
-.children h3,.children h2 {
-    margin-bottom: 0px;
-    margin-top: 5px;
-}
-
-@media print {
-    #sidebar, #navigation, #top-bar, .anchor, #sidebar-toggle-span, .copy-to-clipboard {
-        display:none;
-    }
-    #navigation * {
-        display:none;
-        visibility: hidden;
-    }
-    #body-inner {
-        margin-bottom: 0px;
-    }
-    #footer, .footline{
-        margin-top: 1px;
-    }
-    body, a {
-        font-size: 120%;
-        color: black !important;
-        background: white !important
-    }
-    h1, h2, h3, h4, h5, h6 {
-        color: black !important;
-        background: white !important
-    }
-    #body{
-        margin-left: 0px;
-    }
 }
