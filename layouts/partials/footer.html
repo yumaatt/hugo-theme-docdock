@@ -43,7 +43,7 @@
         {{- end -}}
 
             
-        {{- if not $.Site.Params.noNavChevron -}}
+        {{- if not $.Site.Params.disableNavChevron -}}
             {{- with ($.Scratch.Get "prevPage") -}}
                 <a class="nav nav-prev" href="{{.URL}}" title="{{.Title}}"> <i class="fa fa-chevron-left"></i></a>
             {{ end -}}

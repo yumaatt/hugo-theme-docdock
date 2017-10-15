@@ -8,14 +8,14 @@
     <div id="header">
       {{- partial "logo.html" . }}
     </div>
-    {{- if not .Site.Params.noSearch}}
+    {{- if not .Site.Params.disableSearch}}
         {{- partial "search.html" . }}
     {{- end}}
   </div>
 
 
     <ul class="topics">
-        {{- if not .Site.Params.noHomeIcon}}
+        {{- if not .Site.Params.disableHomeIcon}}
             <li data-nav-id="{{"/" | relURL}}" class="dd-item">
             <a href="{{"/" | relURL}}"><i class="fa fa-fw fa-home"></i></a>
             </li>
