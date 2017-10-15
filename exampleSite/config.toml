@@ -14,6 +14,7 @@ showVisitedLinks = true # default is false
 # themeStyle = "theme" # overide base css
 themeVariant = "" # choose theme variant "green", "gold" , "gray", "blue" (default)
 ordersectionsby = "weight" # ordersectionsby = "title"
+noNavChevron = false # set true to hide next/prev chevron, default is false
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
