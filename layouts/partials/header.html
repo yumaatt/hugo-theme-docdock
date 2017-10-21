@@ -13,12 +13,16 @@
     <link href="{{"css/featherlight.min.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/auto-complete.css" | relURL}}" rel="stylesheet">
     {{with .Site.Params.themeStyle}}
-    <link href="{{(printf "css/%s.css" .) | relURL}}" rel="stylesheet">
+    <link href="{{(printf "css/themes/%s.css" .) | relURL}}" rel="stylesheet">
     {{else}}
-    <link href="{{"css/theme.css" | relURL}}" rel="stylesheet">
+    <link href="{{"css/themes/original.css" | relURL}}" rel="stylesheet">
     {{end}}
     {{with .Site.Params.themeVariant}}
-      <link href="{{(printf "css/theme-%s.css" .) | relURL}}" rel="stylesheet">
+      {{if $.Site.Params.themeStyle}}
+      <link href="{{(printf "css/themes/%s-%s.css" $.Site.Params.themeStyle .) | relURL}}" rel="stylesheet">
+      {{else}}
+      <link href="{{(printf "css/themes/original-%s.css" .) | relURL}}" rel="stylesheet">
+      {{end}}
     {{end}}
     <link rel="stylesheet" href="{{"css/bootstrap.min.css" | relURL}}">
     <script src="{{"js/jquery-2.x.min.js" | relURL}}"></script>
@@ -27,8 +31,6 @@
         display:none !important;
       }
     </style>
-
-    
 
     {{ partial "custom-head.html" . }}
   </head>
