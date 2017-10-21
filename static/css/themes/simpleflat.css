@@ -278,21 +278,31 @@ body {
 #body #body-inner h6 {
     font-family: sans-serif;
     font-weight: normal;
+    letter-spacing: -1px;
 }
 
+.hljs{
+
+}
 #body #body-inner code {
+    font-family: "Consolas", menlo, monospace;
+    font-size: 92%;
     border-radius: 2px;
     white-space: nowrap;
     color: #616161;
     background: #FFF7DD;
     border: 1px solid #ffeeb8;
     padding: 0px 2px;
+    
 }
+
 
 #body #body-inner pre code {
     background: inherit;
     white-space: inherit;
     border: 0;
+    color:white;
+    line-height: 1.15;
 }
 
 #body #body-inner img {
