@@ -15,13 +15,8 @@
       {{ partial "original/body-beforecontent.html" . }}
     {{end}}
     
-	<h1>{{T "title-404"}}</h1>
-	<p>
-	</p>
-	<p>{{T "message-404"}}</p>
-	<p></p>
-	<p><a href="{{.Site.BaseURL}}">{{T "Go-to-homepage"}}</a></p>
-	<p><img src="{{"images/gopher-404.jpg" | relURL}}" style="width:50%"></img></p>    
+    {{ block "main" . }}
+    {{ end }}
     
     {{if .Site.Params.themeStyle}}
       {{ partial (printf "%s/body-aftercontent.html" .Site.Params.themeStyle) . }}
@@ -35,5 +30,3 @@
     {{ partial "custom-footer.html" . }}
   </body>
 </html>
-
-

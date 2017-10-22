@@ -4,9 +4,5 @@
 <script src="{{"js/highlight.pack.js" | relURL}}"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <script src="{{"js/modernizr.custom.71422.js" | relURL}}"></script>
-{{with .Site.Params.themeStyle}}
-<script src="{{(printf "js/themes/%s.js" .)  | relURL}}"></script>
-{{else}}
-<script src="{{"js/themes/original.js" | relURL}}"></script>
-{{end}}
 <script src="{{"js/docdock.js" | relURL}}"></script>
+<script src="{{"theme-simpleflat/script.js" | relURL}}"></script>
