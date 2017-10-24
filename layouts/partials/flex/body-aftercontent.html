@@ -1,0 +1,20 @@
+  </article>
+  <aside class="chevrons">
+    {{ partial "next-prev-page.html" . }}
+  </aside>
+  </section>
+</section>
+<footer>
+	<div>
+{{ range where .Site.Pages "Source.BaseFileName" "_footer" }} 
+    {{ .Content }} 
+{{else}}
+  <a href="{{.Site.BaseURL}}">
+    <span class="fa fa-gears" style="font-size:large"></span>
+  </a>
+  {{ T "create-header-md" }}
+{{end}}
+	</div>
+</footer>
+
+{{ partial "flex/scripts.html" . }}
