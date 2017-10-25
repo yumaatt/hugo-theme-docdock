@@ -457,6 +457,13 @@ article code {
     
 }
 
+article pre {
+    line-height: 1.15;
+    border-radius: 0;
+    color: #ffffff;
+    background: #1d1f21;
+    width: 100% ;
+}
 
 article pre code {
     background: inherit;
@@ -575,12 +582,7 @@ article img {
     text-align: center;
 }
 
-article pre {
-    line-height: 1.15;
-    border-radius: 0;
-    color: #ffffff;
-    background: #1d1f21;
-}
+
 
 article table {
     border-collapse: collapse;
