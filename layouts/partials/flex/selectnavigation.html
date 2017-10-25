@@ -16,7 +16,6 @@
 {{- $currentNode := .currentnode }}
  {{- with .sect}}
   {{- if .IsSection}}
-    {{- safeHTML .Params.head}}
     <option value="{{ .RelPermalink}}" {{if eq .URL $currentNode.URL}} selected{{end}}>
       {{.Title}}
     </option>
