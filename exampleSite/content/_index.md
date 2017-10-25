@@ -24,12 +24,17 @@ This theme is a partial porting of the [Learn theme of matcornic {{%icon fa-gith
 * [Excerpt]({{%relref "shortcodes/excerpt.md"%}}) ! Include segment of content from one page in another
 * [Mermaid diagram]({{%relref "shortcodes/mermaid.md" %}}) (flowchart, sequence, gantt)
 * [Icons]({{%relref "shortcodes/icon.md" %}}), [Buttons]({{%relref "shortcodes/button.md" %}}), [Alerts]({{%relref "shortcodes/alert.md" %}}), [Panels]({{%relref "shortcodes/panel.md" %}}), [Tip/Note/Info/Warning boxes]({{%relref "shortcodes/notice.md" %}}), [Expand]({{%relref "shortcodes/expand.md" %}})
-* [customizable look and feel]({{%relref "content-organisation/customize-style/_index.md"%}}), [theme variants]({{%relref "content-organisation/customize-style/theme-variants.md"%}})
+* [customizable look and feel]({{%relref "content-organisation/customize-style/_index.md"%}}), [theme style]({{%relref "content-organisation/customize-style/themestyle.md"%}}), [theme variants]({{%relref "content-organisation/customize-style/theme-variants.md"%}})
 
 
 
+Style "Original"
 
 ![](https://raw.githubusercontent.com/vjeantet/hugo-theme-docdock/master/images/tn.png?width=33pc&classes=border,shadow)
+
+Style "Flex"
+
+![](style-flexfull.png?width=33pc&classes=border,shadow)
 
 ## Contribute to this documentation
 Feel free to update this content, just click the **Edit this page** link displayed on top right of each page, and pullrequest it
