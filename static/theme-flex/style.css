@@ -462,12 +462,11 @@ article pre {
     border-radius: 0;
     color: #ffffff;
     background: #1d1f21;
-    width: 100% ;
 }
 
 article pre code {
     background: inherit;
-    white-space: inherit;
+    white-space: pre-wrap;
     border: 0;
     color:white;
 }
