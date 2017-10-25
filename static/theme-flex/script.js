@@ -270,3 +270,8 @@ var getUrlParameter = function getUrlParameter(sPageURL) {
     }
 };
 
+// Burger icon click toggle header menu on small devices
+$('.burger').on('click', function(e){
+    $('#shortcuts').toggleClass("responsive") ;
+    e.preventDefault();
+});
