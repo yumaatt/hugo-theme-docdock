@@ -1,6 +1,7 @@
 <header>
   <div class="logo">
-      {{ range where .Site.Pages "Source.BaseFileName" "_header" }} 
+      {{ $header := print "_header." .Lang }}
+      {{ range where .Site.Pages "Source.BaseFileName" $header }}
         {{ .Content }} 
       {{else}}
         <span style="font-size:smaller">
@@ -26,8 +27,8 @@
   <nav>
     <ul class="topics">
       {{- if not .Site.Params.disableHomeIcon}}
-          <li data-nav-id="{{"/" | relURL}}" class="dd-item">
-          <a href="{{"/" | relURL}}">
+          <li data-nav-id="{{"/" | relLangURL}}" class="dd-item">
+          <a href="{{"/" | relLangURL}}">
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>

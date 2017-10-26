@@ -6,7 +6,8 @@
 <div class="highlightable">
   <div id="header-wrapper">
     <div id="header">
-		{{ range where .Site.Pages "Source.BaseFileName" "_header" }} 
+    {{ $header := print "_header." .Lang }}
+		{{ range where .Site.Pages "Source.BaseFileName" $header }}
 		{{ .Content }} 
 		{{else}}
 		<span style="font-size:smaller">
@@ -34,8 +35,8 @@
 
       <ul class="topics">
         {{- if not .Site.Params.disableHomeIcon}}
-            <li data-nav-id="{{"/" | relURL}}" class="dd-item">
-            <a href="{{"/" | relURL}}"><i class="fa fa-fw fa-home"></i></a>
+            <li data-nav-id="{{"/" | relLangURL}}" class="dd-item">
+            <a href="{{"/" | relLangURL}}"><i class="fa fa-fw fa-home"></i></a>
             </li>
         {{- end}}
 		
@@ -56,7 +57,31 @@
             <a id="clear-history" class="" href="#" data-clear-history-toggle=""><i class="fa  fa-history"></i> {{T "Clear-History"}}</a>
         {{- end}}
 
-        {{- end}}
+		{{- end}}
+
+		<hr />
+		{{- if and .Site.IsMultiLingual (not .Site.Params.DisableLanguageSwitchingButton)}}
+		<li>
+			<select id="select-language" onchange="location = this.value;">
+				{{ $siteLanguages := .Site.Languages}}
+				{{ $pageLang := .Page.Lang}}
+				{{ range .Page.AllTranslations }}
+					{{ $translation := .}}
+					{{ range $siteLanguages }}
+						{{ if eq $translation.Lang .Lang }}
+							{{ if eq $pageLang .Lang}}
+								<option id="{{ $translation.Language }}" value="{{ $translation.URL }}" selected>{{ .LanguageName }}</option>
+							{{ else }}
+								<option id="{{ $translation.Language }}" value="{{ $translation.URL }}">{{ .LanguageName }}</option>
+							{{ end }}
+						{{ end }}
+					{{ end }}
+				{{ end }}
+			</select>
+		</li>
+		{{- end }}
+
+
     </ul>
 
  <section id="footer">
