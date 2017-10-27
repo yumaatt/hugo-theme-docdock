@@ -139,7 +139,7 @@
 		    padding-bottom: 0;
 		}
 
-		&.topics li.parent > ul, li.active > ul {
+		&.topics li.parent > ul, &.topics li.alwaysopen > ul, li.active > ul {
 		    display: block;
 		}
 

@@ -344,6 +344,7 @@ nav ul.topics ul {
 
 
 nav ul.topics li.parent>ul,
+nav ul.topics li.alwaysopen>ul,
 nav ul li.active>ul {
     display: block;
 }

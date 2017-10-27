@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*
+ /*
 	Built with SCSS.
 	If you would like to explore this CSS,
 	use source map feature of your browser.
@@ -10,19 +10,16 @@
   src: url("../fonts/Novecentosanswide-UltraLight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Novecentosanswide-UltraLight-webfont.woff2") format("woff2"), url("../fonts/Novecentosanswide-UltraLight-webfont.woff") format("woff"), url("../fonts/Novecentosanswide-UltraLight-webfont.ttf") format("truetype"), url("../fonts/Novecentosanswide-UltraLight-webfont.svg#novecento_sans_wideultralight") format("svg");
   font-style: normal;
   font-weight: 200; }
-
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
   src: local("Lato Regular"), local("Lato-Regular"), url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Regular.ttf) format("truetype"); }
-
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
-  src: local("Lato Bold"), local("Lato-Bold"), url(../fonts/Lato-Regular.woff2) format("woff2"), url(../fonts/Lato-Bold.ttf) format("truetype"); }
-
+  src: local("Lato Bold"), local("Lato-Bold"), url(../fonts/Lato-Bold.woff2) format("woff2"), url(../fonts/Lato-Bold.ttf) format("truetype"); }
 /* Table of contents */
 .progress ul {
   list-style: none;
@@ -197,8 +194,8 @@ body {
 
 .btn:focus {
   /*outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px;*/
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;*/
   outline: none !important;
   -webkit-transition: all 0.35s !important;
   -moz-transition: all 0.35s !important;
@@ -1198,11 +1195,11 @@ pre .copy-to-clipboard:hover {
       padding-bottom: 1rem; }
     #sidebar ul.topics ul ul {
       padding-bottom: 0; }
-    #sidebar ul.topics li.parent > ul, #sidebar ul li.active > ul {
+    #sidebar ul.topics li.parent > ul, #sidebar ul.topics li.alwaysopen > ul, #sidebar ul li.active > ul {
       display: block; }
     #sidebar ul.topics > li > a {
       /*line-height: 2rem;
-		    font-size: 1.1rem*/ }
+      font-size: 1.1rem*/ }
     #sidebar ul.topics > li > a b {
       opacity: 0.5;
       font-weight: normal; }
@@ -1319,31 +1316,25 @@ pre .copy-to-clipboard:hover {
 @media only all and (min-width: 48em) and (max-width: 59.938em) {
   body #chapter h1 {
     font-size: 3rem; } }
-
 @media only all and (max-width: 47.938em) {
   body #chapter h1 {
     font-size: 2rem; } }
-
 @media only all and (max-width: 47.938em) {
   #sidebar-toggle-span {
     display: inline; } }
-
 @media only all and (max-width: 59.938em) {
   #body .padding {
     position: static;
     padding: 15px 3rem; } }
-
 @media only all and (max-width: 47.938em) {
   #body .padding {
     padding: 5px 1rem; } }
-
 @media only all and (max-width: 59.938em) {
   #body #navigation {
     position: static;
     margin-right: 0 !important;
     width: 100%;
     display: table; } }
-
 @media only all and (max-width: 59.938em) {
   #body .nav {
     display: table-cell;
@@ -1354,41 +1345,43 @@ pre .copy-to-clipboard:hover {
     height: 100px;
     line-height: 100px;
     padding-top: 0; }
+
   #body .nav > i {
     display: inline-block; } }
-
 @media only all and (max-width: 47.938em) {
   .two-column-bullet {
     width: 100%; } }
-
 @media only all and (max-width: 47.938em) {
   .three-column-bullet {
     width: 100%; } }
-
 @media only all and (max-width: 47.938em) {
   .four-column-bullet {
     width: 100%; } }
-
 @media only all and (max-width: 59.938em) {
   #sidebar {
     width: 230px; }
+
   #body {
     margin-left: 230px; } }
-
 @media only all and (max-width: 47.938em) {
   #sidebar {
     width: 230px;
     left: -230px; }
+
   #body {
     margin-left: 0;
     width: 100%; }
+
   .sidebar-hidden {
     overflow: hidden; }
+
   .sidebar-hidden #sidebar {
     left: 0; }
+
   .sidebar-hidden #body {
     margin-left: 230px;
     overflow: hidden; }
+
   .sidebar-hidden #overlay {
     position: absolute;
     left: 0;
@@ -1398,25 +1391,30 @@ pre .copy-to-clipboard:hover {
     z-index: 10;
     background: rgba(255, 255, 255, 0.5);
     cursor: pointer; } }
-
 @media print {
   #sidebar, #navigation, #top-bar, .anchor, #sidebar-toggle-span, .copy-to-clipboard {
     display: none; }
+
   #navigation * {
     display: none;
     visibility: hidden; }
+
   #body-inner {
     margin-bottom: 0px; }
+
   #footer, .footline {
     margin-top: 1px; }
+
   body, a {
     font-size: 120%;
     color: black !important;
     background: white !important; }
+
   h1, h2, h3, h4, h5, h6 {
     color: black !important;
     background: white !important; }
+
   #body {
     margin-left: 0px; } }
 
-/*# sourceMappingURL=theme.css.map */
+/*# sourceMappingURL=style.css.map */
