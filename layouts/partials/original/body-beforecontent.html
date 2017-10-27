@@ -6,17 +6,7 @@
 <div class="highlightable">
   <div id="header-wrapper">
     <div id="header">
-    {{ $header := print "_header." .Lang }}
-		{{ range where .Site.Pages "Source.BaseFileName" $header }}
-		{{ .Content }} 
-		{{else}}
-		<span style="font-size:smaller">
-		<a id="logo" href="{{.Site.BaseURL}}">
-		  <span class="fa fa-gears" style="font-size:large"></span>
-		</a>
-		{{ T "create-header-md" }}
-		</small>
-		{{end}}
+      {{ partial "header.html" . }}
     </div>
     {{- if not .Site.Params.disableSearch}}
         <div class="searchbox">

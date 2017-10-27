@@ -1,16 +1,6 @@
 <header>
   <div class="logo">
-      {{ $header := print "_header." .Lang }}
-      {{ range where .Site.Pages "Source.BaseFileName" $header }}
-        {{ .Content }} 
-      {{else}}
-        <span style="font-size:smaller">
-          <a href="{{.Site.BaseURL}}">
-            <span class="fa fa-gears" style="font-size:large"></span>
-          </a>
-          {{ T "create-header-md" }}
-        </span>
-      {{end}}
+    {{ partial "header.html" . }}
   </div>
   <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
   {{- with .Site.Menus.shortcuts}}
