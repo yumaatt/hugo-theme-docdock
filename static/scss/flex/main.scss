@@ -107,15 +107,15 @@ nav {
 
         li {
             &.active{
-                a {
+                > a {
                     font-weight: bold;
                 }
-                ul {
+                > ul {
                     display: block;        
                 }
             }
-            &.parent{ul{display:block}}  
-            &.alwaysopen{ul{display:block}}  
+            &.parent{>ul{display:block}}  
+            &.alwaysopen{>ul{display:block}}  
 
             ul {
                 list-style: none;
@@ -126,6 +126,95 @@ nav {
         }
     }
 }
+
+section.page {
+    aside {
+        .searchbox {
+            margin: 0rem 0rem 0rem;
+            padding: 0rem 1rem;
+            padding-top: 1em;
+            color: rgb(1, 42, 60);
+
+            input {
+              border: 1px solid rgb(204, 204, 204);
+              color: rgb(85, 85, 85);
+              display: inline-block;
+              font-size: 14px;
+              line-height: 20px;
+
+              padding-bottom: 6px;
+              padding-left: 12px;
+              padding-right: 12px;
+              padding-top: 6px;
+              width: 100%;
+            }
+
+            span {
+              position: absolute;
+              float: right;
+              margin-top: -45px;
+              right: 30px;
+              cursor: pointer;
+            }
+        }
+
+        &.footline { 
+            border-top: 1px solid #e6e6e6;
+            margin: 0.25em;
+            padding:20px;
+            font-size: smaller;
+
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .tags{
+                order:1;
+                a:before {
+                  content: "#";
+                }
+            }
+            .author{order:3;}
+            .github-link{order:4;}
+            .date{order:3;}
+        }
+
+        #navigation {
+            position: relative;
+            width: 100%;
+            display: table;
+            border-top: 1px solid #e6e6e6;
+            border-bottom: 1px solid #e6e6e6;
+
+            .nav {
+                color: #e5e5e5;
+                font-size: 4em;
+                display: table-cell;
+                position: static;
+                top: auto;
+                width: 50%;
+                height: 1rem;
+                padding: 1rem 2rem 2.25rem;
+
+                &.nav-prev {
+                    text-align: left;
+                    padding-left: 4rem;
+                }
+
+                &.nav.nav-next {
+                    text-align: right;
+                    padding-right: 4rem;
+                }
+            }
+        }        
+    }
+}
+
+
+
+
 
 footer{
  background: #e5e5e5;

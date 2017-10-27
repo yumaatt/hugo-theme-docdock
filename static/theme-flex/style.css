@@ -220,13 +220,13 @@ nav {
       margin-bottom: 5px; }
     nav ul.topics ul {
       display: none; }
-    nav ul.topics li.active a {
+    nav ul.topics li.active > a {
       font-weight: bold; }
-    nav ul.topics li.active ul {
+    nav ul.topics li.active > ul {
       display: block; }
-    nav ul.topics li.parent ul {
+    nav ul.topics li.parent > ul {
       display: block; }
-    nav ul.topics li.alwaysopen ul {
+    nav ul.topics li.alwaysopen > ul {
       display: block; }
     nav ul.topics li ul {
       list-style: none;
@@ -234,25 +234,12 @@ nav {
       padding-left: 15px;
       margin-bottom: 15px; }
 
-footer {
-  background: #e5e5e5;
-  background-color: #012a3c;
-  color: white; }
-
-#nav-select {
-  display: none;
-  background: #e5e5e5; }
-
-/* DOCDOCK */
-article #sidebar-toggle-span {
-  display: none; }
-
-aside .searchbox {
+section.page aside .searchbox {
   margin: 0rem 0rem 0rem;
   padding: 0rem 1rem;
   padding-top: 1em;
   color: #012a3c; }
-  aside .searchbox input {
+  section.page aside .searchbox input {
     border: 1px solid #cccccc;
     color: #555555;
     display: inline-block;
@@ -263,12 +250,65 @@ aside .searchbox {
     padding-right: 12px;
     padding-top: 6px;
     width: 100%; }
-  aside .searchbox span {
+  section.page aside .searchbox span {
     position: absolute;
     float: right;
     margin-top: -45px;
     right: 30px;
     cursor: pointer; }
+section.page aside.footline {
+  border-top: 1px solid #e6e6e6;
+  margin: 0.25em;
+  padding: 20px;
+  font-size: smaller;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; }
+  section.page aside.footline .tags {
+    order: 1; }
+    section.page aside.footline .tags a:before {
+      content: "#"; }
+  section.page aside.footline .author {
+    order: 3; }
+  section.page aside.footline .github-link {
+    order: 4; }
+  section.page aside.footline .date {
+    order: 3; }
+section.page aside #navigation {
+  position: relative;
+  width: 100%;
+  display: table;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6; }
+  section.page aside #navigation .nav {
+    color: #e5e5e5;
+    font-size: 4em;
+    display: table-cell;
+    position: static;
+    top: auto;
+    width: 50%;
+    height: 1rem;
+    padding: 1rem 2rem 2.25rem; }
+    section.page aside #navigation .nav.nav-prev {
+      text-align: left;
+      padding-left: 4rem; }
+    section.page aside #navigation .nav.nav.nav-next {
+      text-align: right;
+      padding-right: 4rem; }
+
+footer {
+  background: #e5e5e5;
+  background-color: #012a3c;
+  color: white; }
+
+#nav-select {
+  display: none;
+  background: #e5e5e5; }
+
+article #sidebar-toggle-span {
+  display: none; }
 
 article .anchor {
   color: #ff8800;
@@ -460,49 +500,6 @@ article table th {
   padding: 0.5rem;
   color: #323232; }
 
-aside.footline {
-  border-top: 1px solid #e6e6e6;
-  margin: 0.25em;
-  padding: 20px;
-  font-size: smaller;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; }
-  aside.footline .tags {
-    order: 1; }
-    aside.footline .tags a:before {
-      content: "#"; }
-  aside.footline .author {
-    order: 3; }
-  aside.footline .github-link {
-    order: 4; }
-  aside.footline .date {
-    order: 3; }
-
-aside #navigation {
-  position: relative;
-  width: 100%;
-  display: table;
-  border-top: 1px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6; }
-  aside #navigation .nav {
-    color: #e5e5e5;
-    font-size: 4em;
-    display: table-cell;
-    position: static;
-    top: auto;
-    width: 50%;
-    height: 1rem;
-    padding: 1rem 2rem 2.25rem; }
-    aside #navigation .nav.nav-prev {
-      text-align: left;
-      padding-left: 4rem; }
-    aside #navigation .nav.nav.nav-next {
-      text-align: right;
-      padding-right: 4rem; }
-
 .tooltipped {
   position: relative; }
 
@@ -610,8 +607,6 @@ aside #navigation {
   margin-top: -5px;
   border-right-color: rgba(0, 0, 0, 0.8); }
 
-/**/
-/**/
 /*
 	Here lives CSS required for shortcodes
 */
