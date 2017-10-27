@@ -4,6 +4,35 @@ function endsWith(str, suffix) {
     return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }
 
+function buildJsonIndexURL() {
+    var jsonIndexUrl = baseurl + "index.json";
+    var language = "";
+    var currentPathname = window.location.pathname;
+
+    var currentPathnameSplitted = currentPathname.split("/");
+    if (currentPathnameSplitted.length >0) {
+        language = currentPathnameSplitted[1] + "/";
+    }
+
+    jsonFileWithinLanguageFolderExists = $.ajax({
+        url:baseurl + language + 'index.json',
+        type:'HEAD',
+        error: function() {
+            return false;
+        },
+        success: function() {
+            return true;
+        }
+    });
+
+    if (jsonFileWithinLanguageFolderExists) {
+        jsonIndexUrl = baseurl + language + "index.json";
+    } else {
+        jsonIndexUrl = baseurl + "index.json";
+    }
+    return jsonIndexUrl;
+}
+
 // Initialize lunrjs using our generated index file
 function initLunr() {
     if (!endsWith(baseurl,"/")){
@@ -11,7 +40,9 @@ function initLunr() {
     };
 
     // First retrieve the index file
-    $.getJSON(baseurl +"index.json")
+    var jsonIndexUrl = buildJsonIndexURL();
+
+    $.getJSON(jsonIndexUrl)
         .done(function(index) {
             pagesIndex =   index;
             // Set up lunrjs by declaring the fields we use
@@ -36,7 +67,7 @@ function initLunr() {
         })
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
-            console.error("Error getting Hugo index flie:", err);
+            console.error("Error getting Hugo index file:", err);
         });
 }
 
