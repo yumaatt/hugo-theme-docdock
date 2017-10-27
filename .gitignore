@@ -4,3 +4,7 @@ public/
 /static/scss/original/.sass-cache/
 
 /static/theme-original/style.css.map
+
+/static/theme-flex/style.css.map
+
+.sass-cache
