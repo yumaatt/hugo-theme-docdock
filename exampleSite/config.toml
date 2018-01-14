@@ -6,7 +6,7 @@ title = "Docdock"
 theme = "hugo-theme-docdock"
 themesdir = "../.."
 pygmentsCodeFences = true
-pygmentsStyle = "monokai"
+pygmentsStyle = "monokailight"
 
 [params]
 editURL = "https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/"
