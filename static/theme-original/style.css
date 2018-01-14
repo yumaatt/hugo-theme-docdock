@@ -662,7 +662,6 @@ code, kbd, pre, samp {
 code {
   border-radius: 2px;
   white-space: nowrap;
-  color: #616161;
   background: #FFF7DD;
   border: 1px solid #ffeeb8;
   padding: 0px 2px; }
@@ -681,13 +680,11 @@ code + .copy-to-clipboard {
 pre {
   padding: 1rem;
   margin: 2rem 0;
-  background: #1d1f21;
   border: 1px solid #272a2c;
   border-radius: 2px;
   line-height: 1.15; }
 
 pre code {
-  color: #237794;
   background: inherit;
   white-space: inherit;
   border: 0;
@@ -1046,7 +1043,7 @@ td {
   display: inline-block;
   position: relative;
   color: #5e5e5e;
-  background-color: #FFF7DD;
+  background-color: #f8efd1;
   text-align: center;
   cursor: pointer;
   border-radius: 0 2px 2px 0;
@@ -1078,13 +1075,12 @@ pre .copy-to-clipboard {
   position: absolute;
   right: 4px;
   top: 4px;
-  background-color: #4f545a;
+  background-color: #e4e4e4;
   color: #ccc;
-  border: 1px solid #272a2c;
   border-radius: 2px; }
 
 pre .copy-to-clipboard:hover {
-  background-color: #60666d;
+  background-color: #e4e4e4;
   color: #fff; }
 
 .parent-element {

@@ -362,13 +362,12 @@ article pre {
   line-height: 1.15;
   border-radius: 0;
   color: #ffffff;
-  background: #1d1f21; }
+  border: 1px solid #1d1f21; }
 
 article pre code {
   background: inherit;
   white-space: pre-wrap;
-  border: 0;
-  color: white; }
+  border: 0; }
 
 article .clippy-icon {
   width: 32px; }
@@ -377,7 +376,6 @@ article pre .copy-to-clipboard {
   float: right;
   background-color: inherit;
   color: #ccc;
-  border: 1px solid #272a2c;
   border-radius: 2px;
   cursor: pointer; }
 
