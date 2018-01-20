@@ -1,0 +1,132 @@
+article>aside {
+    background-color: #f9f9f9;
+    bottom: 0;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    left: 0;
+    padding: 2rem 0rem 1rem 0rem;
+    position: fixed;
+    top: 3.5rem;
+    width: 20rem;
+    overflow-y: auto;
+
+    >nav {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+    }
+
+    .menu {
+        line-height: 2rem;
+        list-style-type: none;
+
+        >.dd-item {
+            margin: .5rem 0;
+        }
+
+        .dd-item {
+        	a {
+                display: block;
+                padding: 0 0rem;
+                text-decoration: none;
+            }
+        }
+
+        .dd-item.active>a,
+        .dd-item a:active,
+        .dd-item a:focus,
+        .dd-item a:hover {
+            background-color: #eee;
+            border-radius: .2rem;
+            padding: 0 0rem;
+        }
+
+        .dd-item.active>div {
+            background-color: #eee;
+        }
+
+        .dd-item li,
+        .dd-item .active li {
+            border-left: 1px solid #eee;
+        }
+
+        .dd-item {
+            padding-left: 1rem;
+        }
+
+        ul {
+            display: none;
+        }
+
+
+        li.active>div * {
+            font-weight: bold;
+            border-bottom: dotted 1px red;
+        }
+
+        li.active>ul {
+            display: block;
+        }
+
+
+        li.parent>ul {
+            display: block
+        }
+
+        li.alwaysopen>ul {
+            display: block
+        }
+
+        li {
+            list-style: none;
+            font-size: 13px;
+            /*padding-left: 15px;*/
+            /*margin-bottom: 15px;*/
+        }
+
+        >.dd-item div {
+            display: flex;
+            flex-direction: row;
+        }
+
+        >.dd-item div a {
+            display: flex;
+            flex: 1;
+            order: 2;
+            display: inline-block;
+        }
+
+        >.dd-item div i.category-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            order: 1;
+            width: 20px;
+            cursor: pointer;
+            /*border: 1px solid red;*/
+        }
+
+        >.dd-item div i.read-icon {
+            display: none;
+        }
+
+
+        .dd-item div i.category-icon:active,
+        .dd-item div i.category-icon:focus,
+        .dd-item div i.category-icon:hover {
+            background-color: #eee;
+            border-radius: .2rem;
+            padding: 0 0rem;
+        }
+    }
+
+    section {
+        margin: 2rem 0rem;
+    }
+}

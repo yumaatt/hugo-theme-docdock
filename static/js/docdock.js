@@ -19,8 +19,7 @@ var getUrlParameter = function getUrlParameter(sPageURL) {
 jQuery(document).ready(function () {
 
     // Execute actions on images generated from Markdown pages
-    var images = $("div#body-inner img").not(".inline");
-
+    var images = $("article img").not(".inline");
     // Wrap image inside a featherlight (to get a full size view in a popup)
     images.wrap(function () {
         var image = $(this);
@@ -148,7 +147,7 @@ jQuery(document).ready(function() {
     if (sessionStorage.getItem('search-value')) {
         var searchValue = sessionStorage.getItem('search-value')
         sessionStorage.removeItem('search-value');
-        var searchedElem = $('#body-inner').find(':contains(' + searchValue + ')').get(0);
+        var searchedElem = $('article').find(':contains(' + searchValue + ')').get(0);
         searchedElem && searchedElem.scrollIntoView();
         $(".highlightable").highlight(searchValue, { element: 'mark' });
     }
@@ -216,7 +215,7 @@ jQuery(document).ready(function() {
     });
 
     $('#top-bar a:not(:has(img)):not(.btn)').addClass('highlight');
-    $('#body-inner a:not(:has(img)):not(.btn)').addClass('highlight');
+    $('article a:not(:has(img)):not(.btn)').addClass('highlight');
 });
 
 jQuery(window).on('load', function() {
