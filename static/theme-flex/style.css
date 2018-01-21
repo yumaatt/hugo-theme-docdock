@@ -685,7 +685,8 @@ ul.children.children-card {
     display: none; }
 
   article > section.page {
-    margin: 0 0; }
+    margin: 0 0;
+    padding: 1rem; }
 
   section {
     margin: 0;
@@ -705,9 +706,6 @@ ul.children.children-card {
 
   header > nav.shortcuts > li > a {
     max-width: 32px; }
-
-  article > section.page {
-    padding: 0.5rem; }
 
   .nav-select {
     display: block;
