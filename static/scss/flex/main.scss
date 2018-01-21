@@ -3,8 +3,6 @@
  * Website: http://docs.facette.io/
  */
 
-
-
 * {
     margin: 0;
     padding: 0
@@ -73,7 +71,7 @@ section strong {
 
 
 .nav-select {
-    background: #e5e5e5; 
+    background: #e5e5e5;
     display: none;
 }
 
@@ -96,7 +94,6 @@ section strong {
     padding-right: 12px;
     padding-top: 6px;
     width: 80%;
-    
 }
 
 .searchbox span {
@@ -111,36 +108,57 @@ section strong {
     display: none;
 }
 
+
 #navigation {
-    position: relative;
-    width: 100%;
-    display: table;
+    margin-top: 3rem;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
+    padding: 1rem 0rem;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    a {
+        width: 50%;
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-right: 0px;
+        align-items: baseline;
+        color: #e5e5e5;
+
+        i {
+            font-size: 4em;
+            margin: auto;
+        }
+        label {
+            margin: auto;
+            flex-grow: 2;
+            self-align: stretch;
+            font-size: 1.3rem;
+        }
+    }
+    a.nav-next {
+        text-align: right;
+    }
 }
-#navigation .nav {
-    color: #e5e5e5;
-    font-size: 4em;
-    display: table-cell;
-    position: static;
-    top: auto;
-    width: 50%;
-    height: 1rem;
-    padding: 1rem 2rem 2.25rem;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.burger {
+    display: none;
 }
-
-#navigation .nav.nav-prev {
-    text-align: left;
-    padding-left: 4rem;
-}
-
-
-#navigation .nav.nav.nav-next {
-    text-align: right;
-    padding-right: 4rem;
-}
-
-.burger{display:none;}
-
-
-
