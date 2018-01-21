@@ -30,11 +30,11 @@ This theme is a partial porting of the [Learn theme of matcornic {{%icon fa-gith
 
 Style "Flex" (default)
 
-![](style-flex.png?width=33pc&classes=border,shadow)
+![](style-flex.png?classes=border,shadow)
 
 Style "Original"
 
-![](style-original.png?width=33pc&classes=border,shadow)
+![](style-original.png?classes=border,shadow)
 
 ## Contribute to this documentation
 Feel free to update this content, just click the **Edit this page** link displayed on top right of each page, and pullrequest it
