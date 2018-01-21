@@ -22,9 +22,9 @@
     </div>
     {{end}}
 
-  {{ if not .Date.IsZero }}
+  {{ if not .Page.Lastmod.IsZero }}
     <div class="date">
-        <i class='fa fa-calendar'></i> {{T "last-update-on"}} {{ .Date.Format "02/01/2006" }}
+        <i class='fa fa-calendar'></i> {{T "last-update-on"}} {{ .Page.Lastmod.Format "02/01/2006" }}
     </div>
     {{end}}
 
