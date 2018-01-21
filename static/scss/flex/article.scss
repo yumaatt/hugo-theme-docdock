@@ -77,12 +77,9 @@ article section.page {
                 background-color: transparent;
                 padding: 0
             }
-
-            strong {
-                font-size: .8rem
-            }
         }
-    } // IMAGES
+    }
+    // IMAGES
     img {
         border: 0;
         max-width: 100%;
@@ -117,20 +114,14 @@ article section.page {
 
     p>code,
     li code,
-    table code,
-    pre {
-        background-color: #eee;
-        border-radius: .2rem;
-        color: #444
-    }
-
-    p>code,
-    li code,
     table code {
         padding: 0 .25rem
     }
 
     pre {
+      background-color: #eee;
+        border-radius: .2rem;
+        color: #444;
         overflow: auto;
         padding: .5rem;
 

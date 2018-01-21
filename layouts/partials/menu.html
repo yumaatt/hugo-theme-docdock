@@ -17,15 +17,17 @@
 {{- $currentNode := .currentnode }}
  {{- with .sect}}
   {{- if and .IsSection (or (not .Params.hidden) $.showhidden)}}
+    {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
     {{- safeHTML .Params.head}}
     <li data-nav-id="{{.URL}}" class="dd-item
         {{- if .IsAncestor $currentNode}} parent{{end}}
         {{- if eq .URL $currentNode.URL}} active{{end}}
         {{- if .Params.alwaysopen}} alwaysopen{{end -}}
+        {{- if ne $numberOfPages 0 }} haschildren{{end}}
         ">
       <div>
       <a href="{{ .RelPermalink}}">{{safeHTML .Params.Pre}}{{.Title}}{{safeHTML .Params.Post}}</a>
-        {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
+        
         {{- if ne $numberOfPages 0 }}
           {{- if or (.IsAncestor $currentNode) (.Params.alwaysopen) }}
             <i class="fa fa-angle-down fa-lg category-icon"></i>

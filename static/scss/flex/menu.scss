@@ -16,122 +16,107 @@ article>aside {
     width: 20rem;
     overflow-y: auto;
 
-    >nav {
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-    }
-
     .menu {
         line-height: 2rem;
         list-style-type: none;
 
-        >label{
-            display: block;
-            // margin-top: 1rem;
+        >label {
+            display: block; // margin-top: 1rem;
             font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
             font-weight: 100;
             font-size: 130%;
             margin-left: 1rem;
         }
 
-        >.dd-item {
-            margin: .5rem 0;
-        }
-
-        .dd-item {
-        	a {
-                display: block;
-                padding: 0 0rem;
-                text-decoration: none;
-            }
-        }
-
-        .dd-item.active>a,
-        .dd-item a:active,
-        .dd-item a:focus,
-        .dd-item a:hover {
-            background-color: #eee;
-            border-radius: .2rem;
-            padding: 0 0rem;
-        }
-
-        .dd-item.active>div {
-            background-color: #eee;
-        }
-
-        .dd-item li,
-        .dd-item .active li {
-            border-left: 1px solid #eee;
-        }
-
-        .dd-item {
-            padding-left: 1rem;
-        }
-
         ul {
             display: none;
-        }
-
-
-        li.active>div * {
-            font-weight: bold;
-            border-bottom: dotted 1px red;
-        }
-
-        li.active>ul {
-            display: block;
-        }
-
-
-        li.parent>ul {
-            display: block
-        }
-
-        li.alwaysopen>ul {
-            display: block
-        }
-
-        li {
+        } // first menu level
+        >.dd-item {
+            margin: 0.5rem 0px 0.5rem 20px;
+        } // menu items
+        .dd-item {
+            padding-left: 1rem;
             list-style: none;
             font-size: 13px;
-            /*padding-left: 15px;*/
-            /*margin-bottom: 15px;*/
-        }
 
-        >.dd-item div {
-            display: flex;
-            flex-direction: row;
-        }
-
-        >.dd-item div a {
-            display: flex;
-            flex: 1;
-            order: 2;
-            display: inline-block;
-        }
-
-        >.dd-item div i.category-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            order: 1;
-            width: 20px;
-            cursor: pointer;
-            /*border: 1px solid red;*/
-        }
-
-        >.dd-item div i.read-icon {
-            display: none;
-        }
+            &.alwaysopen>ul {
+                display: block
+            }
 
 
-        .dd-item div i.category-icon:active,
-        .dd-item div i.category-icon:focus,
-        .dd-item div i.category-icon:hover {
-            background-color: #eee;
-            border-radius: .2rem;
-            padding: 0 0rem;
+            &.parent>ul {
+                display: block
+            }
+
+            &.active {
+
+                >ul {
+                    display: block;
+                }
+
+                >div {
+                    background-color: #eee;
+                    * {
+                        font-weight: bold;
+                        border-bottom: dotted 1px red;
+                    }
+                }
+            }
+
+            &.haschildren>div {
+                margin-left: -20px;
+            }
+
+            div {
+                display: flex;
+                flex-direction: row;
+                
+                * {
+                    line-height: inherit;
+                }
+
+
+                i.read-icon {
+                    display: none;
+                }
+
+                i.category-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    order: 1;
+                    width: 20px;
+                    cursor: pointer;
+                }
+
+                a {
+                    display: flex;
+                    flex: 1;
+                    order: 2;
+                    padding: 0 0rem;
+                    text-decoration: none;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background-color: #eee;
+                        border-radius: .2rem;
+                        padding: 0 0rem;
+                    }
+                }
+
+                i.category-icon:active,
+                i.category-icon:focus,
+                i.category-icon:hover {
+                    background-color: #eee;
+                    border-radius: .2rem;
+                    padding: 0 0rem;
+                }
+            }
+
+            li {
+                border-left: 1px solid #eee;
+            }
         }
     }
 
