@@ -26,6 +26,15 @@ article>aside {
         line-height: 2rem;
         list-style-type: none;
 
+        >label{
+            display: block;
+            // margin-top: 1rem;
+            font-family: 'Novacento Sans Wide', 'Helvetica', 'Tahoma', 'Geneva', 'Arial', sans-serif;
+            font-weight: 100;
+            font-size: 130%;
+            margin-left: 1rem;
+        }
+
         >.dd-item {
             margin: .5rem 0;
         }
